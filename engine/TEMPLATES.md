@@ -12,6 +12,7 @@ Plain language. Lead with the play. No filler anywhere.
 ## Play 1: <specific name>
 **Kind:** <money play / build play>   **Confidence:** <A or B, with the one-line reason>
 **What:** <the opportunity in two sentences, with the named company / role / deal / program / deadline>
+**Edge:** <why the price is wrong and why professionals have not fixed it>
 **Why now:** <the dated evidence that makes this timely, with sources>
 **Forecast:** <probability of the main payoff> | short checks: <sub-question: probability, resolves by date>
 **Scenarios:** <each outcome with its probability and ending multiple>

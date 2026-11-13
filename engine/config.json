@@ -81,5 +81,20 @@
     "A": "three or more independent primary sources, a sourced base rate, forecaster spread under 0.15, Red Team verdict KEEP",
     "B": "two independent non-seller sources, a base rate, forecaster spread under 0.25, Red Team KEEP or FIX with fixes applied",
     "C": "anything less: watchlist only, never a sized bet"
+  },
+  "approach": {
+    "model": "few_deep_convictions",
+    "max_open_money_plays": 6,
+    "edge_required": true,
+    "edge_sources": [
+      "too_small_for_funds",
+      "forced_selling",
+      "complexity",
+      "dated_catalyst",
+      "owner_effort",
+      "insider_cluster_buying"
+    ],
+    "dossier_required_before_bet": true,
+    "see": "research/INVESTOR_PLAYBOOKS.md"
   }
 }

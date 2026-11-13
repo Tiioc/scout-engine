@@ -70,3 +70,10 @@ The Scout researches, compares and forecasts long-term holdings: companies, fund
 ## 7. Balance
 
 Category weights in `engine/config.json` are equal. Over any rolling 8 editions the deep plays should span at least four of the seven areas. The Board covers all seven every week.
+
+## 8. Approach: few deep convictions (added 2026-11-13, see `research/INVESTOR_PLAYBOOKS.md`)
+- The Scout does not spread small bets and hope one hits. It holds at most six open money plays, each one understood in depth.
+- **Edge test.** No play is published unless it names why the price is wrong and why professionals have not fixed it: too small for funds, forced selling, complexity, a dated catalyst, insider cluster buying, or work the owner can do that others will not. No named edge means watchlist.
+- **Dossier before bet.** A sized bet needs a finished dossier covering filings, insiders, debt, customers and the bear case.
+- **Three engines, in order while the portfolio is small:** build plays (earn and own), a few concentrated money plays, and the core holding everything else.
+- **Kept out:** crypto bought after a run, hand-run trend trading, and startup investing without the deal count or investor status to do it properly.

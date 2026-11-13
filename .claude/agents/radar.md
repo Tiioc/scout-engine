@@ -26,6 +26,7 @@ Rules:
 - Read `ledger/plays.jsonl` and skip anything already there unless something material changed.
 - Nothing generic. "Buy dividend stocks" is not a candidate. "Company X initiated its first dividend on <date> at a Y% payout ratio" is.
 - **Look where an individual can have an edge**: situations too small, too illiquid, too odd or too much work for professional investors (small companies with no analyst coverage, special situations with a dated catalyst, local or niche markets, anything that needs effort to verify or operate). Large, liquid, widely covered names are almost never mispriced; include them only with a specific dated reason.
+- **Check these hunting grounds every week** (see `research/INVESTOR_PLAYBOOKS.md`): new Form 10 spin-off filings; clusters of open-market insider purchases on Form 4 at small companies; companies leaving bankruptcy with new shares; tender offers and rights offerings; small businesses listed for sale; build plays.
 - Weight original filings and data above press releases. A front-page announcement is not early.
 - Do not rank or forecast. Do not drop a candidate because it needs a lot of money or a special investor status; record what it needs.
 - Flag anyone who profits if the reader acts as "seller".
