@@ -337,9 +337,9 @@ class TestSizing(unittest.TestCase):
 
 class TestHoursSizing(unittest.TestCase):
     def test_good_build_play(self):
-        r = sizing.analyze_hours([(0.2, 60000), (0.3, 15000), (0.5, 0)], 300, 30)
-        self.assertAlmostEqual(r["expected_net_dollars"], 16500)
-        self.assertAlmostEqual(r["expected_dollars_per_hour"], 55)
+        r = sizing.analyze_hours([(0.2, 80000), (0.3, 15000), (0.5, 0)], 300, 30)
+        self.assertAlmostEqual(r["expected_net_dollars"], 20500)
+        self.assertAlmostEqual(r["expected_dollars_per_hour"], 20500 / 300)
         self.assertEqual(r["verdict"], "worth the hours")
         self.assertAlmostEqual(r["chance_it_returns_nothing"], 0.5)
 
