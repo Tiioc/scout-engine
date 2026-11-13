@@ -363,3 +363,37 @@ class TestRentBuyPayoff(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+# --- added 2026-11-13: short holds, capacity, simulator ---
+def test_sizing_short_hold_uses_scaled_bar():
+    import sizing
+    scen = [(0.25, 1.111), (0.30, 1.051), (0.20, 1.010), (0.15, 0.949), (0.10, 0.869)]
+    r = sizing.analyze(scen, 0.08, min_edge=0.10)
+    assert r["recommended_bet_fraction"] > 0
+    r3 = sizing.analyze(scen, 3.0, min_edge=0.10)
+    assert r3["recommended_bet_fraction"] == 0
+
+
+def test_sizing_capacity_caps_dollars():
+    import sizing
+    scen = [(0.6, 1.2), (0.4, 0.95)]
+    r = sizing.analyze(scen, 0.1, portfolio=100000, min_edge=0.10, capacity=490)
+    assert r["recommended_bet_dollars"] == 490
+    assert abs(r["recommended_bet_fraction"] - 0.0049) < 1e-9
+
+
+def test_simulator_no_skill_does_not_beat_core_and_edge_does():
+    import simulate
+    core = simulate.run(10, 1500, 0.05, 0, 0, 0, trials=1500)
+    none = simulate.run(10, 1500, 0.05, 0.3, 6, 0.0, trials=1500)
+    edge = simulate.run(10, 1500, 0.05, 0.3, 6, 0.10, trials=1500)
+    assert abs(none["median"] - core["median"]) / core["median"] < 0.05
+    assert none["p10"] <= core["p10"] * 1.02
+    assert edge["median"] > core["median"] * 1.1
+
+
+def test_simulator_hit_rate_baseline():
+    import simulate
+    assert 0.30 < simulate.hit_rate(0.0, trials=8000) < 0.42
+    assert simulate.hit_rate(0.10, trials=8000) > simulate.hit_rate(0.0, trials=8000) + 0.08

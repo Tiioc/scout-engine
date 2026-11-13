@@ -77,3 +77,11 @@ Category weights in `engine/config.json` are equal. Over any rolling 8 editions 
 - **Dossier before bet.** A sized bet needs a finished dossier covering filings, insiders, debt, customers and the bear case.
 - **Three engines, in order while the portfolio is small:** build plays (earn and own), a few concentrated money plays, and the core holding everything else.
 - **Kept out:** crypto bought after a run, hand-run trend trading, and startup investing without the deal count or investor status to do it properly.
+
+## 9. Success target and how it is measured (added 2026-11-13, from `scripts/simulate.py`)
+- A single stock pick with no skill beats the market over three years only about 36% of the time. The Scout's target is **half or more of its plays beating the market over their holding period**, which corresponds to an edge of roughly 10 points a year.
+- About 40 finished plays are needed to tell a 50% record from the 36% no-skill line. Until then the Scout is at the "unproven" stage of the trust ladder.
+- To get there in a year or two instead of seven, the Scout runs **short-cycle situations on paper every week** (tender offers, dated catalysts inside 90 days) and grades them as they resolve.
+- **Capacity.** Every play states the most dollars it can absorb. Sizing is capped at that amount. A play that cannot hold a meaningful sum is labelled a small edge and is used for the record, not presented as a wealth play.
+- **Short holds.** The minimum edge scales with time for holds under a year (floor 1%), so quick plays are judged fairly.
+- **If the record falls below the no-skill line after 40 plays, the money-play engine is switched off** and the Scout keeps only build plays and the core until the owner decides otherwise.

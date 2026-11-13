@@ -28,8 +28,15 @@ DEFAULTS = {"hours_multiple_to_publish": 2.0, "kelly_fraction": 0.5, "max_single
             "min_edge_to_publish": 0.10}
 
 
+def _bar(min_edge, years):
+    """Minimum edge to publish. The full bar applies to holds of a year or more; shorter
+    holds scale it down in proportion to time, with a 1% floor, so a quick play is not
+    rejected for failing a multi-year hurdle."""
+    return min_edge if years >= 1.0 else max(0.01, min_edge * years) if min_edge > 0 else 0.0
+
+
 def analyze(scenarios, years, benchmark_return=0.07, kelly_fraction=0.5,
-            max_single=0.10, max_total=0.30, open_plays=0.0, portfolio=None, min_edge=0.0):
+            max_single=0.10, max_total=0.30, open_plays=0.0, portfolio=None, min_edge=0.0, capacity=None):
     if years <= 0:
         raise ValueError("years must be positive")
     if not scenarios:
@@ -73,9 +80,10 @@ def analyze(scenarios, years, benchmark_return=0.07, kelly_fraction=0.5,
     if edge <= 0 or full_kelly <= 0:
         bet = 0.0
         reason = "No edge over the benchmark on these odds: no bet."
-    elif edge < min_edge:
+    elif edge < _bar(min_edge, years):
         bet = 0.0
-        reason = "Edge over the benchmark is %.0f%%, below the %.0f%% bar: no bet." % (edge * 100, min_edge * 100)
+        reason = "Edge over the benchmark is %.1f%%, below the %.1f%% bar for a %.2g-year hold: no bet." % (
+            edge * 100, _bar(min_edge, years) * 100, years)
     else:
         bet = min(full_kelly * kelly_fraction, max_single, room)
         limits = []
@@ -103,7 +111,14 @@ def analyze(scenarios, years, benchmark_return=0.07, kelly_fraction=0.5,
         "reason": reason,
     }
     if portfolio is not None:
-        out["recommended_bet_dollars"] = bet * portfolio
+        dollars = bet * portfolio
+        if capacity is not None and dollars > capacity:
+            dollars = capacity
+            out["recommended_bet_fraction"] = bet = capacity / portfolio
+            out["effect_on_portfolio_if_best_case"] = bet * (best - bench)
+            out["effect_on_portfolio_if_worst_case"] = bet * (worst - bench)
+            out["reason"] += " Limited by the play's capacity of $%.0f." % capacity
+        out["recommended_bet_dollars"] = dollars
         out["dollars_lost_in_worst_case"] = bet * portfolio * (1.0 - worst)
         out["dollars_gained_in_best_case"] = bet * portfolio * (best - 1.0)
     return out
@@ -154,6 +169,7 @@ def main(argv=None):
     ap.add_argument("--scenario", action="append", required=True, help="probability:multiple")
     ap.add_argument("--benchmark-return", type=float, default=None)
     ap.add_argument("--portfolio", type=float, default=None)
+    ap.add_argument("--capacity", type=float, default=None, help="most dollars the play can absorb")
     ap.add_argument("--open-plays", type=float, default=0.0, help="share of portfolio already in open plays")
     ap.add_argument("--config", default="engine/config.json")
     ap.add_argument("--hours", type=float, default=None, help="build play: total hours staked; scenarios are probability:dollars")
@@ -179,7 +195,7 @@ def main(argv=None):
             return 0
         out = analyze(scen, a.years, cfg["benchmark_return"], cfg["kelly_fraction"],
                       cfg["max_single"], cfg["max_total"], a.open_plays, a.portfolio,
-                      cfg["min_edge_to_publish"])
+                      cfg["min_edge_to_publish"], a.capacity)
     except ValueError as e:
         print(json.dumps({"error": str(e)}))
         return 2

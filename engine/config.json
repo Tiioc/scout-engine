@@ -38,7 +38,11 @@
     "min_resolved_for_calibration": 30,
     "min_resolved_per_category": 50,
     "min_resolved_for_extremizing": 50,
-    "max_quarterly_weight_shift": 0.1
+    "max_quarterly_weight_shift": 0.1,
+    "no_skill_play_hit_rate": 0.36,
+    "target_play_hit_rate": 0.5,
+    "plays_needed_to_judge": 40,
+    "hit_definition": "play beats the total-market benchmark over its holding period"
   },
   "category_weights": {
     "markets": 1,
@@ -95,6 +99,8 @@
       "insider_cluster_buying"
     ],
     "dossier_required_before_bet": true,
-    "see": "research/INVESTOR_PLAYBOOKS.md"
+    "see": "research/INVESTOR_PLAYBOOKS.md",
+    "fast_feedback": "short-cycle situations (tender offers, dated catalysts under 90 days) are run on paper every week to build a graded record quickly",
+    "capacity_rule": "every play states the most dollars it can absorb; sizing uses --capacity"
   }
 }
