@@ -22,6 +22,12 @@ Three findings drive this.
 | Buying a small business | Search-fund operators | Dull, profitable firms with an owner who wants out | Purchase with investor backing; the buyer runs it | Sale after 5 to 8 years | 35% a year pooled return, but about 4 in 10 searches never buy and about 3 in 10 purchases lose money |
 | Real estate | Small landlords | Owner-occupied multi-unit, bought with a low down payment | When rent covers the payment with a margin | Hold, refinance | Returns come from borrowing; no strong independent data found; rent-versus-buy math must clear first |
 | Commodities and futures | Trend followers | Price already moving, across many markets at once | Buy strength, sell weakness, by rule | When the trend reverses | Works as a rule-based system over a century; a diversifier, long flat stretches, not a wealth engine |
+| Credit and distressed debt | Howard Marks (Oaktree) | Sound assets sold by people who must sell | In a panic, well below what the debt should repay; cash raised beforehand | As prices recover | Oaktree's distressed funds: about 19% a year after fees. Mostly closed to individuals; the transferable part is "buy from forced sellers" and holding cash for panics |
+| Growth stocks | Baillie Gifford, Fisher | The few companies that can grow many times over | Early, then hold through large falls | Rarely sell winners | About 5% of stocks rose five-fold in any five-year stretch. Studies find fast past growth does not reliably continue, so picking them ahead of time is the hard part |
+| Tiny, uncovered companies | Lynch, small-company specialists | No analyst coverage, cheap, profitable, sound finances | Cheap on profits with a quality check | Value reached | The size advantage sits mostly in the smallest companies and only alongside quality checks; funds are too big to buy them, which is the opening for a small account |
+| Macro | Druckenmiller, Soros | A large economic shift, expressed in the best single instrument | Size up hard when conviction is highest; cut fast when wrong | When the evidence changes | Druckenmiller: about 30% a year for 30 years. The average macro fund recently made about 3.4% a year. Depends on timing skill nobody can copy from a checklist |
+| Commodities (held, not traded) | Index holders | A basket of futures, not single bets | Spread across many commodities | Hold | A basket matched stock returns from 1959 to 2004 and moved differently from stocks. Shares of commodity producers are not a substitute |
+| Gold and precious metals | No reliable masters | Protection, not growth | Not after a record high | Not applicable | Long-run return after inflation is about zero; returns after record highs have been low or negative. Insurance, not a wealth engine |
 | Crypto | Early, large holders | Bought before the crowd | Before adoption, not after a run | Sold into retail buying | The median retail buyer of bitcoin from 2015 to 2022 lost about half; most bought after prices rose |
 
 ## How people actually go from near zero to a million
@@ -43,8 +49,9 @@ So the fastest realistic route has three engines, in this order of importance ea
 2. **Edge test.** Every play must say why the price is wrong and why professionals have not fixed it: too small, forced selling, complexity, a dated catalyst, or work the owner can do that others will not.
 3. **Diligence bar.** A dossier is required before any sized bet, covering filings, insiders, debt, customers and the bear case.
 4. **Where the Radar looks first.** Spin-off filings (Form 10), clusters of insider purchases (Form 4), companies leaving bankruptcy, tender offers and rights offerings, businesses for sale, and build plays.
-5. **What stays out.** Crypto bought after a run, trend trading by hand, startup investing without the deal count or status to do it properly.
-6. **Sizing stays honest.** Bets come from the calculator and the trust ladder. Bigger bets are earned by a graded record, not by wanting them.
+5. **What stays out.** Gold as a growth bet, macro timing calls, crypto bought after a run, trend trading by hand, startup investing without the deal count or status to do it properly.
+6. **Hold cash for panics.** The best credit and value records came from buying off forced sellers during sell-offs. The Scout keeps a standing list of what it would buy in one.
+7. **Sizing stays honest.** Bets come from the calculator and the trust ladder. Bigger bets are earned by a graded record, not by wanting them.
 
 ## Limits of this research
 
@@ -54,6 +61,13 @@ So the fastest realistic route has three engines, in this order of importance ea
 - None of this proves the Scout has skill. Only its own graded forecasts can.
 
 ## Sources
+
+- Howard Marks and Oaktree: https://www.lgt.com/sg-tc/insights/insights/financial-knowledge/howard-marks-251184
+- Baillie Gifford, growth and outliers: https://www.bailliegifford.com/en/global/existing-investors/insights/ic-article/sm-articles-2025-back-to-blue-sky-and-base-rates-10-years-on-bg-10056160 ; persistence of growth: https://www.redwheel.com/ch/en/professional/insight/new-empirical-evidence-questions-the-assumptions-on-which-growth-investing-is-based/
+- Size effect in the smallest companies: https://zacks.com/stock/news/2222850/microcaps-offer-explosive-growth-potential
+- Druckenmiller record: https://hedgetrace.com/learn/stanley-druckenmiller-portfolio ; macro fund index returns: https://oldpw.fa-mag.com/?p=7488
+- Gorton and Rouwenhorst, commodity futures: https://nber.org/digest/jan05/w10595.html
+- Erb and Harvey, gold: https://quantpedia.com/understanding-gold-hedge-diversifier-or-overpriced-insurance/
 
 - Bessembinder, "Do stocks outperform Treasury bills?" (2018) and 2026 update: https://blogs.wpcarey.asu.edu/20180917-do-stocks-outperform-treasury-bills and https://www.evidenceinvestor.com/post/the-case-for-indexing-just-got-stronger
 - Buffett partnership record: https://www.gurufocus.com/news/781428 and https://novelinvestor.com/notes/buffett-partnership-letters-by-warren-buffett/
