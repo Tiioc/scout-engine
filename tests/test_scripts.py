@@ -397,3 +397,14 @@ def test_simulator_hit_rate_baseline():
     import simulate
     assert 0.30 < simulate.hit_rate(0.0, trials=8000) < 0.42
     assert simulate.hit_rate(0.10, trials=8000) > simulate.hit_rate(0.0, trials=8000) + 0.08
+
+
+def test_backtest_grid_and_terminal_math():
+    import numpy as np, backtest
+    ws = list(backtest.weights_grid(3))
+    assert len(ws) == 66 and all(sum(w) == 10 for w in ws)
+    flat = np.zeros((1, 5))
+    t = backtest.terminal(flat, 5, growth=0.0)
+    assert t.shape == (1, 1) and abs(t[0, 0] - 5.0) < 1e-9
+    up = np.full((1, 2), 0.10)
+    assert abs(backtest.terminal(up, 2, growth=0.0)[0, 0] - (1.1 * 1.1 + 1.1)) < 1e-9

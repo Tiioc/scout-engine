@@ -102,5 +102,24 @@
     "see": "research/INVESTOR_PLAYBOOKS.md",
     "fast_feedback": "short-cycle situations (tender offers, dated catalysts under 90 days) are run on paper every week to build a graded record quickly",
     "capacity_rule": "every play states the most dollars it can absorb; sizing uses --capacity"
+  },
+  "core": {
+    "source": "scripts/backtest.py, research/BACKTEST-2026-11-13.md",
+    "software_mix": {
+      "small_value": 0.3,
+      "momentum": 0.2,
+      "trend_2x_stocks": 0.4,
+      "gold": 0.1
+    },
+    "no_borrowing_mix": {
+      "small_value": 0.2,
+      "momentum": 0.4,
+      "trend_small_value": 0.3,
+      "gold": 0.1
+    },
+    "active": "owner chooses by merging; until then the core is the total-market index",
+    "trend_rule": "hold the stock block only while the total-return index is above its 10-month average at month end; otherwise cash",
+    "rebalance": "once a year",
+    "rerun_backtest": "every January"
   }
 }
