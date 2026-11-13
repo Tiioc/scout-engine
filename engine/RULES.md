@@ -11,7 +11,7 @@ The floor exists so the owner can keep taking shots for ten years. It caps money
 | S1 Blocked activities | Day trading, short-dated options, leverage and margin, crypto speculation, MLMs, and paid "opportunity" or trading courses are blocked unless the owner has explicitly overridden that item in `config.json`. The loss data on these is the strongest evidence in the research. |
 | S2 Limited loss only | Nothing that can lose more than is put in. Blocks margin, short selling, writing options, personal guarantees, and unlimited-liability partnerships. Overrides do not lift this. |
 | S3 Hours declared | Every play states a maximum number of hours in advance. Reaching it triggers the exit review. |
-| S4 Single-bet cap | Money at risk in one play is at most `single_bet_pct` of net worth (the lower `single_bet_pct_thin` while net worth is under `thin_months` months of expenses). |
+| S4 Single-bet cap | Money at risk in one play is at most `single_bet_pct` of net worth (the lower `single_bet_pct_thin` while net worth is under `thin_months` months of expenses). Within that cap the size comes from `scripts/sizing.py`, never from judgment. |
 | S5 Speculative total cap | All money at risk across open speculative plays is at most `sleeve_pct` of net worth. |
 | S6 Runway | No money-at-risk play while liquid savings are under `runway_months` months of essential expenses or while high-interest debt exists. Zero-cash plays are unaffected. |
 | S7 Circuit breaker | If speculative money is down `breaker_drawdown` from its peak, no new money-at-risk plays for one quarter. |
@@ -19,6 +19,15 @@ The floor exists so the owner can keep taking shots for ten years. It caps money
 With no profile, S4 to S7 cannot be computed. The gate then passes the play as "PASS (universal)" and the edition must state the money required so the reader can size it themselves.
 
 These rules never appear in an edition as advice. A blocked play is listed under "Killed" with the rule number.
+
+## 1b. Sizing
+
+The owner chose a concentrated design on 2026-11-13: a few plays a year, each large enough to matter, instead of many small ones. The caps in `engine/config.json` are 10% of the portfolio in one play and 30% across all open plays.
+
+- Size is computed by `scripts/sizing.py` from the play's scenario table. It finds the growth-optimal fraction against holding the benchmark, takes `kelly_fraction` of it (half by default, because the probabilities are estimates and over-betting costs more than under-betting), and applies the caps.
+- No edge over the benchmark means no bet, however good the story is.
+- The scenario table must include the worst realistic case, including total loss where possible. Red Team reviews the table before sizing: an optimistic table produces an oversized bet.
+- Bigger bets multiply whatever skill the Scout has, in both directions. Until the scoreboard has at least `min_resolved_for_calibration` resolved forecasts, every sized bet is printed with the line "The Scout's forecasting record is not yet proven."
 
 ## 2. Ranking
 

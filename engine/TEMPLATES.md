@@ -13,6 +13,10 @@ Plain language. Lead with the play. No filler anywhere.
 **What:** <the opportunity in two sentences, with the named company / role / deal / program / deadline>
 **Why now:** <the dated evidence that makes this timely, with sources>
 **Forecast:** <probability of the main payoff> | short checks: <sub-question: probability, resolves by date>
+**Scenarios:** <each outcome with its probability and ending multiple>
+**Expected return:** <from scripts/sizing.py: expected multiple and annual return, versus the benchmark>
+**Risk:** <chance of losing money, average loss when it loses, worst case>
+**Bet:** <recommended share of the portfolio from scripts/sizing.py, in dollars if numbers exist, and what the best and worst case would do to the whole portfolio>
 **Upside:** <size, in dollars or position>
 **Cost:** <money at risk> and <hours>
 **If it misses:** <what it still leaves behind>

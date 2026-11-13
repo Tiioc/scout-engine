@@ -34,6 +34,8 @@ Each choice in the design, why it was made, and what it costs. Evidence is in `r
 | Day trading, short-dated options, leverage and coin punts stay blocked | Strongest loss evidence in the research | Owner must override explicitly |
 | The Board added: all seven areas every week | "All sorts of opportunities", without padding the deep plays | Longer edition |
 | Financial calculator script | Arithmetic must be exact and repeatable | None |
+| Concentrated sizing: few plays, each sized by scripts/sizing.py (half of the growth-optimal fraction), caps of 10% per play and 30% in total | The owner wants plays that add real money when one hits, not many tiny bets | Larger losses when a play misses; multiplies the Scout's skill in both directions, and that skill is not yet proven |
+| A deep play must show an edge over the benchmark | Bigger bets are only defensible when the odds are clearly good | Most weeks will have no deep play |
 | One forecaster call per framing covering all questions | Edition #1 used about 45 agents, too heavy to run weekly | Slightly less isolation between questions |
 
 ## Confidence in the finished product

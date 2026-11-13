@@ -149,9 +149,13 @@ def rent_vs_buy(price, down, mortgage_rate, years, rent, rent_growth=0.03, home_
     bal, value, rent_now = loan, float(price), float(rent)
     renter_pot = price * down + price * buy_cost   # renter keeps the cash a buyer spends up front
     for month in range(int(years * 12)):
-        interest = bal * r
-        bal -= (pay - interest)
-        owner_cost = pay + value * tax_ins_maint / 12.0
+        if bal > 0:
+            interest = bal * r
+            paid = min(pay, bal + interest)
+            bal = max(0.0, bal - (paid - interest))
+        else:
+            paid = 0.0
+        owner_cost = paid + value * tax_ins_maint / 12.0
         renter_pot = renter_pot * (1.0 + m_inv) + (owner_cost - rent_now)
         if (month + 1) % 12 == 0:
             value *= (1.0 + home_growth)

@@ -9,6 +9,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
 import aggregate  # noqa: E402
 import check_edition  # noqa: E402
 import fincalc  # noqa: E402
+import sizing  # noqa: E402
 import safety_gate  # noqa: E402
 import score  # noqa: E402
 
@@ -290,6 +291,51 @@ class TestFincalc(unittest.TestCase):
         cheap_rent = fincalc.rent_vs_buy(500000, 0.2, 0.07, 5, 1500)
         dear_rent = fincalc.rent_vs_buy(500000, 0.2, 0.07, 5, 4500)
         self.assertLess(cheap_rent["buying_wins_by"], dear_rent["buying_wins_by"])
+
+
+class TestSizing(unittest.TestCase):
+    def test_no_edge_no_bet(self):
+        r = sizing.analyze([(0.5, 1.2), (0.5, 1.0)], 3, 0.07)   # EV 1.10 < benchmark 1.225
+        self.assertEqual(r["recommended_bet_fraction"], 0.0)
+
+    def test_good_asymmetric_play_gets_a_real_bet(self):
+        r = sizing.analyze([(0.30, 5.0), (0.70, 0.2)], 3, 0.07)  # EV 1.64
+        self.assertGreater(r["recommended_bet_fraction"], 0.03)
+        self.assertLessEqual(r["recommended_bet_fraction"], 0.10)
+        self.assertAlmostEqual(r["chance_of_losing_money"], 0.70)
+        self.assertAlmostEqual(r["average_loss_when_it_loses"], 0.80)
+
+    def test_single_cap(self):
+        r = sizing.analyze([(0.6, 4.0), (0.4, 0.8)], 3, 0.07)
+        self.assertAlmostEqual(r["recommended_bet_fraction"], 0.10)
+
+    def test_total_cap(self):
+        r = sizing.analyze([(0.6, 4.0), (0.4, 0.8)], 3, 0.07, open_plays=0.26)
+        self.assertAlmostEqual(r["recommended_bet_fraction"], 0.04)
+
+    def test_total_loss_keeps_kelly_below_one(self):
+        r = sizing.analyze([(0.5, 4.0), (0.5, 0.0)], 3, 0.07)
+        self.assertLess(r["growth_optimal_fraction"], 1.0)
+
+    def test_dollars(self):
+        r = sizing.analyze([(0.30, 5.0), (0.70, 0.2)], 3, 0.07, portfolio=50000)
+        self.assertAlmostEqual(r["recommended_bet_dollars"], r["recommended_bet_fraction"] * 50000)
+
+    def test_probabilities_must_sum_to_one(self):
+        with self.assertRaises(ValueError):
+            sizing.analyze([(0.3, 2.0), (0.3, 0.5)], 3)
+
+    def test_higher_kelly_fraction_bets_more(self):
+        a = sizing.analyze([(0.30, 3.0), (0.70, 0.7)], 3, 0.07, kelly_fraction=0.25, max_single=1.0, max_total=1.0)
+        b = sizing.analyze([(0.30, 3.0), (0.70, 0.7)], 3, 0.07, kelly_fraction=0.5, max_single=1.0, max_total=1.0)
+        self.assertGreater(b["recommended_bet_fraction"], a["recommended_bet_fraction"])
+
+
+class TestRentBuyPayoff(unittest.TestCase):
+    def test_no_payments_after_payoff(self):
+        r = fincalc.rent_vs_buy(300000, 0.2, 0.06, 35, 1500)
+        self.assertGreater(r["owner_net_worth"], 0)
+        self.assertLess(r["owner_net_worth"], 300000 * (1.03 ** 35))
 
 
 if __name__ == "__main__":
