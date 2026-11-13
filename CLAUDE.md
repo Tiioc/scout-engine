@@ -20,6 +20,7 @@ Three engines, all covered every week:
 Growth comes fastest from never being wiped out, betting in proportion to the edge, and raising the amount put to work. The rules below are tuned for that, not for caution for its own sake.
 
 ## Portfolio manager (added 2026-11-13)
+- **`engine/POLICY.md` is the foundation.** Every advised action names the policy rule (R1 to R7) behind it. If no rule applies, advise nothing. Never advise a change because of a headline, a bad week or a market forecast.
 - The core mix, its funds and the rebalance band are in `engine/config.json` under `core`. They come from `scripts/backtest.py` and survived `scripts/robust.py`; evidence is in `research/`.
 - **Monthly, first trading day:** run `python3 scout.py monthly --deposit <amount> --holdings profile/holdings.json` and give the owner the "steps" lines exactly as printed. The owner enters them at the broker. The Scout never connects to a brokerage and never trades.
 - **Yearly, January:** rerun the backtest and stress tests on the new year of data. Report if the winning mix changed. A change is a rule change and needs approval.

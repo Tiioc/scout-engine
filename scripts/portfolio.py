@@ -57,17 +57,39 @@ def plan(positions, deposit, tw, band=0.05):
                     "a slice is more than %d points off target" % round(band * 100)) if need else "all slices within the band"}
 
 
+def stage(total, yearly_deposits, stages):
+    if not yearly_deposits or yearly_deposits <= 0: return stages[0]["name"]
+    m = total / yearly_deposits
+    for st in stages:
+        lim = st.get("below_multiple_of_yearly_deposits")
+        if lim is None or m < lim: return st["name"]
+    return stages[-1]["name"]
+
+
+def risk(total, hist, yearly_deposits=None, peak=None):
+    r = {"worst_fall_in_history": "%d%%, which today would be $%.0f" % (hist["worst_fall"] * 100, total * hist["worst_fall"]),
+         "worst_year_in_history": "%d%%, $%.0f" % (hist["worst_year"] * 100, total * hist["worst_year"]),
+         "worst_single_day": "%d%%, $%.0f" % (hist["worst_single_day"] * 100, total * hist["worst_single_day"]),
+         "share_of_years_that_lost_money": "%d%%" % (hist["losing_years_share"] * 100),
+         "can_it_go_to_zero": "only if every fund in it does; no borrowed money is used"}
+    if yearly_deposits:
+        r["worst_fall_in_years_of_deposits"] = round(total * hist["worst_fall"] / yearly_deposits, 1)
+    if peak and peak > 0:
+        r["below_its_high_by"] = "%.0f%%" % (max(0.0, 1 - total / peak) * 100)
+    return r
+
+
 def steps(p, signal_on):
     out = ["Set the pie to: " + ", ".join("%s %d%%" % kv for kv in sorted(p["pie_weights"].items(), key=lambda x: -x[1])) + "."]
     if p["deposit_goes_to"]:
-        out.append("Deposit: " + ", ".join("$%.0f to %s" % (v, k) for k, v in sorted(p["deposit_goes_to"].items(), key=lambda x: -x[1])) + " (the broker does this automatically if the pie weights are set).")
+        out.append("Deposit: " + ", ".join("$%.0f to %s" % (v, k) for k, v in sorted(p["deposit_goes_to"].items(), key=lambda x: -x[1])) + " (the broker does this automatically if the pie weights are set). [Rule R1]")
     if p["rebalance_needed"]:
         sells = ["sell $%.0f of %s" % (-v, k) for k, v in p["rebalance_trades"].items() if v < 0]
         buys = ["buy $%.0f of %s" % (v, k) for k, v in p["rebalance_trades"].items() if v > 0]
-        out.append("Rebalance (" + p["why"] + "): " + "; ".join(sells + buys) + ".")
+        out.append("Rebalance (" + p["why"] + "): " + "; ".join(sells + buys) + ". [Rule %s]" % ("R2" if "not in the target mix" in p["why"] else "R3"))
     else:
         out.append("No rebalance needed.")
-    out.append("Trend signal is %s." % ("on: the stock block stays invested" if signal_on else "off: the stock block sits in the cash fund until the signal turns on"))
+    out.append("Trend signal is %s. [Rule R2]" % ("on: the stock block stays invested" if signal_on else "off: the stock block sits in the cash fund until the signal turns on"))
     return out
 
 
@@ -75,12 +97,16 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--holdings"); ap.add_argument("--deposit", type=float, default=0.0)
     ap.add_argument("--signal", choices=["on", "off"], required=True)
+    ap.add_argument("--yearly-deposits", type=float, default=None); ap.add_argument("--peak", type=float, default=None)
     ap.add_argument("--mix", default="software_mix"); ap.add_argument("--config", default="engine/config.json")
     a = ap.parse_args(argv)
     core = json.load(open(a.config))["core"]
     pos = json.load(open(a.holdings))["positions"] if a.holdings else {}
     on = a.signal == "on"
     p = plan(pos, a.deposit, targets(core[a.mix], core["funds"], on), core.get("rebalance_band", 0.05))
+    yd = a.yearly_deposits or (a.deposit * 12 if a.deposit else None)
+    p["stage"] = stage(p["total_after_deposit"], yd, core.get("stages", [{"name": "growth"}]))
+    p["risk"] = risk(p["total_after_deposit"], core["history"][a.mix], yd, a.peak)
     p["steps"] = steps(p, on)
     print(json.dumps(p, indent=2))
     return 0

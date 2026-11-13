@@ -71,6 +71,32 @@ class Plan(unittest.TestCase):
         self.assertTrue(s[0].startswith("Set the pie to")); self.assertIn("on", s[-1])
 
 
+class Policy(unittest.TestCase):
+    ST = [{"name": "growth", "below_multiple_of_yearly_deposits": 10}, {"name": "build", "below_multiple_of_yearly_deposits": 25},
+          {"name": "protect", "below_multiple_of_yearly_deposits": None}]
+
+    def test_stage_follows_size_against_deposits(self):
+        self.assertEqual(portfolio.stage(50000, 18000, self.ST), "growth")
+        self.assertEqual(portfolio.stage(300000, 18000, self.ST), "build")
+        self.assertEqual(portfolio.stage(900000, 18000, self.ST), "protect")
+        self.assertEqual(portfolio.stage(900000, None, self.ST), "growth")
+
+    def test_risk_report_is_in_dollars_and_never_claims_zero_risk(self):
+        r = portfolio.risk(10000, {"worst_fall": 0.7, "worst_year": 0.33, "losing_years_share": 0.34, "worst_single_day": 0.14}, 18000, 12500)
+        self.assertIn("$7000", r["worst_fall_in_history"]); self.assertEqual(r["below_its_high_by"], "20%")
+        self.assertAlmostEqual(r["worst_fall_in_years_of_deposits"], 0.4)
+
+    def test_every_action_step_names_a_rule(self):
+        tw = portfolio.targets(MIX, FUNDS, False)
+        p = portfolio.plan({"AVUV": 3000, "MTUM": 2000, "SSO": 4000, "GLDM": 1000}, 500, tw)
+        for line in portfolio.steps(p, False)[1:]:
+            self.assertRegex(line, r"\[Rule R[1-7]\]")
+
+    def test_policy_file_defines_every_rule_used(self):
+        text = open(os.path.join(ROOT, "engine", "POLICY.md")).read()
+        for r in ("R1", "R2", "R3", "R4", "R5", "R6", "R7"): self.assertIn("| %s |" % r, text)
+
+
 class Signal(unittest.TestCase):
     def rows(self, closes, start=(2025, 1)):
         y, m = start; out = []

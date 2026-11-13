@@ -142,6 +142,38 @@
         "off": "SGOV"
       }
     },
-    "robustness": "research/ROBUSTNESS-2026-11-13.md"
+    "robustness": "research/ROBUSTNESS-2026-11-13.md",
+    "policy": "engine/POLICY.md",
+    "stages": [
+      {
+        "name": "growth",
+        "below_multiple_of_yearly_deposits": 10,
+        "mix": "software_mix"
+      },
+      {
+        "name": "build",
+        "below_multiple_of_yearly_deposits": 25,
+        "mix": "re-chosen by backtest with the worst yearly fall limited to about 30 to 40%"
+      },
+      {
+        "name": "protect",
+        "below_multiple_of_yearly_deposits": null,
+        "mix": "re-chosen by backtest with the worst yearly fall limited to about 20%"
+      }
+    ],
+    "history": {
+      "software_mix": {
+        "worst_fall": 0.7,
+        "worst_year": 0.33,
+        "losing_years_share": 0.34,
+        "worst_single_day": 0.14
+      },
+      "no_borrowing_mix": {
+        "worst_fall": 0.58,
+        "worst_year": 0.34,
+        "losing_years_share": 0.31,
+        "worst_single_day": 0.1
+      }
+    }
   }
 }
