@@ -57,3 +57,15 @@ When the owner says what they acted on, append to `ledger/actions.jsonl` (play i
 ## G. Practice mode (for the owner)
 
 On request, build one blinded historical case from public data (names and years removed), ask the owner for a probability, record it in `ledger/practice.jsonl`, then reveal the outcome. Always state that this trains the owner and does not validate the Scout.
+
+## H. Monthly portfolio check (first trading day)
+
+1. Run `python3 scout.py monthly --deposit <this month's amount> --holdings profile/holdings.json` (omit `--holdings` if there is no file yet).
+2. Send the owner the printed steps unchanged: the pie weights, where the deposit goes, any rebalance, and the trend signal.
+3. If the signal flipped since last month, say so first and name the one swap to make.
+4. If `near_tie` is true, tell the owner the signal is within 1% of flipping and recheck at the next month end. Do not act on a near tie mid-month.
+5. Append one line to `ledger/portfolio.jsonl`: date, signal, gap, and whether a rebalance was advised.
+
+## I. Run budget
+
+A weekly edition uses at most: 1 radar, 4 specialists, 5 forecaster calls (one per framing, all questions in one call), 1 red team. The monthly check uses no agents. If a run cannot fit, publish what is finished and say what was cut.

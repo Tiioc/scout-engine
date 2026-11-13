@@ -1,0 +1,5 @@
+{
+  "_note": "Copy to holdings.json. Dollar value of each fund in the core account. No account numbers.",
+  "as_of": "YYYY-MM-DD",
+  "positions": {"AVUV": 0, "MTUM": 0, "SSO": 0, "GLDM": 0, "SGOV": 0}
+}

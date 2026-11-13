@@ -57,3 +57,13 @@ Biggest risks, in order: not acting on plays; thin public data on private compan
 - If the scoreboard shows a category beating base rates with enough data, it earns more effort.
 - If three-sample forecasts prove poorly calibrated, raise samples before anything else.
 - If the owner adds money to the budget later, the first upgrades are more samples per question and a larger Lane 2 exam, not paid data.
+
+## 2026-11-13 (later): research and portfolio manager
+| Decision | Why |
+|---|---|
+| The Scout also manages the long-term core | The owner asked for stable long-term holdings handled by the same tool |
+| The core mix is chosen by backtest, not set by hand | Owner: "let the software decide." 92,378 mixes on 98 years of data; walk-forward and eleven stress tests passed |
+| The 2x block is allowed inside the core only, under the trend rule | The software picked it and it survived daily-data modeling; it stays blocked for plays |
+| Advice-only link to the broker | The owner's broker has no trading interface for outside software, and the Scout never trades in any case |
+| One entry point, `scout.py` | Fewer commands to remember; every tool tested |
+| Old design report and build steps moved to `research/archive/` | They describe the first version |

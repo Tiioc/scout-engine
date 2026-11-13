@@ -1,43 +1,44 @@
 # The Scout
 
-A complete financial research and calculation analyst that finds opportunities across every area of money, forecasts them, and grades itself over years. It covers public markets, private companies, digital assets, real assets, money strategy, business and income, and emerging themes, with no area leading. It does not day trade or tip coins. It is research and advice only: it never trades, moves money, or sends messages for you. Nothing it produces is financial advice.
+A research and portfolio manager that runs on Claude. It does three jobs:
 
-## The idea in four lines
-1. Big wins are long shots one at a time, but not across many tries. The goal is many good, different, survivable shots over ten years.
-2. Every play gets an honest probability, built the way the best AI forecasters build them.
-3. Every forecast is logged before the outcome is known, then graded. The log is the proof.
-4. One rule never bends: no play that can wipe you out.
+1. **Manages the long-term core.** A mix chosen by backtest on a century of public data. Once a month it checks one trend signal and prints the exact changes to make at your broker.
+2. **Finds plays.** A weekly scan for a few deep opportunities where a small investor can have an edge, each researched, forecast, sized and tracked.
+3. **Keeps score.** Every forecast is logged before the outcome and graded after. The record decides how much the Scout is trusted.
 
-## How you use it
-- **Weekly edition.** Up to three deep plays, each specific, calculated and forecasted, plus The Board: the best current read in all seven areas. Read it, then tell Claude what you acted on.
-- **Analysis on request.** Ask any financial question (compare two holdings, dividends versus growth, which account, rent versus buy) and get the numbers run with sources.
-- **Decision memo.** Bring a live decision (job offer, equity grant, deal, business idea) and say "run a Scout memo on this."
-- **Alerts.** It tells you when an entry, exit, or deadline condition is hit.
-- **Practice mode.** It shows you a blinded historical case, you forecast, it reveals what happened. This trains you; it does not test the Scout.
+It gives advice only. It never places trades or moves money. It is not a financial advisor.
 
-Time needed: about 30 minutes a week.
+## Everyday commands
+```
+python3 scout.py monthly --deposit 1500 --holdings profile/holdings.json   # signal + exact changes
+python3 scout.py size --years 3 --scenario 0.3:5 --scenario 0.7:0.2         # size one play
+python3 scout.py calc compare ...                                           # financial calculator
+python3 scout.py test                                                       # all automated tests
+python3 scout.py backtest --data <folder>      python3 scout.py robust --data <folder>
+```
 
-## Folder map
-| Folder | What is in it | Personal? |
-|---|---|---|
-| `CLAUDE.md` | The constitution: mission and hard rules | No |
-| `engine/` | Runbook, forecasting method, rules, base rates, data sources, templates, settings | No |
-| `.claude/agents/` | The specialist agents | No |
-| `scripts/` | Safety gate, forecast aggregator, scorer, edition checker, financial calculator (plain code, tested) | No |
-| `profile/` | Empty until you add `profile.md` | Yes |
-| `ledger/` | Your forecasts, plays, actions, outcomes | Yes |
-| `editions/` | Your weekly editions and memos | Yes |
-| `research/` | The research this design is built on | No |
-| `docs/` | Build steps, decisions and reasons, testing plan | No |
+## Map
+| Folder | What is in it |
+|---|---|
+| `CLAUDE.md` | The constitution Claude reads first |
+| `engine/` | Rules, settings (`config.json`), runbook, templates, data sources |
+| `scripts/` | The tools: portfolio, signal, sizing, calculator, safety gate, backtest, stress tests, simulator, scoring |
+| `.claude/agents/` | The research agents (radar, specialists, forecaster, red team) |
+| `research/` | Evidence: investor playbooks, backtest, stress tests, approach test, source data |
+| `editions/` | What the Scout has published |
+| `ledger/` | Forecasts, plays, outcomes: the permanent record |
+| `profile/` | Your private details and holdings (optional) |
+| `tests/` | Automated tests |
 
-## It works with or without a profile
-With no `profile/profile.md`, the Scout runs in universal mode: it finds the best plays that exist and states what each one requires (money, skills, access, location). Add a profile whenever you want and it also shows your fastest path in and applies sizing limits to your real numbers. Update the profile any time your situation changes. Nothing else needs rebuilding.
+## What it borrows from existing tools, and what it fixes
+| Tool | What it does well | Its gap | What the Scout does |
+|---|---|---|---|
+| Backtesting sites | Deep historical tests | Easy to tune a mix to one lucky period; not linked to what you hold; not a monitor | A century of data, walk-forward and eleven stress tests built in; reads your holdings; monthly check |
+| Rule-automation apps | Turn rules into automatic trades | Backtests look better than live results; short fund histories | Tests on research data back to 1928, assumes results will be worse, and shows by how much |
+| Pie-based brokers | Automatic deposits and rebalancing to target weights | No research, no signal, no reason for the weights | Supplies the weights, the signal and the exact change list to enter |
+| Robo-advisors | Hands-off | One generic portfolio | A mix chosen by test, plus a research engine with a graded record |
 
-## Sharing with a friend
-Give them a copy of this repo with `profile/`, `ledger/` and `editions/` emptied (see `docs/BUILD_STEPS.md`, "For a friend"). They need their own GitHub account and their own Claude plan. Your profile and ledger never leave your private repo.
-
-## Cost
-Designed to run on a Claude plan you already have, with free data sources only. No API billing, no paid data. Within that, it runs at full power: the strongest model for every judgment role and five independent forecasts per question. See `docs/DECISIONS.md`.
-
-## Start here
-`docs/BUILD_STEPS.md`
+## Setup
+1. Merge the open pull request so the rules take effect.
+2. In the Claude Code cloud environment settings, add the domains in `engine/DATA_SOURCES.md` to the allowed list.
+3. Optional: copy `profile/holdings.template.json` to `profile/holdings.json` and keep it current.

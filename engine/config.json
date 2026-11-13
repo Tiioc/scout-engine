@@ -117,9 +117,31 @@
       "trend_small_value": 0.3,
       "gold": 0.1
     },
-    "active": "owner chooses by merging; until then the core is the total-market index",
+    "active": "software_mix (proposed; takes effect when the owner merges)",
     "trend_rule": "hold the stock block only while the total-return index is above its 10-month average at month end; otherwise cash",
     "rebalance": "once a year",
-    "rerun_backtest": "every January"
+    "rerun_backtest": "every January",
+    "rebalance_band": 0.05,
+    "funds": {
+      "_note": "Candidate funds, fees checked 2026-11-13. Each is a milder, real-world version of its research block. Confirm each is offered at the broker before buying.",
+      "small_value": "AVUV",
+      "momentum": "MTUM",
+      "gold": "GLDM",
+      "stocks": "VTI",
+      "bills": "SGOV",
+      "trend_2x_stocks": {
+        "on": "SSO",
+        "off": "SGOV"
+      },
+      "trend_small_value": {
+        "on": "AVUV",
+        "off": "SGOV"
+      },
+      "trend_stocks": {
+        "on": "VTI",
+        "off": "SGOV"
+      }
+    },
+    "robustness": "research/ROBUSTNESS-2026-11-13.md"
   }
 }

@@ -22,7 +22,7 @@ BORROW_SPREAD = 0.015        # yearly cost above bills for the 2x version, fees 
 NET_RENT_YIELD = 0.04        # modeled rent after costs, added to house-price change
 
 
-def french(path, header_starts):
+def french(path, header_starts, digits=6):
     rows, on = [], False
     for line in open(path):
         s = line.strip()
@@ -30,7 +30,7 @@ def french(path, header_starts):
             if s.startswith(header_starts): on = True; cols = [c.strip() for c in s.split(",")[1:]]
             continue
         p = s.split(",")
-        if len(p) < 2 or not p[0].strip().isdigit() or len(p[0].strip()) != 6: break
+        if len(p) < 2 or not p[0].strip().isdigit() or len(p[0].strip()) != digits: break
         rows.append([int(p[0])] + [float(v) / 100 for v in p[1:]])
     return pd.DataFrame(rows, columns=["ym"] + cols).set_index("ym")
 
@@ -54,27 +54,47 @@ def load(data):
     return mo, pd.DataFrame(rows).T.astype(float)
 
 
-def trend(ret, bills, lev=1.0):
+def trend(ret, bills, lev=1.0, lookback=10):
     """In the asset when its total-return index is above its 10-month average, else in bills."""
     idx = (1 + ret).cumprod()
-    sig = (idx > idx.rolling(10).mean()).shift(1).fillna(False).astype(bool)
+    sig = (idx > idx.rolling(lookback).mean()).shift(1).fillna(False).astype(bool)
     r = np.where(sig, lev * ret - (lev - 1) * (bills + BORROW_SPREAD / 12), bills)
     r = pd.Series(r, index=ret.index) - SWITCH_COST * (sig != sig.shift(1)).fillna(False).astype(float)
     return r.clip(lower=-1.0)
 
 
-def build(data):
+def daily_2x(data, mo, lookback=10):
+    """The 2x block the way a real fund works: leverage reset every trading day, so one-day
+    crashes and the drag from choppy markets are both counted. Trend signal checked monthly."""
+    d = french(os.path.join(data, "F-F_Research_Data_Factors_daily.csv"), ",Mkt-RF", digits=8)
+    mkt, rf = d["Mkt-RF"] + d["RF"], d["RF"]
+    fund = (2 * mkt - rf - BORROW_SPREAD / 252).clip(lower=-1.0)
+    idx = (1 + mo["stocks"]).cumprod()
+    sig = (idx > idx.rolling(lookback).mean()).shift(1).fillna(False).astype(bool)
+    ym = pd.Series(d.index // 100, index=d.index)
+    on = ym.map(sig).fillna(False).astype(bool)
+    r = pd.Series(np.where(on, fund, rf), index=d.index)
+    monthly = (1 + r).groupby(ym).prod() - 1
+    monthly = monthly - SWITCH_COST * (sig != sig.shift(1)).reindex(monthly.index).fillna(False).astype(float)
+    return monthly, r
+
+
+def build(data, lookback=10, cost_mult=1.0, daily_leverage=True):
     mo, an = load(data)
-    mo["trend_stocks"] = trend(mo["stocks"], mo["bills"])
-    mo["trend_small_value"] = trend(mo["small_value"], mo["bills"])
-    mo["trend_2x_stocks"] = trend(mo["stocks"], mo["bills"], lev=2.0)
+    mo["trend_stocks"] = trend(mo["stocks"], mo["bills"], lookback=lookback)
+    mo["trend_small_value"] = trend(mo["small_value"], mo["bills"], lookback=lookback)
+    if daily_leverage and os.path.exists(os.path.join(data, "F-F_Research_Data_Factors_daily.csv")):
+        mo["trend_2x_stocks"] = daily_2x(data, mo, lookback)[0].reindex(mo.index)
+        mo = mo.dropna()
+    else:
+        mo["trend_2x_stocks"] = trend(mo["stocks"], mo["bills"], lev=2.0, lookback=lookback)
     mo["year"] = mo.index // 100
     cols = [c for c in mo.columns if c != "year"]
     yr = mo.groupby("year")[cols].apply(lambda d: (1 + d).prod() - 1)
     cnt = mo.groupby("year").size()
     yr = yr[cnt == 12]
     for k, c in COST.items():
-        if k in yr: yr[k] = yr[k] - c
+        if k in yr: yr[k] = yr[k] - c * cost_mult
     df = yr.join(an, how="inner")
     df["real_estate"] = df["house"] + NET_RENT_YIELD
     real = pd.DataFrame({a: (1 + df[a]) / (1 + df["infl"]) - 1 for a in ASSETS})
@@ -115,7 +135,7 @@ def stats(real, w, window):
 
 def search(real, window, lo=None, hi=None):
     R = real.values if lo is None else real.loc[lo:hi].values
-    W = np.array(list(weights_grid(len(ASSETS)))) / 10.0
+    W = np.array(list(weights_grid(R.shape[1]))) / 10.0
     best = {}
     T = np.concatenate([terminal(W[i:i + 20000] @ R.T, window) for i in range(0, len(W), 20000)])
     for name, score in (("highest typical result", np.median(T, axis=1)),
