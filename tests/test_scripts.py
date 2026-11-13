@@ -335,6 +335,25 @@ class TestSizing(unittest.TestCase):
         self.assertGreater(b["recommended_bet_fraction"], a["recommended_bet_fraction"])
 
 
+class TestHoursSizing(unittest.TestCase):
+    def test_good_build_play(self):
+        r = sizing.analyze_hours([(0.2, 60000), (0.3, 15000), (0.5, 0)], 300, 30)
+        self.assertAlmostEqual(r["expected_net_dollars"], 16500)
+        self.assertAlmostEqual(r["expected_dollars_per_hour"], 55)
+        self.assertEqual(r["verdict"], "worth the hours")
+        self.assertAlmostEqual(r["chance_it_returns_nothing"], 0.5)
+
+    def test_weak_build_play(self):
+        r = sizing.analyze_hours([(0.1, 20000), (0.9, 0)], 400, 30)
+        self.assertEqual(r["verdict"], "not worth the hours on these odds")
+
+    def test_money_at_risk_reduces_value(self):
+        a = sizing.analyze_hours([(0.5, 10000), (0.5, 0)], 100, 30)
+        b = sizing.analyze_hours([(0.5, 10000), (0.5, 0)], 100, 30, money_at_risk=2000)
+        self.assertAlmostEqual(a["expected_net_dollars"] - b["expected_net_dollars"], 2000)
+        self.assertEqual(b["max_money_lost"], 2000)
+
+
 class TestRentBuyPayoff(unittest.TestCase):
     def test_no_payments_after_payoff(self):
         r = fincalc.rent_vs_buy(300000, 0.2, 0.06, 35, 1500)

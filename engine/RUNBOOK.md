@@ -15,6 +15,7 @@ The Chair (main session) follows these procedures. Dates are YYYY-MM-DD. Read `e
 9. **Rank and select.** Rank survivors by the rule in `engine/RULES.md`. Take at most three deep plays. Then write The Board: for each of the seven areas, the best current read in one or two lines, with numbers from `scripts/fincalc.py` where they apply, or "nothing new". If none clears the bar in `config.json`, publish "No strong play this week" with the watchlist.
 10. **Write.** Create `editions/YYYY-MM-DD.md` from `engine/TEMPLATES.md`. Append plays to `ledger/plays.jsonl` and forecasts to `ledger/forecasts.jsonl`.
 11. **Check.** Run `python3 scripts/check_edition.py editions/YYYY-MM-DD.md`. Fix and re-run until it passes.
+11b. **Dossiers and positions.** For each deep play write `editions/dossiers/<play-id>.md` from `engine/DOSSIER_TEMPLATE.md`. Review every open position in `ledger/positions.jsonl` against its thesis and triggers and write the Positions section.
 12. **Commit and notify.** Commit everything and open a pull request titled `Edition YYYY-MM-DD` with the edition text as the description.
 13. **Self-check.** Confirm the edition file exists, the checker passed, and the ledger gained records. If anything failed, open an issue titled `FAILED YYYY-MM-DD` saying what and why. A run that ends without an edition or a FAILED issue is a bug.
 

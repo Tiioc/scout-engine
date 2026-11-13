@@ -10,6 +10,7 @@ Plain language. Lead with the play. No filler anywhere.
 **Headline:** <one sentence: the best play this week, or "No strong play this week">
 
 ## Play 1: <specific name>
+**Kind:** <money play / build play>   **Confidence:** <A or B, with the one-line reason>
 **What:** <the opportunity in two sentences, with the named company / role / deal / program / deadline>
 **Why now:** <the dated evidence that makes this timely, with sources>
 **Forecast:** <probability of the main payoff> | short checks: <sub-question: probability, resolves by date>
@@ -23,12 +24,17 @@ Plain language. Lead with the play. No filler anywhere.
 **How to get exposure:** <the actual instruments or routes, minimums, fees, lock-ups, investor-status rules>
 **The numbers:** <key figures from scripts/fincalc.py: yield, growth, valuation, projected value, versus the comparison>
 **Compared with:** <the plain alternative, usually a total-market index over the same period>
+**Entry:** <exactly what to do first: the instrument or first step, where, the price or condition to enter at, and whether to enter in stages>
 **Wrong if:** <the evidence that would prove it wrong>
 **Exit:** <the point to stop, and the review date>
 **Where agents disagreed:** <one line, or "none">
 
 ## Play 2 / Play 3
 (same fields)
+
+## Positions
+- <position>: <status against thesis> | <any exit or add condition triggered> | <next date to watch>
+(or "No open positions.")
 
 ## The Board
 - Markets: <best current read or "nothing new">

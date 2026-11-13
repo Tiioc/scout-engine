@@ -10,6 +10,9 @@ Method: the growth-optimal (Kelly) fraction, found by maximizing expected log
 wealth when the rest of the money stays in the benchmark, then scaled down by
 `kelly_fraction` and capped. A play with no edge over the benchmark gets zero.
 
+Build plays (the stake is hours): add --hours N --hourly-value V and give scenarios as
+probability:dollars. Returns expected pay per hour and a go / no-go against the bar.
+
 Usage:
   python3 scripts/sizing.py --years 3 --scenario 0.30:5 --scenario 0.70:0.2 \
       [--benchmark-return 0.07] [--portfolio 50000] [--open-plays 0.10] [--config engine/config.json]
@@ -21,7 +24,7 @@ import json
 import math
 import sys
 
-DEFAULTS = {"kelly_fraction": 0.5, "max_single": 0.10, "max_total": 0.30, "benchmark_return": 0.07,
+DEFAULTS = {"hours_multiple_to_publish": 2.0, "kelly_fraction": 0.5, "max_single": 0.10, "max_total": 0.30, "benchmark_return": 0.07,
             "min_edge_to_publish": 0.10}
 
 
@@ -106,6 +109,37 @@ def analyze(scenarios, years, benchmark_return=0.07, kelly_fraction=0.5,
     return out
 
 
+def analyze_hours(scenarios, hours, hourly_value, money_at_risk=0.0, min_multiple=2.0):
+    """A build play: the stake is hours (and optionally some money).
+    scenarios: list of (probability, dollars earned or equity value created)."""
+    if hours <= 0 or hourly_value <= 0:
+        raise ValueError("hours and hourly_value must be positive")
+    total_p = sum(p for p, _ in scenarios)
+    if abs(total_p - 1.0) > 0.011:
+        raise ValueError("scenario probabilities must sum to 1 (got %.3f)" % total_p)
+    scen = [(p / total_p, d) for p, d in scenarios]
+    ev = sum(p * d for p, d in scen) - money_at_risk
+    cost_of_time = hours * hourly_value
+    per_hour = ev / hours
+    p_below = sum(p for p, d in scen if (d - money_at_risk) < cost_of_time)
+    p_nothing = sum(p for p, d in scen if d <= money_at_risk)
+    multiple = per_hour / hourly_value
+    go = multiple >= min_multiple
+    return {
+        "expected_net_dollars": ev,
+        "expected_dollars_per_hour": per_hour,
+        "multiple_of_hourly_value": multiple,
+        "cost_of_time": cost_of_time,
+        "chance_it_pays_less_than_your_time_is_worth": p_below,
+        "chance_it_returns_nothing": p_nothing,
+        "best_case_dollars": max(d for _, d in scen) - money_at_risk,
+        "worst_case_dollars": min(d for _, d in scen) - money_at_risk,
+        "max_money_lost": money_at_risk,
+        "verdict": "worth the hours" if go else "not worth the hours on these odds",
+        "reason": "Expected pay per hour is %.1fx the hourly value; the bar is %.1fx." % (multiple, min_multiple),
+    }
+
+
 def _round(obj):
     if isinstance(obj, float):
         return round(obj, 4)
@@ -116,12 +150,15 @@ def _round(obj):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Size one play")
-    ap.add_argument("--years", type=float, required=True)
+    ap.add_argument("--years", type=float, default=3.0)
     ap.add_argument("--scenario", action="append", required=True, help="probability:multiple")
     ap.add_argument("--benchmark-return", type=float, default=None)
     ap.add_argument("--portfolio", type=float, default=None)
     ap.add_argument("--open-plays", type=float, default=0.0, help="share of portfolio already in open plays")
     ap.add_argument("--config", default="engine/config.json")
+    ap.add_argument("--hours", type=float, default=None, help="build play: total hours staked; scenarios are probability:dollars")
+    ap.add_argument("--hourly-value", type=float, default=30.0)
+    ap.add_argument("--money-at-risk", type=float, default=0.0)
     a = ap.parse_args(argv)
     cfg = dict(DEFAULTS)
     try:
@@ -136,6 +173,10 @@ def main(argv=None):
         for s in a.scenario:
             p, m = s.split(":")
             scen.append((float(p), float(m)))
+        if a.hours is not None:
+            print(json.dumps(_round(analyze_hours(scen, a.hours, a.hourly_value, a.money_at_risk,
+                                                  cfg.get("hours_multiple_to_publish", 2.0))), indent=2))
+            return 0
         out = analyze(scen, a.years, cfg["benchmark_return"], cfg["kelly_fraction"],
                       cfg["max_single"], cfg["max_total"], a.open_plays, a.portfolio,
                       cfg["min_edge_to_publish"])
