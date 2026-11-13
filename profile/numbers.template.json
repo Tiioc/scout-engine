@@ -1,0 +1,10 @@
+{
+  "_note": "Copy to numbers.json and fill in. Rough figures are fine. Used only by scripts/safety_gate.py.",
+  "net_worth": 0,
+  "monthly_expenses": 0,
+  "liquid_savings": 0,
+  "high_interest_debt": 0,
+  "speculative_at_risk": 0,
+  "speculative_peak": 0,
+  "speculative_value": 0
+}
