@@ -21,11 +21,12 @@ import json
 import math
 import sys
 
-DEFAULTS = {"kelly_fraction": 0.5, "max_single": 0.10, "max_total": 0.30, "benchmark_return": 0.07}
+DEFAULTS = {"kelly_fraction": 0.5, "max_single": 0.10, "max_total": 0.30, "benchmark_return": 0.07,
+            "min_edge_to_publish": 0.10}
 
 
 def analyze(scenarios, years, benchmark_return=0.07, kelly_fraction=0.5,
-            max_single=0.10, max_total=0.30, open_plays=0.0, portfolio=None):
+            max_single=0.10, max_total=0.30, open_plays=0.0, portfolio=None, min_edge=0.0):
     if years <= 0:
         raise ValueError("years must be positive")
     if not scenarios:
@@ -69,6 +70,9 @@ def analyze(scenarios, years, benchmark_return=0.07, kelly_fraction=0.5,
     if edge <= 0 or full_kelly <= 0:
         bet = 0.0
         reason = "No edge over the benchmark on these odds: no bet."
+    elif edge < min_edge:
+        bet = 0.0
+        reason = "Edge over the benchmark is %.0f%%, below the %.0f%% bar: no bet." % (edge * 100, min_edge * 100)
     else:
         bet = min(full_kelly * kelly_fraction, max_single, room)
         limits = []
@@ -133,7 +137,8 @@ def main(argv=None):
             p, m = s.split(":")
             scen.append((float(p), float(m)))
         out = analyze(scen, a.years, cfg["benchmark_return"], cfg["kelly_fraction"],
-                      cfg["max_single"], cfg["max_total"], a.open_plays, a.portfolio)
+                      cfg["max_single"], cfg["max_total"], a.open_plays, a.portfolio,
+                      cfg["min_edge_to_publish"])
     except ValueError as e:
         print(json.dumps({"error": str(e)}))
         return 2

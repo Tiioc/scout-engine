@@ -305,6 +305,10 @@ class TestSizing(unittest.TestCase):
         self.assertAlmostEqual(r["chance_of_losing_money"], 0.70)
         self.assertAlmostEqual(r["average_loss_when_it_loses"], 0.80)
 
+    def test_thin_edge_below_bar_gets_no_bet(self):
+        r = sizing.analyze([(0.5, 1.35), (0.5, 1.15)], 3, 0.07, min_edge=0.10)   # edge about 2%
+        self.assertEqual(r["recommended_bet_fraction"], 0.0)
+
     def test_single_cap(self):
         r = sizing.analyze([(0.6, 4.0), (0.4, 0.8)], 3, 0.07)
         self.assertAlmostEqual(r["recommended_bet_fraction"], 0.10)
