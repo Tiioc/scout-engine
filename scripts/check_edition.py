@@ -5,7 +5,7 @@ Checks:
   - at most three plays
   - every play has Forecast, Cost, Wrong if and Exit lines
   - every play's Forecast line contains a probability
-  - no banned generic-advice phrases anywhere
+  - no banned filler phrases anywhere
 
 Usage:
     python3 scripts/check_edition.py editions/2026-11-16.md
@@ -17,10 +17,8 @@ import sys
 MAX_PLAYS = 3
 REQUIRED = ["**Forecast:**", "**Cost:**", "**Wrong if:**", "**Exit:**"]
 BANNED = [
-    "401(k)", "401k", "roth ira", "index fund", "emergency fund",
-    "build a budget", "budgeting", "pay yourself first", "dollar-cost",
-    "dollar cost averag", "network more", "diversify your portfolio",
-    "high-yield savings", "compound interest", "live below your means",
+    "build a budget", "budgeting tip", "pay yourself first",
+    "live below your means", "network more", "skip the latte",
 ]
 PLAY_HEADER = re.compile(r"^##\s+Play\b", re.IGNORECASE)
 SECTION_HEADER = re.compile(r"^##\s+")
@@ -60,7 +58,7 @@ def check(text):
     lower = text.lower()
     for phrase in BANNED:
         if phrase in lower:
-            problems.append("Generic advice is banned: found '%s'" % phrase)
+            problems.append("Filler is banned: found '%s'" % phrase)
     if not plays and "no strong play this week" not in lower:
         problems.append("No plays and no 'No strong play this week' statement")
     return problems

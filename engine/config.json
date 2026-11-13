@@ -1,32 +1,29 @@
 {
-  "_note": "All tunable numbers live here. Changing this file is a rule change and needs the owner's approval.",
-
+  "_note": "All tunable numbers live here. Category weights are equal on purpose: no area leads. Changing this file is a rule change and needs the owner's approval.",
   "forecasting": {
     "samples_per_question": 5,
     "memo_samples": 7,
     "clip_low": 0.03,
     "clip_high": 0.97,
-    "spread_flag": 0.20,
-    "market_deviation_flag": 0.10,
+    "spread_flag": 0.2,
+    "market_deviation_flag": 0.1,
     "extremize_factor": 1.0
   },
-
   "edition": {
-    "max_plays": 3,
     "min_score_to_publish": 3.0,
     "max_category_share": 0.5,
     "alert_deadline_days": 14,
     "big_move_hours": 100,
-    "default_hourly_value": 30
+    "default_hourly_value": 30,
+    "max_deep_plays": 3
   },
-
   "safety": {
     "single_bet_pct": 0.02,
     "single_bet_pct_thin": 0.01,
     "thin_months": 6,
-    "sleeve_pct": 0.10,
+    "sleeve_pct": 0.1,
     "runway_months": 3,
-    "breaker_drawdown": 0.50,
+    "breaker_drawdown": 0.5,
     "blocked_types": [
       "day_trading",
       "short_dated_options",
@@ -37,19 +34,22 @@
     ],
     "owner_overrides": []
   },
-
   "scoring": {
     "min_resolved_for_calibration": 30,
     "min_resolved_per_category": 50,
     "min_resolved_for_extremizing": 50,
-    "max_quarterly_weight_shift": 0.10,
-    "paper_min_calls": 50
+    "max_quarterly_weight_shift": 0.1
   },
-
   "category_weights": {
-    "career": 0.25,
-    "ventures": 0.25,
-    "trends_access": 0.25,
-    "assets": 0.25
+    "markets": 1,
+    "private_companies": 1,
+    "digital_assets": 1,
+    "real_assets": 1,
+    "money_strategy": 1,
+    "business_income": 1,
+    "emerging_themes": 1
+  },
+  "modules": {
+    "career": false
   }
 }

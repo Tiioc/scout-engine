@@ -8,6 +8,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
 
 import aggregate  # noqa: E402
 import check_edition  # noqa: E402
+import fincalc  # noqa: E402
 import safety_gate  # noqa: E402
 import score  # noqa: E402
 
@@ -210,8 +211,85 @@ class TestCheckEdition(unittest.TestCase):
         self.assertTrue(check_edition.check(GOOD.replace("15% main payoff", "likely")))
 
     def test_generic_advice_fails(self):
-        self.assertTrue(check_edition.check(GOOD + "\nAlso max out your 401(k).\n"))
-        self.assertTrue(check_edition.check(GOOD + "\nConsider an index fund.\n"))
+        self.assertTrue(check_edition.check(GOOD + "\nRemember to pay yourself first.\n"))
+        self.assertTrue(check_edition.check(GOOD + "\nLive below your means.\n"))
+
+
+class TestFincalc(unittest.TestCase):
+    def test_cagr(self):
+        self.assertAlmostEqual(fincalc.cagr(100, 200, 10), 0.071773, places=5)
+        with self.assertRaises(ValueError):
+            fincalc.cagr(0, 100, 5)
+
+    def test_future_value(self):
+        self.assertAlmostEqual(fincalc.future_value(1000, 0.10, 1)["future_value"], 1100, places=6)
+        r = fincalc.future_value(0, 0.0, 1, monthly=100)
+        self.assertAlmostEqual(r["future_value"], 1200, places=6)
+        self.assertAlmostEqual(r["contributed"], 1200, places=6)
+
+    def test_real_return(self):
+        self.assertAlmostEqual(fincalc.real_return(0.07, 0.03), 0.038835, places=5)
+
+    def test_after_tax_yield(self):
+        self.assertAlmostEqual(fincalc.after_tax_yield(0.05, 0.22, 0.05), 0.0365, places=6)
+        self.assertAlmostEqual(fincalc.after_tax_yield(0.05, 0.22, 0.05, state_exempt=True), 0.039, places=6)
+
+    def test_dividend_no_growth_no_reinvest(self):
+        r = fincalc.dividend_path(100, 4, 0, 0, 10, reinvest=False)
+        self.assertAlmostEqual(r["end_value_per_share_bought"], 140, places=6)
+        self.assertAlmostEqual(r["start_yield"], 0.04)
+        self.assertAlmostEqual(r["yield_on_cost_at_end"], 0.04)
+
+    def test_dividend_reinvest_beats_not(self):
+        a = fincalc.dividend_path(100, 4, 0.03, 0.02, 20, reinvest=True)
+        b = fincalc.dividend_path(100, 4, 0.03, 0.02, 20, reinvest=False)
+        self.assertGreater(a["end_value_per_share_bought"], b["end_value_per_share_bought"])
+
+    def test_dividend_tax_lowers_value(self):
+        a = fincalc.dividend_path(100, 4, 0.03, 0.02, 20, tax=0.0)
+        b = fincalc.dividend_path(100, 4, 0.03, 0.02, 20, tax=0.15)
+        self.assertGreater(a["end_value_per_share_bought"], b["end_value_per_share_bought"])
+
+    def test_compare_income_vs_growth(self):
+        r = fincalc.compare_income_vs_growth(
+            20, {"yield": 0.045, "divgrowth": 0.03, "pricegrowth": 0.02},
+            {"yield": 0.012, "divgrowth": 0.09, "pricegrowth": 0.08})
+        self.assertEqual(r["higher_end_value"], "b")
+        self.assertIsNotNone(r["income_crossover_year"])
+        self.assertGreater(r["income_crossover_year"], 15)
+
+    def test_fee_drag(self):
+        r = fincalc.fee_drag(10000, 0.07, 30, 0.0003, 0.01)
+        self.assertGreater(r["value_a"], r["value_b"])
+        self.assertGreater(r["cost_of_higher_fee"], 15000)
+
+    def test_bonus(self):
+        r = fincalc.bonus_return(300, 5000, 3)
+        self.assertAlmostEqual(r["period_return"], 0.06)
+        self.assertAlmostEqual(r["annualized_return"], 1.06 ** 4 - 1, places=6)
+
+    def test_payback(self):
+        r = fincalc.payback(20000, 5000, 250)
+        self.assertAlmostEqual(r["payback_years"], 4)
+        self.assertAlmostEqual(r["profit_per_hour"], 20)
+        self.assertIsNone(fincalc.payback(20000, -100)["payback_years"])
+
+    def test_dcf_perpetuity(self):
+        r = fincalc.dcf(100, 0, 10, 0, 0.10)
+        self.assertAlmostEqual(r["present_value"], 1000, places=4)
+        with self.assertRaises(ValueError):
+            fincalc.dcf(100, 0.05, 10, 0.10, 0.09)
+
+    def test_volatility_drag(self):
+        self.assertAlmostEqual(fincalc.volatility_drag(0.10, 0.60)["approx_compound_return"], -0.08)
+
+    def test_mortgage_payment(self):
+        self.assertAlmostEqual(fincalc.mortgage_payment(300000, 0.06, 30), 1798.65, places=1)
+
+    def test_rent_vs_buy_direction(self):
+        cheap_rent = fincalc.rent_vs_buy(500000, 0.2, 0.07, 5, 1500)
+        dear_rent = fincalc.rent_vs_buy(500000, 0.2, 0.07, 5, 4500)
+        self.assertLess(cheap_rent["buying_wins_by"], dear_rent["buying_wins_by"])
 
 
 if __name__ == "__main__":

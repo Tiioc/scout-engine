@@ -1,6 +1,6 @@
 # Output templates
 
-Plain language. Lead with the play. No generic advice anywhere.
+Plain language. Lead with the play. No filler anywhere.
 
 ## Weekly edition
 
@@ -16,14 +16,24 @@ Plain language. Lead with the play. No generic advice anywhere.
 **Upside:** <size, in dollars or position>
 **Cost:** <money at risk> and <hours>
 **If it misses:** <what it still leaves behind>
-**Requires:** <money, skills, access, location>   (universal mode)
-**Your path in:** <fastest realistic route>        (only with a profile)
+**How to get exposure:** <the actual instruments or routes, minimums, fees, lock-ups, investor-status rules>
+**The numbers:** <key figures from scripts/fincalc.py: yield, growth, valuation, projected value, versus the comparison>
+**Compared with:** <the plain alternative, usually a total-market index over the same period>
 **Wrong if:** <the evidence that would prove it wrong>
 **Exit:** <the point to stop, and the review date>
 **Where agents disagreed:** <one line, or "none">
 
 ## Play 2 / Play 3
 (same fields)
+
+## The Board
+- Markets: <best current read or "nothing new">
+- Private companies: ...
+- Digital assets: ...
+- Real assets: ...
+- Money strategy: ...
+- Business and income: ...
+- Emerging themes: ...
 
 ## Watchlist
 - <thing>: <what would turn it into a play>
@@ -38,7 +48,7 @@ Plain language. Lead with the play. No generic advice anywhere.
 <three lines from the latest scoring run, or "Insufficient data: N resolved forecasts">
 ```
 
-Rules the checker enforces: at most three `## Play` sections; each play has Forecast, Cost, Wrong if, and Exit lines; no banned generic-advice phrases.
+Rules the checker enforces: at most three `## Play` sections; each play has Forecast, Cost, Wrong if, and Exit lines; no banned filler phrases.
 
 ## Decision memo
 

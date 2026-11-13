@@ -1,6 +1,6 @@
 # The Scout
 
-A forecasting engine that hunts for wealth and opportunity plays and grades itself over years. It is not a stock picker and not a budgeting coach. It is research and advice only: it never trades, moves money, or sends messages for you. Nothing it produces is financial advice.
+A complete financial research and calculation analyst that finds opportunities across every area of money, forecasts them, and grades itself over years. It covers public markets, private companies, digital assets, real assets, money strategy, business and income, and emerging themes, with no area leading. It does not day trade or tip coins. It is research and advice only: it never trades, moves money, or sends messages for you. Nothing it produces is financial advice.
 
 ## The idea in four lines
 1. Big wins are long shots one at a time, but not across many tries. The goal is many good, different, survivable shots over ten years.
@@ -9,7 +9,8 @@ A forecasting engine that hunts for wealth and opportunity plays and grades itse
 4. One rule never bends: no play that can wipe you out.
 
 ## How you use it
-- **Weekly edition.** Up to three plays, each specific, non-obvious, and forecasted. Some weeks it says "no strong play." Read it, then tell Claude what you acted on.
+- **Weekly edition.** Up to three deep plays, each specific, calculated and forecasted, plus The Board: the best current read in all seven areas. Read it, then tell Claude what you acted on.
+- **Analysis on request.** Ask any financial question (compare two holdings, dividends versus growth, which account, rent versus buy) and get the numbers run with sources.
 - **Decision memo.** Bring a live decision (job offer, equity grant, deal, business idea) and say "run a Scout memo on this."
 - **Alerts.** It tells you when an entry, exit, or deadline condition is hit.
 - **Practice mode.** It shows you a blinded historical case, you forecast, it reveals what happened. This trains you; it does not test the Scout.
@@ -22,7 +23,7 @@ Time needed: about 30 minutes a week.
 | `CLAUDE.md` | The constitution: mission and hard rules | No |
 | `engine/` | Runbook, forecasting method, rules, base rates, data sources, templates, settings | No |
 | `.claude/agents/` | The specialist agents | No |
-| `scripts/` | Safety gate, forecast aggregator, scorer, edition checker (plain code, tested) | No |
+| `scripts/` | Safety gate, forecast aggregator, scorer, edition checker, financial calculator (plain code, tested) | No |
 | `profile/` | Empty until you add `profile.md` | Yes |
 | `ledger/` | Your forecasts, plays, actions, outcomes | Yes |
 | `editions/` | Your weekly editions and memos | Yes |

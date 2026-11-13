@@ -23,6 +23,19 @@ Each choice in the design, why it was made, and what it costs. Evidence is in `r
 | 17 | Notifications through GitHub pull requests and issues | Keeps "never sends messages" clean | The owner must have GitHub notifications on |
 | 18 | Public-market picks paper-only | About 90% of professionals trail the index over 15 years | No real-money stock calls |
 
+## Changes after Edition #1 (2026-11-13)
+
+| Decision | Why | Trade-off |
+|---|---|---|
+| Scope widened to all of finance, seven areas with equal weight | Edition #1 came out as a startup job tracker; the owner wants investing, strategy and opportunities from every angle | More ground to cover each week |
+| Companies and startups covered as investments, with the route for a non-insider | The owner cannot and does not want to take jobs at them | Many private companies have no honest route in |
+| Career module off by default | Not what the tool is for | Can be switched on in config |
+| Public markets and digital assets are researched and compared, not paper-only; every idea tracked against a total-market index | The owner wants long-term comparison and strategy, not tips | The Scout has no proven edge here, so the benchmark is always shown |
+| Day trading, short-dated options, leverage and coin punts stay blocked | Strongest loss evidence in the research | Owner must override explicitly |
+| The Board added: all seven areas every week | "All sorts of opportunities", without padding the deep plays | Longer edition |
+| Financial calculator script | Arithmetic must be exact and repeatable | None |
+| One forecaster call per framing covering all questions | Edition #1 used about 45 agents, too heavy to run weekly | Slightly less isolation between questions |
+
 ## Confidence in the finished product
 
 Estimates by Claude on 2026-11-13. Not measured.

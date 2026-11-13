@@ -20,6 +20,11 @@ data.usajobs.gov
 www.atlantafed.org
 gamma-api.polymarket.com
 clob.polymarket.com
+www.treasurydirect.gov
+home.treasury.gov
+www.irs.gov
+www.federalregister.gov
+www.fdic.gov
 ```
 
 Web search and web fetch are separate tools and cover ordinary public pages.
@@ -28,6 +33,9 @@ Web search and web fetch are separate tools and cover ordinary public pages.
 | Source | Used by | Access | Notes |
 |---|---|---|---|
 | SEC EDGAR filings, company financials, Form D private raises | radar, ventures, assets | No key. At most 10 requests per second. Must send a User-Agent header with a name and contact email | Form D shows private companies raising money, often before any news |
+| SEC filings for public companies: 10-K, 10-Q, 8-K, Form 4 insider trades, S-1 listings, 13F holdings | markets, themes, ventures | Same EDGAR access | Company fundamentals come from filings first, data sites second |
+| TreasuryDirect and Treasury daily rates | money-strategy | Public pages and data files | Auction results and yields; always record the date |
+| IRS announcements and publications | money-strategy | Public pages | Limits and rules for the current and next tax year |
 | EDGAR full-text search | radar | `efts.sec.gov/LATEST/search-index?q=...&forms=D` | check: works but is not an officially documented API |
 | BLS (jobs, wages, occupations) | career, trends-access | Free key from bls.gov; 500 queries a day | Key is optional for light use of the public pages |
 | FRED (economic series) | assets, trends-access | Free key required | check: rate limit about 120 requests a minute |

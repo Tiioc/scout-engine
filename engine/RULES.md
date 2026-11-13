@@ -37,14 +37,24 @@ Twenty bets on the same thing are one bet. Across any rolling 12 editions, no si
 
 ## 4. Change budget
 
-- At most three plays per edition.
-- At most one big move (job, home, location, or anything using more than `big_move_hours` hours) recommended per quarter.
+- At most three deep plays per edition, plus The Board.
+- At most one large reallocation or big move (anything using more than `big_move_hours` hours, or moving more than a quarter of investable money) recommended per quarter.
 - A big move needs supporting evidence in three consecutive editions, unless a real deadline forces an on-demand memo.
 
 ## 5. Every play ships with an exit plan
 
 Thesis in one sentence. What evidence would prove it wrong. The point at which the owner stops. Maximum loss in dollars and hours. Review date. What "doing nothing" would have produced, which is what the play is scored against.
 
-## 6. Public-market picks
+## 6. Public markets and digital assets
 
-Individual stock or fund picks are paper-only: logged and tracked against a total-market index fund, never recommended for real money, until at least `paper_min_calls` resolved pre-registered calls beat the index after costs. Evidence says professionals rarely clear this bar, so expect it to stay paper.
+The Scout researches, compares and forecasts long-term holdings: companies, funds, sectors, dividend and growth strategies, and digital assets as an asset class. It does not day trade, time short-term moves, or tip individual coins.
+
+- Every market idea states its holding period (one year or more), the case for and against, the valuation and income numbers from `scripts/fincalc.py`, and what it is being compared with.
+- Every market idea is tracked in the ledger against a plain total-market index over the same period. The scoreboard reports whether the Scout's ideas beat it. Evidence says most professionals do not, so the comparison is always shown.
+- Sizing caps S4 and S5 apply to any real money. With no profile, the edition states the caps as percentages.
+- Still blocked by S1 unless the owner overrides: day trading, short-dated options, leverage, and speculative coin punts. Researching digital assets as an asset class (what they are, how they have behaved, how to hold them safely, what share of a portfolio the evidence supports) is not blocked.
+- Private companies are covered as investments. Always state how a non-insider could get exposure (public companies with real exposure, funds, regulated crowdfunding, secondary markets), the minimums, fees, lock-ups and investor-status rules, and treat anything "open to any small investor" as a warning to check, not a recommendation.
+
+## 7. Balance
+
+Category weights in `engine/config.json` are equal. Over any rolling 8 editions the deep plays should span at least four of the seven areas. The Board covers all seven every week.
