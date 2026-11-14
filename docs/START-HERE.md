@@ -1,36 +1,30 @@
 # Start here
 
 ## What the Scout does for you
-1. Tells you once a month exactly what to set in your broker pie, with the reason for each line.
-2. Researches a few deep opportunities each week and tracks them on paper until its record earns real money.
-3. Keeps score of every forecast it makes.
+1. **Hunts.** Once a week it digs for one opportunity most people have not noticed, checks it from five angles, attacks it, and either makes it a pick or throws it out.
+2. **Keeps score.** Every pick goes on a paper scoreboard and races the S&P 500. Nothing is ever removed from the board.
+3. **Watches.** It tracks the companies you have a personal stake in and tells you when something changes the odds.
+4. **Checks decisions.** Bring it any big money choice and it researches it, attacks its own answer, and gives you a plain verdict.
 
 ## Your part
-1. **Before the first deposit:** emergency fund set, high-interest debt cleared. Money you need within three years goes in the cash fund, outside the plan.
-2. **Each week:** when the Monday notice arrives, enter the pie weights it lists if they changed. Deposit whenever you like. That is the whole job.
-3. **When life changes** (income, goals, a need for cash): tell the Scout.
-4. **In a crash:** do nothing extra. The notice will say how the fall compares with the record and what, if anything, the rules call for.
+- Put money into the core on a schedule. That is all the core needs.
+- Read the weekly message. Most weeks there is nothing to do.
+- Real money follows picks only after the scoreboard unlocks it.
 
-## The plan
-- **Growth stage** (until the account is 20 times your yearly deposits, roughly the first decade): 30% AVUV, 50% MTUM, 10% SSO, 10% GLDM. Any fund whose exit is on is held as SGOV instead.
-- In 98 years of daily data this mix grew 8.8% a year after inflation and fell 46% at its worst. Built from real funds since 2008 it grew 11.6% a year against 11.2% for the S&P 500, with a deepest fall of 20% against 46%.
-- Later stages hold calmer mixes, chosen by a fresh test before they are needed.
+## The core
+- 90% VTI (whole US stock market), 10% AVUV (small, cheap companies). Held always. No switching.
+- Optional aggressive version: half VTI, half SSO (2x S&P 500) held only while the S&P 500 is above its 200-day average. Roth IRA only. Read `research/AGGRESSIVE-2026-11-13.md` first: its edge is about half a point a year and it can fall as far as plain stocks.
 
-## The funds
-| Block | Fund | Exit |
-|---|---|---|
-| Small cheap companies | AVUV | one third of it leaves when AVUV ends a week more than 2% below its 200-day average |
-| Momentum | MTUM | leaves when MTUM ends a week more than 2% below its 200-day average |
-| Stocks at 2x | SSO | leaves when the S&P 500 ends a week more than 2% below its 200-day average |
-| Gold | GLDM | none |
-| Bonds (later stages) | IEF | none |
-| Cash, and anything that has exited | SGOV | |
+## The unlock rule
+Real money stays locked until 20 picks have closed, at least half beat the S&P 500, and the average pick is ahead. Then at most 10% of the account follows picks, at most 5% in one.
 
-Confirm each fund is offered at your broker before buying. Use a retirement account if you can: the swaps create taxable gains elsewhere.
+## Commands
+- `python3 scout.py scoreboard` shows the board.
+- `python3 scout.py check --deposit 500` shows where a deposit goes.
+- `python3 scout.py test` runs every test.
 
 ## Where to read more
-- The rules: `engine/POLICY.md`
-- The evidence: `research/LIFECYCLE-2026-11-13.md`, `research/RISK-LEVELS-2026-11-13.md`
-- Everything else: `README.md`
+- Rules: `engine/POLICY.md` (section 12 is the current mode). How a week runs: `engine/RUNBOOK.md` sections J, K, L.
+- Why the old mix was dropped: `research/REDTEAM-2026-11-13.md`.
 
-The Scout gives research and advice only. It never trades or moves money, and it is not a financial advisor.
+This is research and advice, not a financial advisor, and it never trades or moves money.

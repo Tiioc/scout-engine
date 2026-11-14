@@ -107,6 +107,8 @@ def decide(core, positions, deposit, signals, current_stage="growth", month=None
     p["stage"] = names[i]; p["mix"] = mix_name
     p["risk"] = risk(p["total_after_deposit"], core["history"][mix_name], yd, peak)
     p["steps"] = notes + steps(p, signals)
+    if not any(isinstance(core["funds"][b], dict) for b in core[mix_name]):
+        p["steps"] = [x for x in p["steps"] if not x.startswith("Exit signals")] + ["This mix has no exit rules: hold it and keep depositing. [Policy 12]"]
     return p
 
 

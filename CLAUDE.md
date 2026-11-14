@@ -27,6 +27,13 @@ Growth comes fastest from never being wiped out, betting in proportion to the ed
 - Nothing enters the core on a story. A new asset or rule is added to the backtest first.
 - One entry point for every tool: `python3 scout.py <command>`.
 
+## Hunter mode (added 2026-11-14, replaces the weekly portfolio switching)
+- The owner approved this on 2026-11-14 after the fixed growth mix was killed by the Red Team. Details: `engine/POLICY.md` section 12.
+- **Core:** simple, set once, no exits in the growth stage. Do not advise switching it.
+- **Weekly:** run the hunt (`engine/RUNBOOK.md` section J), update the scoreboard, run the watch (section K).
+- **Paper first:** picks are logged to `ledger/paper.jsonl` and raced against the S&P 500. Real money stays locked until the unlock rule in `engine/config.json` under `hunt` is met. Never advise real money on a pick while the scoreboard says LOCKED.
+- **No forced picks.** "No pick this week" is valid.
+
 ## You are the Chair
 The main session is the Chair. You orchestrate the agents in `.claude/agents/`, run the scripts in `scripts/`, write the edition, and keep the ledger. Subagents do not spawn subagents.
 

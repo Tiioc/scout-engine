@@ -157,7 +157,7 @@
       {
         "name": "growth",
         "below_multiple_of_yearly_deposits": 20,
-        "mix": "growth_mix",
+        "mix": "simple_mix",
         "risk_level": "50"
       },
       {
@@ -209,6 +209,22 @@
         "worst_year": 0.16,
         "losing_years_share": 0.19,
         "basis": "daily prices 1927-2025, weekly exits with a 2% buffer"
+      },
+      "simple_mix": {
+        "worst_fall": 0.84,
+        "worst_fall_since_1950": 0.55,
+        "worst_year": 0.44,
+        "losing_years_share": 0.27,
+        "worst_single_day": 0.2,
+        "basis": "US stock market 1926-2026; no exits. Deepest fall 1929-1932."
+      },
+      "aggressive_mix": {
+        "worst_fall": 0.69,
+        "worst_fall_since_1950": 0.5,
+        "worst_year": 0.5,
+        "losing_years_share": 0.3,
+        "worst_single_day": 0.3,
+        "basis": "research/AGGRESSIVE-2026-11-13.md with the Red Team's corrections; daily check, 2% band. Not active. Roth only, 2x only, broker must allow it."
       }
     },
     "risk_levels": {
@@ -319,7 +335,7 @@
       "trend_2x_stocks": 0.1,
       "gold": 0.1
     },
-    "active_mix": "growth_mix",
+    "active_mix": "simple_mix",
     "breaker": {
       "rule": "R8",
       "trigger": "account more than 5 points below the worst fall its level ever showed",
@@ -416,6 +432,40 @@
         "bonds": 0.1
       },
       "result": "10.5% a year and a 50% deepest fall on daily data, but with real funds since 2008 it grew less (10.6% against 11.6%), fell further (25% against 20%) and lost 25% in 2022. Not adopted: more borrowing for no gain in the real-fund test."
+    },
+    "simple_mix": {
+      "stocks": 0.9,
+      "small_value": 0.1
+    },
+    "aggressive_mix": {
+      "stocks": 0.5,
+      "trend_2x_stocks": 0.5
+    },
+    "retired_growth_mix_reason": "growth_mix was killed by the Red Team on 2026-11-13 (research/REDTEAM-2026-11-13.md). Kept for the record; not used."
+  },
+  "hunt": {
+    "_note": "Hunter mode, approved by the owner 2026-11-14. One deep hunt a week; picks are on paper until the unlock rule is met.",
+    "benchmark": "SPY",
+    "max_open": 6,
+    "paper_pick_bar": {
+      "min_forecast_beats_spy": 0.55,
+      "needs": [
+        "a named edge",
+        "a dossier with dated sources",
+        "a stop, a target and a review date",
+        "Red Team verdict other than KILL",
+        "safety gate not BLOCK"
+      ]
+    },
+    "unlock": {
+      "min_closed": 20,
+      "min_hit_rate": 0.5,
+      "min_average_lead": 0.0
+    },
+    "real_money_after_unlock": {
+      "share_of_account": 0.1,
+      "per_pick": 0.05,
+      "sized_by": "scripts/sizing.py, never above these caps"
     }
   }
 }

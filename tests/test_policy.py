@@ -15,6 +15,10 @@ def load(name):
 pf, sg, bt = load("portfolio"), load("signal"), load("backtest")
 CORE = json.load(open(os.path.join(ROOT, "engine", "config.json")))["core"]
 ALL_ON = {"default": True}
+# The exit machinery is still used by the later stages and by the optional aggressive mix. These drills exercise it
+# on a fixture where the growth stage holds a mix with exits (the retired growth_mix).
+import copy
+DRILL = copy.deepcopy(CORE); DRILL["stages"][0]["mix"] = "growth_mix"
 
 
 def balanced(total, signals=ALL_ON, mix="growth_mix"):
@@ -24,56 +28,56 @@ def balanced(total, signals=ALL_ON, mix="growth_mix"):
 class Drills(unittest.TestCase):
     def test_market_drop_alone_changes_nothing(self):
         pos = {k: v * 0.70 for k, v in balanced(100000).items()}          # everything down 30%, signals still on
-        p = pf.decide(CORE, pos, 1500, ALL_ON, "growth", month=6, peak=100000)
+        p = pf.decide(DRILL, pos, 1500, ALL_ON, "growth", month=6, peak=100000)
         self.assertFalse(p["rebalance_needed"]); self.assertEqual(p["stage"], "growth")
         self.assertTrue(any("inside what the plan expects" in s for s in p["steps"]))
 
     def test_exit_signal_moves_only_that_block(self):
         pos = balanced(100000); sig = {"default": True, "MTUM": False}
-        p = pf.decide(CORE, pos, 0, sig, "growth", month=6)
+        p = pf.decide(DRILL, pos, 0, sig, "growth", month=6)
         tr = p["rebalance_trades"]
         self.assertAlmostEqual(tr["MTUM"], -pos["MTUM"], places=0); self.assertAlmostEqual(tr["SGOV"], pos["MTUM"], places=0)
         self.assertEqual(set(tr), {"MTUM", "SGOV"})
 
     def test_signal_back_on_moves_the_block_back(self):
         sig_off = {"default": True, "MTUM": False}; pos = balanced(100000, sig_off)
-        tr = pf.decide(CORE, pos, 0, ALL_ON, "growth", month=6)["rebalance_trades"]
+        tr = pf.decide(DRILL, pos, 0, ALL_ON, "growth", month=6)["rebalance_trades"]
         self.assertGreater(tr["MTUM"], 0); self.assertLess(tr["SGOV"], 0)
 
     def test_fall_past_the_record_steps_down_one_level(self):
         pos = {k: v * 0.40 for k, v in balanced(100000).items()}          # 60% below the high; record is 46%
-        p = pf.decide(CORE, pos, 0, ALL_ON, "growth", month=6, peak=100000)
+        p = pf.decide(DRILL, pos, 0, ALL_ON, "growth", month=6, peak=100000)
         self.assertEqual(p["stage"], "build"); self.assertTrue(any("[Rule R8]" in s for s in p["steps"]))
 
     def test_fall_inside_the_record_never_triggers_the_breaker(self):
         for drop in (0.2, 0.35, 0.46, 0.50):
             pos = {k: v * (1 - drop) for k, v in balanced(100000).items()}
-            self.assertEqual(pf.decide(CORE, pos, 0, ALL_ON, "growth", month=6, peak=100000)["stage"], "growth")
+            self.assertEqual(pf.decide(DRILL, pos, 0, ALL_ON, "growth", month=6, peak=100000)["stage"], "growth")
 
     def test_growing_past_the_threshold_waits_for_january(self):
         pos = balanced(500000)                                             # 27 times yearly deposits of 18,000
-        p = pf.decide(CORE, pos, 1500, ALL_ON, "growth", month=7)
+        p = pf.decide(DRILL, pos, 1500, ALL_ON, "growth", month=7)
         self.assertEqual(p["stage"], "growth"); self.assertTrue(any("waits for the January review" in s for s in p["steps"]))
-        p = pf.decide(CORE, pos, 1500, ALL_ON, "growth", month=1)
+        p = pf.decide(DRILL, pos, 1500, ALL_ON, "growth", month=1)
         self.assertEqual(p["stage"], "build"); self.assertTrue(any("[Rule R4]" in s for s in p["steps"]))
 
     def test_never_steps_back_up_to_more_risk(self):
         pos = balanced(50000, mix="build_mix")                             # small again after a fall
-        self.assertEqual(pf.decide(CORE, pos, 1500, ALL_ON, "build", month=1)["stage"], "build")
+        self.assertEqual(pf.decide(DRILL, pos, 1500, ALL_ON, "build", month=1)["stage"], "build")
 
     def test_boom_does_not_chase(self):
         pos = balanced(100000); pos["SSO"] *= 1.3                          # one block ran up, still inside the band
-        p = pf.decide(CORE, pos, 1500, ALL_ON, "growth", month=6)
+        p = pf.decide(DRILL, pos, 1500, ALL_ON, "growth", month=6)
         self.assertFalse(p["rebalance_needed"]); self.assertNotIn("SSO", p["deposit_goes_to"])
 
     def test_big_run_up_is_trimmed_not_added_to(self):
         pos = balanced(100000); pos["SSO"] *= 2.5
-        p = pf.decide(CORE, pos, 0, ALL_ON, "growth", month=6)
+        p = pf.decide(DRILL, pos, 0, ALL_ON, "growth", month=6)
         self.assertTrue(p["rebalance_needed"]); self.assertLess(p["rebalance_trades"]["SSO"], 0)
 
     def test_every_step_cites_the_policy(self):
         pos = {k: v * 0.40 for k, v in balanced(100000).items()}
-        for line in pf.decide(CORE, pos, 1500, {"default": True, "AVUV": False}, "growth", month=1, peak=100000)["steps"][:-0 or None]:
+        for line in pf.decide(DRILL, pos, 1500, {"default": True, "AVUV": False}, "growth", month=1, peak=100000)["steps"][:-0 or None]:
             if line.startswith("Set the pie") or line.startswith("No rebalance"): continue
             self.assertRegex(line, r"\[(Rule R[1-8]|Policy [0-9.]+)\]")
 
@@ -179,3 +183,57 @@ class Lifecycle(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+# ---- hunter mode: scoreboard and simple core (2026-11-14) ----
+import datetime as _dt, importlib.util as _il, json as _json, os as _os
+_ROOT = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+def _load(name):
+    sp = _il.spec_from_file_location(name, _os.path.join(_ROOT, "scripts", name + ".py")); m = _il.module_from_spec(sp); sp.loader.exec_module(m); return m
+_sb = _load("scoreboard"); _pf = _load("portfolio")
+_CFG = _json.load(open(_os.path.join(_ROOT, "engine", "config.json")))
+
+def _prices(table):
+    def f(sym, day):
+        return [(_dt.date.fromisoformat(d), p) for d, p in table[sym]]
+    return f
+
+_T = {"AAA": [("2026-11-16", 10.0), ("2026-11-17", 11.0), ("2026-11-18", 12.0), ("2026-11-19", 16.5)],
+      "SPY": [("2026-11-16", 100.0), ("2026-11-17", 100.0), ("2026-11-18", 101.0), ("2026-11-19", 102.0)]}
+
+def test_scoreboard_enters_the_day_after_the_pick_is_logged():
+    recs = [{"id": "H1", "kind": "open", "date": "2026-11-16", "symbol": "AAA", "thesis": "t", "exit": {}}]
+    r = _sb.board(recs, _prices(_T), _CFG, today=_dt.date(2026, 11, 19))["picks"][0]
+    assert r["entered"] == "2026-11-17" and r["entry_price"] == 11.0          # not the 10.0 known on the pick date
+    assert abs(r["pick_return"] - 0.5) < 1e-9 and abs(r["spy_return"] - 0.02) < 1e-9 and abs(r["lead"] - 0.48) < 1e-9
+
+def test_scoreboard_close_and_flags():
+    recs = [{"id": "H1", "kind": "open", "date": "2026-11-16", "symbol": "AAA", "thesis": "t", "exit": {"target": 15.0, "stop": 9.0, "review_by": "2027-01-01"}}]
+    r = _sb.board(recs, _prices(_T), _CFG, today=_dt.date(2026, 11, 19))["picks"][0]
+    assert r["flags"] == ["TARGET HIT: close it"]
+    recs.append({"id": "H1", "kind": "close", "date": "2026-11-18", "reason": "x"})
+    b = _sb.board(recs, _prices(_T), _CFG, today=_dt.date(2026, 11, 19)); r = b["picks"][0]
+    assert r["status"] == "closed" and r["last_price"] == 12.0 and "flags" not in r
+    assert b["summary"]["closed"] == 1 and b["summary"]["closed_hit_rate"] == 1.0
+
+def test_real_money_stays_locked_until_the_rule_is_met():
+    recs = []
+    for i in range(19):
+        recs += [{"id": "H%d" % i, "kind": "open", "date": "2026-11-16", "symbol": "AAA", "thesis": "t", "exit": {}}, {"id": "H%d" % i, "kind": "close", "date": "2026-11-19", "reason": ""}]
+    b = _sb.board(recs, _prices(_T), _CFG)
+    assert b["summary"]["real_money"] == "LOCKED" and "1 more closed picks" in b["summary"]["still_needed"][0]
+    recs += [{"id": "H19", "kind": "open", "date": "2026-11-16", "symbol": "AAA", "thesis": "t", "exit": {}}, {"id": "H19", "kind": "close", "date": "2026-11-19", "reason": ""}]
+    assert _sb.board(recs, _prices(_T), _CFG)["summary"]["real_money"] == "UNLOCKED"
+    losing = {"AAA": [(d, 10.0 - i) for i, (d, _) in enumerate(_T["AAA"])], "SPY": _T["SPY"]}
+    assert _sb.board(recs, _prices(losing), _CFG)["summary"]["real_money"] == "LOCKED"      # 20 closed but behind the S&P 500
+
+def test_growth_stage_is_the_simple_mix_with_no_exits_and_no_borrowing():
+    core = _CFG["core"]
+    assert core["stages"][0]["mix"] == "simple_mix" and core["simple_mix"] == {"stocks": 0.9, "small_value": 0.1}
+    p = _pf.decide(core, {}, 100, {"MTUM": False, "AVUV": False, "SP500": False}, "growth", month=11)
+    assert p["pie_weights"] == {"VTI": 90, "AVUV": 10}                         # exit signals cannot move it
+    assert p["steps"][-1].startswith("This mix has no exit rules")
+
+def test_hunt_caps_real_money():
+    h = _CFG["hunt"]
+    assert h["real_money_after_unlock"]["share_of_account"] <= 0.2 and h["real_money_after_unlock"]["per_pick"] <= 0.05 and h["unlock"]["min_closed"] >= 20

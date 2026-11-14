@@ -10,6 +10,7 @@
   backtest  long-term portfolio backtest      robust  stress tests on the backtest
   simulate  rules simulator          levels  best mix for each loss limit
   lifecycle whole-life test, 10 to 50 years   stress  crashes, booms and rough-up tests
+  scoreboard paper picks against the S&P 500 (--open, --close)   aggressive  test of the 2x-with-exit mix
   test      run every automated test
 """
 import io, json, os, runpy, subprocess, sys, contextlib
@@ -17,7 +18,7 @@ import io, json, os, runpy, subprocess, sys, contextlib
 HERE = os.path.dirname(os.path.abspath(__file__))
 MAP = {"signal": "signal", "plan": "portfolio", "size": "sizing", "calc": "fincalc", "gate": "safety_gate",
        "check": "check_edition", "score": "score", "aggregate": "aggregate", "backtest": "backtest",
-       "robust": "robust", "simulate": "simulate", "frequency": "frequency", "realfunds": "realfunds", "levels": "levels", "lifecycle": "lifecycle", "stress": "stress"}
+       "robust": "robust", "simulate": "simulate", "frequency": "frequency", "realfunds": "realfunds", "levels": "levels", "lifecycle": "lifecycle", "stress": "stress", "scoreboard": "scoreboard", "aggressive": "aggressive"}
 
 
 def run(script, args):

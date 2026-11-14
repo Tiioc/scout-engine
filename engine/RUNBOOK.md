@@ -66,6 +66,26 @@ On request, build one blinded historical case from public data (names and years 
 4. If `inside_buffer` is true, the fund is within 2% of its average: no change, by rule.
 5. Append one line to `ledger/portfolio.jsonl`: date, signal, gap, and whether a rebalance was advised.
 
+## J. Weekly hunt (hunter mode)
+
+1. `python3 scout.py scoreboard`. Close any pick it flags (stop, target or review date) with `python3 scout.py scoreboard --close <id> --reason "..."`, or renew it with a written reason in the edition.
+2. Radar: one wide scan for candidates with a named edge. Check `ledger/paper.jsonl` and past editions so nothing is repeated.
+3. Pick the single best candidate. One specialist writes the dossier (`engine/DOSSIER_TEMPLATE.md`) with a stop, a target and a review date.
+4. Five sealed forecasters answer: will this beat the S&P 500 from entry to the review date, plus two or three checkable questions about the thesis. Pool with `scripts/aggregate.py`. Log every forecast to `ledger/forecasts.jsonl`.
+5. Red Team attacks the dossier and checks its numbers against sources. Run the safety gate and `scripts/sizing.py`.
+6. It becomes a paper pick only if it clears every bar in `hunt.paper_pick_bar`. Log it with `python3 scout.py scoreboard --open <id> <SYMBOL> --thesis "..." --edge "..." --stop X --target Y --review-by DATE --forecast P`. Otherwise report "no pick this week" and say why the best candidate failed.
+7. Commit before the next trading day's close, so the entry price cannot be known.
+
+## K. The watch
+
+1. Read `profile/watchlist.json` if it exists. For each entry, search for news since the last run on the items listed there.
+2. Report only what changed and whether it raises or lowers the odds. No change is reported in one line.
+3. Never put the owner's relationship to a watched company in a search or an outside request.
+
+## L. Core check (monthly, or when the owner asks)
+
+`python3 scout.py check --deposit <amount>`. With the simple mix there is nothing to switch; this confirms the pie weights and where the deposit goes.
+
 ## I. Run budget
 
-A weekly edition uses at most: 1 radar, 4 specialists, 5 forecaster calls (one per framing, all questions in one call), 1 red team. The weekly portfolio check uses no agents. If a run cannot fit, publish what is finished and say what was cut.
+A weekly hunt uses at most: 1 radar, 1 specialist, 5 forecaster calls (one per framing, all questions in one call), 1 red team. A full edition uses at most: 1 radar, 4 specialists, 5 forecaster calls, 1 red team. The weekly portfolio check uses no agents. If a run cannot fit, publish what is finished and say what was cut.

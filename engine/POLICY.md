@@ -71,3 +71,19 @@ Put money in. Enter the monthly steps at the broker. Tell the Scout when life ch
 
 ## 7. What the Scout reports every week
 The stage, the signal, the exact steps with their rule numbers, how far the portfolio is from its high, and what the worst historical fall would mean in dollars today.
+
+## 12. Hunter mode (approved by the owner 2026-11-14)
+
+The fixed growth mix with weekly exits was retired after the Red Team showed it lagged a plain stock fund from every start date after 2008 (`research/REDTEAM-2026-11-13.md`). What replaced it:
+
+**The core is simple.** In the growth stage the core is 90% total US stock market and 10% small value, always held. No exits, no borrowing. It is set once. Deposits go in on schedule and nothing else happens to it. The owner may choose the tested aggressive mix instead (half stocks, half a 2x fund held only above the 200-day average, checked daily with a 2% band): Roth IRA only, 2x only, and only after the broker confirms it allows the fund. Evidence and its weak points are in `research/AGGRESSIVE-2026-11-13.md`. Exit rules stay in place for the Build and Protect stages.
+
+**The work is the hunt.** Each week the Scout runs one deep hunt for an opportunity that is specific, non-obvious and has a named edge. A find becomes a paper pick only if it clears every bar in `engine/config.json` under `hunt.paper_pick_bar`. "No pick this week" is a valid result and is better than a weak pick.
+
+**The scoreboard keeps it honest.** Every pick is logged to `ledger/paper.jsonl` before its entry price can be known and is measured against the S&P 500 over the same days (`python3 scout.py scoreboard`). Picks are never edited or removed. A losing pick stays on the board.
+
+**Real money is locked** until the scoreboard shows at least 20 closed picks, at least half of them ahead of the S&P 500, and an average lead above zero. After that, at most 10% of the account may follow picks, at most 5% in any one, sized by `scripts/sizing.py` and passed by the safety gate. If the closed-pick record later falls back below the rule, no new real-money picks are opened until it recovers.
+
+**Every pick has its exit written at entry:** a stop, a target and a review date. When the scoreboard flags one, the pick is closed or renewed with a written reason. No pick is held on hope.
+
+**The watch.** Companies or situations the owner has a large personal stake in are listed in `profile/watchlist.json` (private). Each weekly run checks them for news that changes the odds and reports only what changed.
