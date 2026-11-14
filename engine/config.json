@@ -188,29 +188,27 @@
       },
       "growth_mix": {
         "worst_fall": 0.46,
-        "worst_year": 0.3,
-        "losing_years_share": 0.27,
         "worst_single_day": 0.17,
-        "worst_month": 0.28,
-        "real_growth_per_year": 0.0974,
-        "worst_fall_note": "daily path, weekly exits with a 2% buffer; the monthly rule showed 60% on the same daily data",
-        "worst_week": 0.31
+        "real_growth_per_year": 0.088,
+        "worst_year": 0.32,
+        "losing_years_share": 0.27,
+        "basis": "daily prices 1927-2025, weekly exits with a 2% buffer"
       },
       "build_mix": {
-        "worst_fall": 0.35,
+        "worst_fall": 0.44,
+        "worst_single_day": 0.16,
+        "real_growth_per_year": 0.062,
         "worst_year": 0.23,
         "losing_years_share": 0.22,
-        "worst_single_day": 0.15,
-        "worst_month": 0.2,
-        "real_growth_per_year": 0.0763
+        "basis": "daily prices 1927-2025, weekly exits with a 2% buffer"
       },
       "protect_mix": {
-        "worst_fall": 0.24,
+        "worst_fall": 0.29,
+        "worst_single_day": 0.08,
+        "real_growth_per_year": 0.054,
         "worst_year": 0.16,
         "losing_years_share": 0.19,
-        "worst_single_day": 0.1,
-        "worst_month": 0.15,
-        "real_growth_per_year": 0.0615
+        "basis": "daily prices 1927-2025, weekly exits with a 2% buffer"
       }
     },
     "risk_levels": {
@@ -357,6 +355,67 @@
       "international momentum (IMTM)": "no help since 2016",
       "international small cheap (AVDV)": "slight help since 2020; too short to add",
       "bitcoin": "a 5% slice added about 3 points a year since 2016; one asset, ten years, not added to the core"
+    },
+    "mix_source": "Mixes chosen by the level search on monthly data; confirmed on the daily price path under the weekly exit rule and with real funds since 2008. A higher-borrowing alternative was tested and not adopted (see alternative_growth_mix_tested).",
+    "risk_levels_daily": {
+      "0.25": {
+        "momentum": 0.1,
+        "trend_small_value": 0.2,
+        "trend_momentum": 0.1,
+        "trend_2x_stocks": 0.1,
+        "bonds": 0.5
+      },
+      "0.3": {
+        "momentum": 0.2,
+        "trend_stocks": 0.1,
+        "trend_small_value": 0.2,
+        "trend_2x_stocks": 0.1,
+        "bonds": 0.4
+      },
+      "0.35": {
+        "momentum": 0.2,
+        "trend_small_value": 0.1,
+        "trend_2x_stocks": 0.3,
+        "bonds": 0.4
+      },
+      "0.4": {
+        "small_value": 0.1,
+        "momentum": 0.1,
+        "trend_small_value": 0.1,
+        "trend_2x_stocks": 0.4,
+        "bonds": 0.3
+      },
+      "0.45": {
+        "small_value": 0.1,
+        "momentum": 0.1,
+        "trend_small_value": 0.2,
+        "trend_2x_stocks": 0.4,
+        "bonds": 0.2
+      },
+      "0.5": {
+        "small_value": 0.1,
+        "momentum": 0.1,
+        "trend_small_value": 0.3,
+        "trend_2x_stocks": 0.4,
+        "bonds": 0.1
+      },
+      "0.6": {
+        "small_value": 0.2,
+        "trend_2x_stocks": 0.8
+      },
+      "1.0": {
+        "trend_2x_stocks": 1.0
+      }
+    },
+    "alternative_growth_mix_tested": {
+      "mix": {
+        "small_value": 0.1,
+        "momentum": 0.1,
+        "trend_small_value": 0.3,
+        "trend_2x_stocks": 0.4,
+        "bonds": 0.1
+      },
+      "result": "10.5% a year and a 50% deepest fall on daily data, but with real funds since 2008 it grew less (10.6% against 11.6%), fell further (25% against 20%) and lost 25% in 2022. Not adopted: more borrowing for no gain in the real-fund test."
     }
   }
 }

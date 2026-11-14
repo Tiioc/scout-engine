@@ -7,23 +7,21 @@
 
 ## Your part
 1. **Before the first deposit:** emergency fund set, high-interest debt cleared. Money you need within three years goes in the cash fund, outside the plan.
-2. **Each month:** deposit. When the notice arrives, enter the pie weights it lists. That is the whole job.
+2. **Each week:** when the Monday notice arrives, enter the pie weights it lists if they changed. Deposit whenever you like. That is the whole job.
 3. **When life changes** (income, goals, a need for cash): tell the Scout.
 4. **In a crash:** do nothing extra. The notice will say how the fall compares with the record and what, if anything, the rules call for.
 
-## The plan in one table
-| Stage | When | Worst fall in 98 years | Growth per year in 98 years |
-|---|---|---|---|
-| Growth | Account under 20 times yearly deposits | 50% | 9.7% |
-| Build | 20 to 60 times | 35% | 7.6% |
-| Protect | Over 60 times | 25% | 6.2% |
+## The plan
+- **Growth stage** (until the account is 20 times your yearly deposits, roughly the first decade): 30% AVUV, 50% MTUM, 10% SSO, 10% GLDM. Any fund whose exit is on is held as SGOV instead.
+- In 98 years of daily data this mix grew 8.8% a year after inflation and fell 46% at its worst. Built from real funds since 2008 it grew 11.6% a year against 11.2% for the S&P 500, with a deepest fall of 20% against 46%.
+- Later stages hold calmer mixes, chosen by a fresh test before they are needed.
 
 ## The funds
 | Block | Fund | Exit |
 |---|---|---|
-| Small cheap companies | AVUV | part of it leaves when AVUV closes a month below its 10-month average |
-| Momentum | MTUM | leaves when MTUM closes a month below its 10-month average |
-| Stocks at 2x | SSO | leaves when the S&P 500 closes a month below its 10-month average |
+| Small cheap companies | AVUV | one third of it leaves when AVUV ends a week more than 2% below its 200-day average |
+| Momentum | MTUM | leaves when MTUM ends a week more than 2% below its 200-day average |
+| Stocks at 2x | SSO | leaves when the S&P 500 ends a week more than 2% below its 200-day average |
 | Gold | GLDM | none |
 | Bonds (later stages) | IEF | none |
 | Cash, and anything that has exited | SGOV | |

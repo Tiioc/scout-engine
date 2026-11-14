@@ -13,15 +13,28 @@ import backtest as B
 COST = {"small_value": .005, "momentum": .015}
 
 
-def daily_panel(data):
+def daily_panel(data, costs=True):
     f = B.french(os.path.join(data, "F-F_Research_Data_Factors_daily.csv"), ",Mkt-RF", digits=8)
     s = B.french(os.path.join(data, "6_Portfolios_2x3_Daily.csv"), ",SMALL LoBM", digits=8)
     m = B.french(os.path.join(data, "10_Portfolios_Prior_12_2_Daily.csv"), ",Lo PRIOR", digits=8)
-    d = pd.DataFrame({"stocks": f["Mkt-RF"] + f["RF"], "bills": f["RF"], "small_value": s["SMALL HiBM"] - COST["small_value"] / 252,
-                      "momentum": m["Hi PRIOR"] - COST["momentum"] / 252}).dropna()
+    d = pd.DataFrame({"stocks": f["Mkt-RF"] + f["RF"], "bills": f["RF"], "small_value": s["SMALL HiBM"] - (COST["small_value"] / 252 if costs else 0),
+                      "momentum": m["Hi PRIOR"] - (COST["momentum"] / 252 if costs else 0)}).dropna()
     d = d[(d > -0.99).all(axis=1)]
     d["two_x"] = (2 * d["stocks"] - d["bills"] - B.BORROW_SPREAD / 252).clip(lower=-1)
     return d
+
+
+def weekly_blocks(data, band=0.02, lag_days=0, switch_cost=0.001):
+    """Monthly returns of each block under the weekly exit rule, built from daily data, for the
+    level search and the whole-life test. Costs of the underlying funds are not included here."""
+    d = daily_panel(data, costs=False); b = d["bills"].values; out = {}
+    for name, src, sig_src in (("trend_small_value", "small_value", "small_value"), ("trend_momentum", "momentum", "momentum"),
+                               ("trend_stocks", "stocks", "stocks"), ("trend_2x_stocks", "two_x", "stocks")):
+        h = signal(d[sig_src], "weekly", band)
+        if lag_days: h = np.r_[np.zeros(lag_days, bool), h[:-lag_days]]
+        r = np.where(h, d[src].values, b) - switch_cost * np.r_[False, h[1:] != h[:-1]]
+        out[name] = (1 + pd.Series(r, index=d.index)).groupby(d.index // 100).prod() - 1
+    return pd.DataFrame(out)
 
 
 def signal(ret, mode, band=0.0, days=200):

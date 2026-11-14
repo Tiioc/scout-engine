@@ -16,7 +16,7 @@ This is the owner's whole investment portfolio. Dollar size does not change any 
 | Plays | Rapid growth from researched opportunities | A few sized positions, each with a written exit | Caps in `config.json`; counted inside the core's risk, never on top with borrowed money |
 
 ## 2. What "safe" means here
-- **It does not mean no losses.** The growth mix (risk level 50) fell 50% at its worst in 98 years of monthly history, lost up to 30% in a single 12 months, and lost money in about a quarter of all 12-month stretches. Something like that will happen again.
+- **It does not mean no losses.** The growth mix fell 46% at its worst in 98 years of daily history, lost 17% in its worst single day, and lost money in about a quarter of all 12-month stretches. Something like that will happen again.
 - **The loss limit is chosen, not hoped for.** `scripts/levels.py` finds, for each limit on the worst account-wide fall, the mix with the most growth. The owner picks the limit; the software supplies the mix. Limits come from history and are not guarantees, which is why rule R8 exists.
 - **It means no wipeout.** The portfolio cannot go to zero unless every fund in it does. These protections make that so:
   1. Funds only in the core. No single company can sink it.
@@ -29,11 +29,15 @@ This is the owner's whole investment portfolio. Dollar size does not change any 
 ## 3. Stages (elevated risk early, less later)
 The stage depends on how large the account is compared with what goes in each year. Early on, a crash costs little because future deposits outweigh the balance. Later the balance is what matters.
 
-| Stage | When | Risk level | Growth per year in the record | Worst fall in the record |
+| Stage | When | Growth per year in the record | Deepest fall in the record | Worst single day |
 |---|---|---|---|---|
-| **Growth** | Account under 20 times yearly deposits | 50 | 9.7% | 50% |
-| **Build** | 20 to 60 times | 35 | 7.6% | 35% |
-| **Protect** | Over 60 times, or within 5 years of needing the money | 25 | 6.2% | 25% |
+| **Growth** | Account under 20 times yearly deposits | 8.8% | 46% | 17% |
+| **Build** | 20 to 60 times | re-chosen by test when the stage arrives | | |
+| **Protect** | Over 60 times, or within 5 years of needing the money | re-chosen by test when the stage arrives | | |
+
+Figures are after inflation, on daily prices from 1927 to 2025 with weekly exits. Earlier figures from month-end data (9.7% and 50%) were replaced on 2026-11-13: daily data gives lower growth and shows the monthly rule's true deepest fall was 60%.
+
+The mixes now stored for Build and Protect fell 44% and 29% on daily data, which is not calm enough. They are placeholders. The growth stage lasts roughly the first decade, and the later mixes will be chosen by a fresh test before they are needed.
 
 - The step-down points were chosen by `scripts/lifecycle.py`, not by hand: they gave the best result when a 1929-style crash was placed in the final years of a 20 or 30 year plan.
 - A stage change happens only at a January review, and only downward. The plan never moves back to more risk by itself.
