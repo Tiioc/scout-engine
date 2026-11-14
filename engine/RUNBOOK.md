@@ -82,9 +82,13 @@ On request, build one blinded historical case from public data (names and years 
 2. Report only what changed and whether it raises or lowers the odds. No change is reported in one line.
 3. Never put the owner's relationship to a watched company in a search or an outside request.
 
-## L. Core check (monthly, or when the owner asks)
+## L. Core check (first Monday run of each month, or when the owner asks)
 
-`python3 scout.py check --deposit <amount>`. With the simple mix there is nothing to switch; this confirms the pie weights and where the deposit goes.
+`python3 scout.py check --deposit <amount> --holdings profile/holdings.json`. If a slice is more than 5 points off target, tell the owner the one sale (inside a Roth or 401(k)) that puts it back to 90/10, or in a taxable account where to point the next deposits. If there is no holdings file, ask once for the current VTI and AVUV balances. Otherwise say nothing about the core.
+
+## M. January review
+
+Rerun `scripts/portfolio_lab.py`, `scripts/portfolio_lab_realfunds.py` and `scripts/portfolio_lab_sensitivity.py` on the new year of data. Before running anything new, write and commit a pre-registration for it (first item: a valuation-based international test). A change to the core needs the owner's approval.
 
 ## I. Run budget
 

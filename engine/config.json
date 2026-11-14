@@ -441,7 +441,25 @@
       "stocks": 0.5,
       "trend_2x_stocks": 0.5
     },
-    "retired_growth_mix_reason": "growth_mix was killed by the Red Team on 2026-11-13 (research/REDTEAM-2026-11-13.md). Kept for the record; not used."
+    "retired_growth_mix_reason": "growth_mix was killed by the Red Team on 2026-11-13 (research/REDTEAM-2026-11-13.md). Kept for the record; not used.",
+    "simple_mix_evidence": {
+      "decided": "2026-11-14",
+      "preregistration": "research/CORE-PREREGISTRATION-2026-11-14.md",
+      "evidence": "ledger/packs/2026-11-14-core.md",
+      "verdict": "editions/2026-11-14-core-verdict.md",
+      "result": "Passed all six pre-registered rules; Red Teams FIX/FIX; safety gate PASS. Edge over VTI small and uncertain (+0.6% to +6.9% of ending wealth after 25 years); never behind VTI in 13 forward scenarios."
+    },
+    "rebalance_rule": {
+      "look": "monthly, by the Scout on the first Monday run",
+      "band": 0.05,
+      "tax_free_accounts": "sell back to target when a slice is more than 5 points off",
+      "taxable": "point new deposits at the slice that is behind",
+      "crash": "nothing changes; keep depositing"
+    },
+    "aggressive_mix_status": "NOT CLEARED 2026-11-14: failed pre-registered rule 3 (lost in Japan 1990-2026) and the safety gate (leverage).",
+    "open_questions": [
+      "International slice: pre-register a valuation-based test before running it at the January 2027 review."
+    ]
   },
   "hunt": {
     "_note": "Hunter mode, approved by the owner 2026-11-14. One deep hunt a week; picks are on paper until the unlock rule is met.",

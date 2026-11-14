@@ -1,0 +1,85 @@
+1990-2026 log returns a year: US 10.51%, international 6.07%, small value 12.06%
+
+intl at its own CAPE (about 7.7% nominal) | full premium
+  C1  median vs C1   +0.0%  chance behind 0.00  p10 vs C1 p10   +0.0%  worst5% fall  -68%
+  C2  median vs C1  +12.8%  chance behind 0.20  p10 vs C1 p10  +12.5%  worst5% fall  -68%
+  C3  median vs C1   +6.3%  chance behind 0.19  p10 vs C1 p10   +6.0%  worst5% fall  -68%
+  C4  median vs C1   +3.6%  chance behind 0.25  p10 vs C1 p10   +3.7%  worst5% fall  -68%
+  C5  median vs C1  +11.0%  chance behind 0.14  p10 vs C1 p10   +9.5%  worst5% fall  -67%
+
+intl at its own CAPE (about 7.7% nominal) | half premium
+  C1  median vs C1   +0.0%  chance behind 0.00  p10 vs C1 p10   +0.0%  worst5% fall  -68%
+  C2  median vs C1  +12.8%  chance behind 0.20  p10 vs C1 p10  +12.5%  worst5% fall  -68%
+  C3  median vs C1   +6.3%  chance behind 0.19  p10 vs C1 p10   +6.0%  worst5% fall  -68%
+  C4  median vs C1   +2.2%  chance behind 0.33  p10 vs C1 p10   +2.2%  worst5% fall  -68%
+  C5  median vs C1   +8.9%  chance behind 0.19  p10 vs C1 p10   +7.3%  worst5% fall  -68%
+
+intl at its own CAPE (about 7.7% nominal) | half premium minus 1%
+  C1  median vs C1   +0.0%  chance behind 0.00  p10 vs C1 p10   +0.0%  worst5% fall  -68%
+  C2  median vs C1  +12.8%  chance behind 0.20  p10 vs C1 p10  +12.5%  worst5% fall  -68%
+  C3  median vs C1   +6.3%  chance behind 0.19  p10 vs C1 p10   +6.0%  worst5% fall  -68%
+  C4  median vs C1   +0.7%  chance behind 0.44  p10 vs C1 p10   +1.4%  worst5% fall  -68%
+  C5  median vs C1   +6.5%  chance behind 0.27  p10 vs C1 p10   +5.4%  worst5% fall  -68%
+
+intl at its own CAPE (about 7.7% nominal) | zero premium
+  C1  median vs C1   +0.0%  chance behind 0.00  p10 vs C1 p10   +0.0%  worst5% fall  -68%
+  C2  median vs C1  +12.8%  chance behind 0.20  p10 vs C1 p10  +12.5%  worst5% fall  -68%
+  C3  median vs C1   +6.3%  chance behind 0.19  p10 vs C1 p10   +6.0%  worst5% fall  -68%
+  C4  median vs C1   +1.0%  chance behind 0.42  p10 vs C1 p10   +1.7%  worst5% fall  -68%
+  C5  median vs C1   +6.9%  chance behind 0.25  p10 vs C1 p10   +6.3%  worst5% fall  -68%
+
+intl same as US (6%) | full premium
+  C1  median vs C1   +0.0%  chance behind 0.00  p10 vs C1 p10   +0.0%  worst5% fall  -68%
+  C2  median vs C1   +2.2%  chance behind 0.45  p10 vs C1 p10   +2.1%  worst5% fall  -69%
+  C3  median vs C1   +1.4%  chance behind 0.43  p10 vs C1 p10   +0.7%  worst5% fall  -68%
+  C4  median vs C1   +3.6%  chance behind 0.25  p10 vs C1 p10   +3.7%  worst5% fall  -68%
+  C5  median vs C1   +7.0%  chance behind 0.26  p10 vs C1 p10   +6.9%  worst5% fall  -68%
+
+intl same as US (6%) | half premium
+  C1  median vs C1   +0.0%  chance behind 0.00  p10 vs C1 p10   +0.0%  worst5% fall  -68%
+  C2  median vs C1   +2.2%  chance behind 0.45  p10 vs C1 p10   +2.1%  worst5% fall  -69%
+  C3  median vs C1   +1.4%  chance behind 0.43  p10 vs C1 p10   +0.7%  worst5% fall  -68%
+  C4  median vs C1   +2.2%  chance behind 0.33  p10 vs C1 p10   +2.2%  worst5% fall  -68%
+  C5  median vs C1   +4.9%  chance behind 0.32  p10 vs C1 p10   +4.3%  worst5% fall  -68%
+
+intl same as US (6%) | half premium minus 1%
+  C1  median vs C1   +0.0%  chance behind 0.00  p10 vs C1 p10   +0.0%  worst5% fall  -68%
+  C2  median vs C1   +2.2%  chance behind 0.45  p10 vs C1 p10   +2.1%  worst5% fall  -69%
+  C3  median vs C1   +1.4%  chance behind 0.43  p10 vs C1 p10   +0.7%  worst5% fall  -68%
+  C4  median vs C1   +0.7%  chance behind 0.44  p10 vs C1 p10   +1.4%  worst5% fall  -68%
+  C5  median vs C1   +2.5%  chance behind 0.40  p10 vs C1 p10   +1.7%  worst5% fall  -68%
+
+intl same as US (6%) | zero premium
+  C1  median vs C1   +0.0%  chance behind 0.00  p10 vs C1 p10   +0.0%  worst5% fall  -68%
+  C2  median vs C1   +2.2%  chance behind 0.45  p10 vs C1 p10   +2.1%  worst5% fall  -69%
+  C3  median vs C1   +1.4%  chance behind 0.43  p10 vs C1 p10   +0.7%  worst5% fall  -68%
+  C4  median vs C1   +1.0%  chance behind 0.42  p10 vs C1 p10   +1.7%  worst5% fall  -68%
+  C5  median vs C1   +3.1%  chance behind 0.39  p10 vs C1 p10   +2.2%  worst5% fall  -68%
+
+intl cut half as much as US (T8b) | full premium
+  C1  median vs C1   +0.0%  chance behind 0.00  p10 vs C1 p10   +0.0%  worst5% fall  -68%
+  C2  median vs C1   -9.9%  chance behind 0.77  p10 vs C1 p10   -8.8%  worst5% fall  -71%
+  C3  median vs C1   -4.7%  chance behind 0.77  p10 vs C1 p10   -4.4%  worst5% fall  -69%
+  C4  median vs C1   +3.6%  chance behind 0.25  p10 vs C1 p10   +3.7%  worst5% fall  -68%
+  C5  median vs C1   +1.9%  chance behind 0.42  p10 vs C1 p10   +1.0%  worst5% fall  -68%
+
+intl cut half as much as US (T8b) | half premium
+  C1  median vs C1   +0.0%  chance behind 0.00  p10 vs C1 p10   +0.0%  worst5% fall  -68%
+  C2  median vs C1   -9.9%  chance behind 0.77  p10 vs C1 p10   -8.8%  worst5% fall  -71%
+  C3  median vs C1   -4.7%  chance behind 0.77  p10 vs C1 p10   -4.4%  worst5% fall  -69%
+  C4  median vs C1   +2.2%  chance behind 0.33  p10 vs C1 p10   +2.2%  worst5% fall  -68%
+  C5  median vs C1   +0.0%  chance behind 0.50  p10 vs C1 p10   -0.4%  worst5% fall  -69%
+
+intl cut half as much as US (T8b) | half premium minus 1%
+  C1  median vs C1   +0.0%  chance behind 0.00  p10 vs C1 p10   +0.0%  worst5% fall  -68%
+  C2  median vs C1   -9.9%  chance behind 0.77  p10 vs C1 p10   -8.8%  worst5% fall  -71%
+  C3  median vs C1   -4.7%  chance behind 0.77  p10 vs C1 p10   -4.4%  worst5% fall  -69%
+  C4  median vs C1   +0.7%  chance behind 0.44  p10 vs C1 p10   +1.4%  worst5% fall  -68%
+  C5  median vs C1   -2.2%  chance behind 0.59  p10 vs C1 p10   -2.1%  worst5% fall  -69%
+
+intl cut half as much as US (T8b) | zero premium
+  C1  median vs C1   +0.0%  chance behind 0.00  p10 vs C1 p10   +0.0%  worst5% fall  -68%
+  C2  median vs C1   -9.9%  chance behind 0.77  p10 vs C1 p10   -8.8%  worst5% fall  -71%
+  C3  median vs C1   -4.7%  chance behind 0.77  p10 vs C1 p10   -4.4%  worst5% fall  -69%
+  C4  median vs C1   +1.0%  chance behind 0.42  p10 vs C1 p10   +1.7%  worst5% fall  -68%
+  C5  median vs C1   -1.7%  chance behind 0.57  p10 vs C1 p10   -1.8%  worst5% fall  -69%

@@ -87,3 +87,12 @@ The fixed growth mix with weekly exits was retired after the Red Team showed it 
 **Every pick has its exit written at entry:** a stop, a target and a review date. When the scoreboard flags one, the pick is closed or renewed with a written reason. No pick is held on hope.
 
 **The watch.** Companies or situations the owner has a large personal stake in are listed in `profile/watchlist.json` (private). Each weekly run checks them for news that changes the odds and reports only what changed.
+
+
+## 13. Core cleared on 2026-11-14 (owner asked for the most tested version)
+- Core: 90% VTI, 10% AVUV, chosen by the pre-registered process in `research/CORE-PREREGISTRATION-2026-11-14.md` and recorded in `editions/2026-11-14-core-verdict.md`.
+- Rebalance: when a slice is more than 5 points off target, sell back to target inside tax-free accounts; in taxable accounts point new deposits at the slice that is behind. Deposits alone do not hold the mix.
+- Crash rule: in a fall of any size nothing changes. Keep depositing; the only sale allowed is a band rebalance.
+- Before investing: an emergency fund and no debt above about 8% interest come first; take any employer 401(k) match first.
+- The leveraged slice is not cleared. A riskier slice of up to 10% of the account opens only through the hunt scoreboard's unlock rule (section 12).
+- January review: rerun every test on the new year of data; pre-register a valuation-based international test before running it.
