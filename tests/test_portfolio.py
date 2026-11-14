@@ -35,6 +35,28 @@ class Targets(unittest.TestCase):
             self.assertEqual(sum(portfolio.pie(w).values()), 100)
 
 
+class PerFundSignals(unittest.TestCase):
+    F = {"small_value": "AVUV", "gold": "GLDM", "trend_momentum": {"on": "MTUM", "off": "SGOV", "signal": "MTUM"},
+         "trend_small_value": {"on": "AVUV", "off": "SGOV", "signal": "AVUV"}, "trend_2x_stocks": {"on": "SSO", "off": "SGOV", "signal": "SP500"}}
+    M = {"small_value": 0.2, "trend_small_value": 0.1, "trend_momentum": 0.5, "trend_2x_stocks": 0.1, "gold": 0.1}
+
+    def test_each_block_follows_its_own_signal(self):
+        t = portfolio.targets(self.M, self.F, {"MTUM": False, "AVUV": True, "SP500": True})
+        self.assertAlmostEqual(t["SGOV"], 0.5); self.assertAlmostEqual(t["AVUV"], 0.3); self.assertAlmostEqual(t["SSO"], 0.1)
+
+    def test_all_off_leaves_only_unconditional_blocks_invested(self):
+        t = portfolio.targets(self.M, self.F, {"default": False})
+        self.assertAlmostEqual(t["SGOV"], 0.7); self.assertAlmostEqual(t["AVUV"], 0.2); self.assertAlmostEqual(sum(t.values()), 1.0)
+
+    def test_risk_levels_in_config_are_ordered(self):
+        c = json.load(open(os.path.join(ROOT, "engine", "config.json")))["core"]["risk_levels"]
+        ks = sorted((int(k) for k in c if k.isdigit()))
+        g = [c[str(k)]["real_growth_per_year"] for k in ks]
+        self.assertEqual(g, sorted(g))                       # more room to fall never means less growth
+        for k in ks:
+            self.assertGreaterEqual(c[str(k)]["worst_fall"], -k / 100 - 1e-9); self.assertAlmostEqual(sum(c[str(k)]["mix"].values()), 1.0)
+
+
 class Plan(unittest.TestCase):
     def setUp(self): self.tw = portfolio.targets(MIX, FUNDS, True)
 
@@ -90,11 +112,11 @@ class Policy(unittest.TestCase):
         tw = portfolio.targets(MIX, FUNDS, False)
         p = portfolio.plan({"AVUV": 3000, "MTUM": 2000, "SSO": 4000, "GLDM": 1000}, 500, tw)
         for line in portfolio.steps(p, False)[1:]:
-            self.assertRegex(line, r"\[Rule R[1-7]\]")
+            self.assertRegex(line, r"\[Rule R[1-8]\]")
 
     def test_policy_file_defines_every_rule_used(self):
         text = open(os.path.join(ROOT, "engine", "POLICY.md")).read()
-        for r in ("R1", "R2", "R3", "R4", "R5", "R6", "R7"): self.assertIn("| %s |" % r, text)
+        for r in ("R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8"): self.assertIn("| %s |" % r, text)
 
 
 class Signal(unittest.TestCase):
@@ -167,7 +189,7 @@ class EntryPoint(unittest.TestCase):
 
     def test_config_mixes_add_to_one_and_have_funds(self):
         c = json.load(open(os.path.join(ROOT, "engine", "config.json")))["core"]
-        for m in ("software_mix", "no_borrowing_mix"):
+        for m in ("software_mix", "no_borrowing_mix", "growth_mix"):
             self.assertAlmostEqual(sum(c[m].values()), 1.0)
             for block in c[m]: self.assertIn(block, c["funds"])
 

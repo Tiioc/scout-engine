@@ -33,6 +33,28 @@ def compute(rows, lookback=10, today=None):
             "meaning": "hold the stock block" if gap > 0 else "hold cash in place of the stock block"}
 
 
+YAHOO = "https://query1.finance.yahoo.com/v8/finance/chart/%s?range=2y&interval=1d"
+
+
+def fund_rows(ticker):
+    """Daily dividend-adjusted closes for one fund, as (date, close) rows."""
+    import datetime
+    url = YAHOO % ticker
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        raw = urllib.request.urlopen(req, timeout=30).read().decode()
+    except Exception:
+        raw = subprocess.run(["curl", "-sS", "-m", "30", "-A", "Mozilla/5.0", url], capture_output=True, text=True, check=True).stdout
+    r = json.loads(raw)["chart"]["result"][0]
+    px = r["indicators"].get("adjclose", [{}])[0].get("adjclose") or r["indicators"]["quote"][0]["close"]
+    return [(datetime.datetime.utcfromtimestamp(t).strftime("%Y-%m-%d"), v) for t, v in zip(r["timestamp"], px) if v is not None]
+
+
+def fund_signal(ticker, lookback=10, today=None):
+    out = compute(fund_rows(ticker), lookback, today); out["ticker"] = ticker
+    return out
+
+
 def fetch():
     try:
         return urllib.request.urlopen(URL, timeout=30).read().decode()
@@ -42,8 +64,11 @@ def fetch():
 
 def main(argv=None):
     ap = argparse.ArgumentParser(); ap.add_argument("--file"); ap.add_argument("--lookback", type=int, default=10)
+    ap.add_argument("--ticker", help="signal for one fund from its own price")
     ap.add_argument("--today", default=None, help="YYYY-MM-DD; drops the unfinished month")
     a = ap.parse_args(argv)
+    if a.ticker:
+        print(json.dumps(fund_signal(a.ticker, a.lookback, a.today), indent=2)); return 0
     text = open(a.file).read() if a.file else fetch()
     rows = list(csv.reader(io.StringIO(text)))[1:]
     print(json.dumps(compute(rows, a.lookback, a.today), indent=2))

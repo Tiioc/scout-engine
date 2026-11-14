@@ -14,7 +14,11 @@ def targets(mix, funds, signal_on):
     t = {}
     for block, w in mix.items():
         f = funds[block]
-        tk = (f["on"] if signal_on else f["off"]) if isinstance(f, dict) else f
+        if isinstance(f, dict):
+            on = signal_on.get(f.get("signal", f["on"]), signal_on.get("default", True)) if isinstance(signal_on, dict) else signal_on
+            tk = f["on"] if on else f["off"]
+        else:
+            tk = f
         t[tk] = t.get(tk, 0.0) + w
     s = sum(t.values())
     return {k: v / s for k, v in t.items()}
@@ -80,6 +84,11 @@ def risk(total, hist, yearly_deposits=None, peak=None):
 
 
 def steps(p, signal_on):
+    if isinstance(signal_on, dict):
+        named = {k: v for k, v in signal_on.items() if k != "default"}
+        desc = ", ".join("%s %s" % (k, "on" if v else "off") for k, v in sorted(named.items())) or ("on" if signal_on.get("default") else "off")
+        tail = ["Exit signals: %s. A block whose signal is off sits in the cash fund until it turns on. [Rule R2]" % desc]
+        return steps(p, None)[:-1] + tail
     out = ["Set the pie to: " + ", ".join("%s %d%%" % kv for kv in sorted(p["pie_weights"].items(), key=lambda x: -x[1])) + "."]
     if p["deposit_goes_to"]:
         out.append("Deposit: " + ", ".join("$%.0f to %s" % (v, k) for k, v in sorted(p["deposit_goes_to"].items(), key=lambda x: -x[1])) + " (the broker does this automatically if the pie weights are set). [Rule R1]")
@@ -96,13 +105,16 @@ def steps(p, signal_on):
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--holdings"); ap.add_argument("--deposit", type=float, default=0.0)
-    ap.add_argument("--signal", choices=["on", "off"], required=True)
+    ap.add_argument("--signal", choices=["on", "off"], default="on", help="default for every exit")
+    ap.add_argument("--signals", default="", help="per fund, e.g. MTUM=on,AVUV=off,SP500=on")
     ap.add_argument("--yearly-deposits", type=float, default=None); ap.add_argument("--peak", type=float, default=None)
     ap.add_argument("--mix", default="software_mix"); ap.add_argument("--config", default="engine/config.json")
     a = ap.parse_args(argv)
     core = json.load(open(a.config))["core"]
     pos = json.load(open(a.holdings))["positions"] if a.holdings else {}
-    on = a.signal == "on"
+    on = {"default": a.signal == "on"}
+    for kv in filter(None, a.signals.split(",")):
+        k, v = kv.split("="); on[k.strip()] = v.strip() == "on"
     p = plan(pos, a.deposit, targets(core[a.mix], core["funds"], on), core.get("rebalance_band", 0.05))
     yd = a.yearly_deposits or (a.deposit * 12 if a.deposit else None)
     p["stage"] = stage(p["total_after_deposit"], yd, core.get("stages", [{"name": "growth"}]))
