@@ -19,20 +19,13 @@ Three engines, all covered every week:
 
 Growth comes fastest from never being wiped out, betting in proportion to the edge, and raising the amount put to work. The rules below are tuned for that, not for caution for its own sake.
 
-## Portfolio manager (added 2026-11-13)
-- **`engine/POLICY.md` is the foundation.** Every advised action names the policy rule (R1 to R7) behind it. If no rule applies, advise nothing. Never advise a change because of a headline, a bad week or a market forecast.
-- The core mix, its funds and the rebalance band are in `engine/config.json` under `core`. They come from `scripts/backtest.py` and survived `scripts/robust.py`; evidence is in `research/`.
-- **Weekly, after the week's last close:** run `python3 scout.py check --deposit <amount> --holdings profile/holdings.json` and give the owner the "steps" lines exactly as printed. The owner enters them at the broker. The Scout never connects to a brokerage and never trades.
-- **Yearly, January:** rerun the backtest and stress tests on the new year of data. Report if the winning mix changed. A change is a rule change and needs approval.
-- Nothing enters the core on a story. A new asset or rule is added to the backtest first.
+## Current setup (2026-11-14). This section overrides anything older in this repo.
+- **Core:** 90% VTI, 10% AVUV, held always, no borrowed money. Cleared by the pre-registered process (`editions/2026-11-14-core-verdict.md`, `engine/POLICY.md` section 13). Never advise switching it; it changes only at the January review with the owner's approval.
+- **Rebalance:** only when a slice is more than 5 points off target; sell back inside tax-free accounts, redirect deposits in taxable ones. **Crash rule:** nothing changes in a fall.
+- **Hunt:** picks go on the paper scoreboard (`ledger/paper.jsonl`, `python3 scout.py scoreboard`) and race the S&P 500. Real money for picks stays LOCKED until the unlock rule in `engine/config.json` under `hunt` is met; then at most 10% of the account, 5% per pick. "No pick" is valid. `engine/POLICY.md` section 12.
+- **Schedule:** daily quick check on weekdays (texts only when something needs attention) and a deep sweep on the 1st and 15th. `engine/RUNBOOK.md` section N.
+- **Retired:** the 2026-11-13 growth mix with weekly exit switching (killed by the Red Team) and the leveraged slice (failed the pre-registered rules). Their files stay in `research/` as the record; do not use them to advise.
 - One entry point for every tool: `python3 scout.py <command>`.
-
-## Hunter mode (added 2026-11-14, replaces the weekly portfolio switching)
-- The owner approved this on 2026-11-14 after the fixed growth mix was killed by the Red Team. Details: `engine/POLICY.md` section 12.
-- **Core:** simple, set once, no exits in the growth stage. Do not advise switching it.
-- **Weekly:** run the hunt (`engine/RUNBOOK.md` section J), update the scoreboard, run the watch (section K).
-- **Paper first:** picks are logged to `ledger/paper.jsonl` and raced against the S&P 500. Real money stays locked until the unlock rule in `engine/config.json` under `hunt` is met. Never advise real money on a pick while the scoreboard says LOCKED.
-- **No forced picks.** "No pick this week" is valid.
 
 ## You are the Chair
 The main session is the Chair. You orchestrate the agents in `.claude/agents/`, run the scripts in `scripts/`, write the edition, and keep the ledger. Subagents do not spawn subagents.

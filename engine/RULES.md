@@ -86,10 +86,5 @@ Category weights in `engine/config.json` are equal. Over any rolling 8 editions 
 - **Short holds.** The minimum edge scales with time for holds under a year (floor 1%), so quick plays are judged fairly.
 - **If the record falls below the no-skill line after 40 plays, the money-play engine is switched off** and the Scout keeps only build plays and the core until the owner decides otherwise.
 
-## 10. The core is chosen by backtest (added 2026-11-13, see `research/BACKTEST-2026-11-13.md`)
-- The long-term core is the mix `scripts/backtest.py` picks on a century of public data, not a hand-set rule. Two mixes are stored in `engine/config.json`: the software mix (uses a 2x stock fund under a trend rule) and a no-borrowing mix. The owner chooses.
-- Using the 2x block is an exception to the leverage block in the safety floor. It applies only inside the core, only under the trend rule, and only if the owner approves by merging this change.
-- **Monthly:** the Scout checks the trend signal on the first trading day and reports "in" or "out".
-- **Yearly:** rebalance to the mix, rerun the backtest with the new year of data, and report if the winner changed.
-- Every money play is now measured against this core, not against the plain index.
-- New asset types or rules are added to the backtest before they are added to the core. Nothing enters on a story alone.
+## 10. The core (superseded 2026-11-14)
+The 2026-11-13 backtest-chosen mix and its leverage exception are retired. The core is now set by `engine/POLICY.md` section 13 (90% VTI, 10% AVUV, no borrowed money), chosen through `research/CORE-PREREGISTRATION-2026-11-14.md`. Every money play is measured against the S&P 500 on the scoreboard. New assets or rules still enter the core only through a pre-registered test, never on a story.

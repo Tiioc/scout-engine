@@ -2,19 +2,19 @@
 
 A research and portfolio manager that runs on Claude. It does three jobs:
 
-1. **Manages the long-term core.** A mix chosen by backtest on a century of public data. Once a month it checks one trend signal and prints the exact changes to make at your broker.
-2. **Finds plays.** A weekly scan for a few deep opportunities where a small investor can have an edge, each researched, forecast, sized and tracked.
-3. **Keeps score.** Every forecast is logged before the outcome and graded after. The record decides how much the Scout is trusted.
+1. **Holds the core.** 90% VTI, 10% AVUV, chosen by a pre-registered test of ten candidates over a century of data and attacked by two Red Teams (`editions/2026-11-14-core-verdict.md`). Set once; rebalanced only when a slice drifts more than 5 points.
+2. **Hunts.** Twice a month it digs for one opportunity with a real edge, runs it past five forecasters and a Red Team, and puts survivors on a paper scoreboard against the S&P 500. Real money follows picks only after the scoreboard earns it.
+3. **Watches and keeps score.** A quick check every weekday (texts only when something needs attention), a watch on companies the owner has a stake in, and every forecast logged before the outcome and graded after.
 
 It gives advice only. It never places trades or moves money. It is not a financial advisor.
 
 ## Everyday commands
 ```
-python3 scout.py monthly --deposit 1500 --holdings profile/holdings.json   # signal + exact changes
-python3 scout.py size --years 3 --scenario 0.3:5 --scenario 0.7:0.2         # size one play
-python3 scout.py calc compare ...                                           # financial calculator
-python3 scout.py test                                                       # all automated tests
-python3 scout.py backtest --data <folder>      python3 scout.py robust --data <folder>
+python3 scout.py scoreboard                                   # paper picks against the S&P 500
+python3 scout.py check --deposit 500 --holdings profile/holdings.json   # where a deposit goes, any rebalance
+python3 scout.py size --years 1 --scenario 0.3:1.5 --scenario 0.7:0.9   # size one play
+python3 scout.py test                                         # all automated tests
+python3 scripts/portfolio_lab.py --data <folder>              # the pre-registered core tests (January review)
 ```
 
 ## Map
@@ -24,21 +24,12 @@ python3 scout.py backtest --data <folder>      python3 scout.py robust --data <f
 | `engine/` | Rules, settings (`config.json`), runbook, templates, data sources |
 | `scripts/` | The tools: portfolio, signal, sizing, calculator, safety gate, backtest, stress tests, simulator, scoring |
 | `.claude/agents/` | The research agents (radar, specialists, forecaster, red team) |
-| `research/` | Evidence: investor playbooks, backtest, stress tests, approach test, source data |
+| `research/` | Evidence. Current: `CORE-PREREGISTRATION-2026-11-14.md`, `AGGRESSIVE-2026-11-13.md`, `REDTEAM-2026-11-13.md`, `INVESTOR_PLAYBOOKS.md`. Older 2026-11-13 files are the record of the retired growth mix |
 | `editions/` | What the Scout has published |
 | `ledger/` | Forecasts, plays, outcomes: the permanent record |
 | `profile/` | Your private details and holdings (optional) |
 | `tests/` | Automated tests |
 
-## What it borrows from existing tools, and what it fixes
-| Tool | What it does well | Its gap | What the Scout does |
-|---|---|---|---|
-| Backtesting sites | Deep historical tests | Easy to tune a mix to one lucky period; not linked to what you hold; not a monitor | A century of data, walk-forward and eleven stress tests built in; reads your holdings; monthly check |
-| Rule-automation apps | Turn rules into automatic trades | Backtests look better than live results; short fund histories | Tests on research data back to 1928, assumes results will be worse, and shows by how much |
-| Pie-based brokers | Automatic deposits and rebalancing to target weights | No research, no signal, no reason for the weights | Supplies the weights, the signal and the exact change list to enter |
-| Robo-advisors | Hands-off | One generic portfolio | A mix chosen by test, plus a research engine with a graded record |
-
 ## Setup
-1. Merge the open pull request so the rules take effect.
-2. In the Claude Code cloud environment settings, add the domains in `engine/DATA_SOURCES.md` to the allowed list.
-3. Optional: copy `profile/holdings.template.json` to `profile/holdings.json` and keep it current.
+1. Merge the open pull request so the rules take effect (the scheduled runs use the pull request's branch until then).
+2. Copy `profile/holdings.template.json` to `profile/holdings.json` and keep the two balances current, so the daily drift check works.

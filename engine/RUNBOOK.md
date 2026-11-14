@@ -58,15 +58,10 @@ When the owner says what they acted on, append to `ledger/actions.jsonl` (play i
 
 On request, build one blinded historical case from public data (names and years removed), ask the owner for a probability, record it in `ledger/practice.jsonl`, then reveal the outcome. Always state that this trains the owner and does not validate the Scout.
 
-## H. Weekly portfolio check (after the week's last close)
+## H. Retired
+The weekly portfolio check with exit switching was retired on 2026-11-14. The core has no exit rule; see section L for drift checks.
 
-1. Run `python3 scout.py check --deposit <this period's amount> --holdings profile/holdings.json` (omit `--holdings` if there is no file yet).
-2. Send the owner the printed steps unchanged: the pie weights, where the deposit goes, any rebalance, and the trend signal.
-3. If a signal flipped at this check (`flipped_at_this_check`), say so first and name the one swap to make.
-4. If `inside_buffer` is true, the fund is within 2% of its average: no change, by rule.
-5. Append one line to `ledger/portfolio.jsonl`: date, signal, gap, and whether a rebalance was advised.
-
-## J. Weekly hunt (hunter mode)
+## J. The hunt (each deep sweep, 1st and 15th)
 
 1. `python3 scout.py scoreboard`. Close any pick it flags (stop, target or review date) with `python3 scout.py scoreboard --close <id> --reason "..."`, or renew it with a written reason in the edition.
 2. Radar: one wide scan for candidates with a named edge. Check `ledger/paper.jsonl` and past editions so nothing is repeated.
@@ -82,7 +77,7 @@ On request, build one blinded historical case from public data (names and years 
 2. Report only what changed and whether it raises or lowers the odds. No change is reported in one line.
 3. Never put the owner's relationship to a watched company in a search or an outside request.
 
-## L. Core check (first Monday run of each month, or when the owner asks)
+## L. Core check (daily quick check, or when the owner asks)
 
 `python3 scout.py check --deposit <amount> --holdings profile/holdings.json`. If a slice is more than 5 points off target, tell the owner the one sale (inside a Roth or 401(k)) that puts it back to 90/10, or in a taxable account where to point the next deposits. If there is no holdings file, ask once for the current VTI and AVUV balances. Otherwise say nothing about the core.
 

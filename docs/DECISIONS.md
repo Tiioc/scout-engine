@@ -67,3 +67,11 @@ Biggest risks, in order: not acting on plays; thin public data on private compan
 | Advice-only link to the broker | The owner's broker has no trading interface for outside software, and the Scout never trades in any case |
 | One entry point, `scout.py` | Fewer commands to remember; every tool tested |
 | Old design report and build steps moved to `research/archive/` | They describe the first version |
+
+
+## 2026-11-14: hunter mode, cleared core, schedule
+- The 2026-11-13 growth mix (AVUV/MTUM/SSO/GLDM with weekly exits) was killed: its lead over the S&P 500 depended on starting before 2008 (`research/REDTEAM-2026-11-13.md`).
+- Hunter mode approved by the owner: a paper scoreboard against the S&P 500, real money for picks locked until 20 closed picks with at least half ahead.
+- Core chosen by a pre-registered test of ten candidates: 90% VTI, 10% AVUV. International, Nasdaq tilt, bonds and the 2x slice failed the rules. Edge over plain VTI small and uncertain; never behind it in 13 forward scenarios. International gets its own pre-registered valuation test at the January 2027 review.
+- Rebalance only beyond a 5-point band; crash rule: nothing changes in a fall.
+- Schedule: daily quick check on weekdays that texts only when something needs attention; deep sweep with the hunt on the 1st and 15th.
