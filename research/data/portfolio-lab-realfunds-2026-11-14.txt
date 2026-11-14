@@ -1,0 +1,66 @@
+REAL FUNDS from 2007-06-01
+  C1   10.4%/yr  deepest fall  -56%  worst day  -11%  monthly deposits vs C1   +0.0%
+  C2    8.0%/yr  deepest fall  -57%  worst day  -11%  monthly deposits vs C1  -24.2%
+  C3    9.3%/yr  deepest fall  -56%  worst day  -11%  monthly deposits vs C1  -12.4%
+  C4   10.4%/yr  deepest fall  -56%  worst day  -12%  monthly deposits vs C1   -0.8%
+  C5    9.5%/yr  deepest fall  -57%  worst day  -12%  monthly deposits vs C1  -10.2%
+  C6   11.6%/yr  deepest fall  -55%  worst day  -12%  monthly deposits vs C1  +13.8%
+  C7   10.1%/yr  deepest fall  -50%  worst day  -10%  monthly deposits vs C1  -10.0%
+  L1   11.2%/yr  deepest fall  -50%  worst day   -9%  monthly deposits vs C1   +6.4%
+  L2   12.9%/yr  deepest fall  -39%  worst day  -12%  monthly deposits vs C1  +24.7%
+  L3   12.8%/yr  deepest fall  -73%  worst day  -17%  monthly deposits vs C1  +70.0%
+REAL FUNDS from 2009-04-01
+  C1   15.5%/yr  deepest fall  -35%  worst day  -11%  monthly deposits vs C1   +0.0%
+  C2   13.0%/yr  deepest fall  -34%  worst day  -11%  monthly deposits vs C1  -21.1%
+  C3   14.3%/yr  deepest fall  -35%  worst day  -11%  monthly deposits vs C1  -10.8%
+  C4   15.5%/yr  deepest fall  -36%  worst day  -12%  monthly deposits vs C1   -0.9%
+  C5   14.6%/yr  deepest fall  -36%  worst day  -12%  monthly deposits vs C1   -9.3%
+  C6   16.6%/yr  deepest fall  -33%  worst day  -12%  monthly deposits vs C1  +11.7%
+  C7   14.5%/yr  deepest fall  -32%  worst day  -10%  monthly deposits vs C1   -9.5%
+  L1   15.9%/yr  deepest fall  -33%  worst day   -9%  monthly deposits vs C1   +5.0%
+  L2   16.9%/yr  deepest fall  -30%  worst day  -12%  monthly deposits vs C1  +17.6%
+  L3   21.2%/yr  deepest fall  -48%  worst day  -17%  monthly deposits vs C1  +66.8%
+REAL FUNDS from 2012-01-03
+  C1   14.4%/yr  deepest fall  -35%  worst day  -11%  monthly deposits vs C1   +0.0%
+  C2   12.1%/yr  deepest fall  -34%  worst day  -11%  monthly deposits vs C1  -15.6%
+  C3   13.3%/yr  deepest fall  -35%  worst day  -11%  monthly deposits vs C1   -8.3%
+  C4   14.4%/yr  deepest fall  -36%  worst day  -12%  monthly deposits vs C1   -0.8%
+  C5   13.6%/yr  deepest fall  -36%  worst day  -12%  monthly deposits vs C1   -5.8%
+  C6   15.5%/yr  deepest fall  -34%  worst day  -12%  monthly deposits vs C1   +9.5%
+  C7   13.4%/yr  deepest fall  -31%  worst day  -10%  monthly deposits vs C1   -8.3%
+  L1   15.1%/yr  deepest fall  -34%  worst day  -10%  monthly deposits vs C1   +3.6%
+  L2   16.7%/yr  deepest fall  -29%  worst day  -12%  monthly deposits vs C1  +14.4%
+  L3   19.6%/yr  deepest fall  -49%  worst day  -17%  monthly deposits vs C1  +46.9%
+REAL FUNDS from 2015-01-02
+  C1   13.0%/yr  deepest fall  -35%  worst day  -11%  monthly deposits vs C1   +0.0%
+  C2   11.1%/yr  deepest fall  -34%  worst day  -11%  monthly deposits vs C1  -10.7%
+  C3   12.0%/yr  deepest fall  -35%  worst day  -11%  monthly deposits vs C1   -5.7%
+  C4   12.8%/yr  deepest fall  -36%  worst day  -12%  monthly deposits vs C1   -0.5%
+  C5   12.2%/yr  deepest fall  -37%  worst day  -12%  monthly deposits vs C1   -4.3%
+  C6   14.1%/yr  deepest fall  -34%  worst day  -12%  monthly deposits vs C1   +7.3%
+  C7   12.0%/yr  deepest fall  -32%  worst day  -10%  monthly deposits vs C1   -6.8%
+  L1   13.1%/yr  deepest fall  -34%  worst day  -10%  monthly deposits vs C1   +2.2%
+  L2   13.4%/yr  deepest fall  -30%  worst day  -12%  monthly deposits vs C1   +8.7%
+  L3   16.7%/yr  deepest fall  -48%  worst day  -17%  monthly deposits vs C1  +30.7%
+REAL FUNDS from 2020-01-02
+  C1   14.3%/yr  deepest fall  -35%  worst day  -11%  monthly deposits vs C1   +0.0%
+  C2   12.2%/yr  deepest fall  -34%  worst day  -11%  monthly deposits vs C1   -4.3%
+  C3   13.3%/yr  deepest fall  -35%  worst day  -11%  monthly deposits vs C1   -1.8%
+  C4   14.3%/yr  deepest fall  -36%  worst day  -12%  monthly deposits vs C1   +0.1%
+  C5   13.6%/yr  deepest fall  -36%  worst day  -12%  monthly deposits vs C1   -1.3%
+  C6   15.3%/yr  deepest fall  -34%  worst day  -12%  monthly deposits vs C1   +2.2%
+  C7   13.1%/yr  deepest fall  -31%  worst day  -10%  monthly deposits vs C1   -4.4%
+  L1   14.7%/yr  deepest fall  -33%  worst day  -10%  monthly deposits vs C1   +0.8%
+  L2   15.8%/yr  deepest fall  -30%  worst day  -12%  monthly deposits vs C1   +3.0%
+  L3   18.3%/yr  deepest fall  -47%  worst day  -17%  monthly deposits vs C1  +18.1%
+REAL FUNDS from 2022-01-03
+  C1   10.7%/yr  deepest fall  -25%  worst day   -6%  monthly deposits vs C1   +0.0%
+  C2    9.9%/yr  deepest fall  -26%  worst day   -6%  monthly deposits vs C1   -1.9%
+  C3   10.3%/yr  deepest fall  -26%  worst day   -6%  monthly deposits vs C1   -1.0%
+  C4   10.8%/yr  deepest fall  -24%  worst day   -6%  monthly deposits vs C1   -0.5%
+  C5   10.5%/yr  deepest fall  -24%  worst day   -6%  monthly deposits vs C1   -1.4%
+  C6   11.1%/yr  deepest fall  -27%  worst day   -6%  monthly deposits vs C1   +1.5%
+  C7    9.7%/yr  deepest fall  -24%  worst day   -5%  monthly deposits vs C1   -3.0%
+  L1   10.4%/yr  deepest fall  -26%  worst day   -5%  monthly deposits vs C1   +0.0%
+  L2    9.8%/yr  deepest fall  -28%  worst day   -6%  monthly deposits vs C1   +0.8%
+  L3   12.8%/yr  deepest fall  -36%  worst day   -9%  monthly deposits vs C1  +12.9%

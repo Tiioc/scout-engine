@@ -1,0 +1,170 @@
+
+T1_us_1927_2026
+  C1   10.3%/yr  fall  -84%  12m  -66%  under 184 mo  deposits   +0.0%  10y med   +0.0% behind 0.0  20y med   +0.0% behind 0.0
+  C4   10.7%/yr  fall  -84%  12m  -66%  under 177 mo  deposits  +48.1%  10y med   +1.8% behind 0.2312  20y med   +7.8% behind 0.0972
+  C6   10.2%/yr  fall  -83%  12m  -65%  under 185 mo  deposits   -5.6%  10y med   -0.4% behind 0.585  20y med   -1.9% behind 0.7147
+  L1   11.2%/yr  fall  -79%  12m  -58%  under 176 mo  deposits  +76.8%  10y med   +3.7% behind 0.0585  20y med   +8.4% behind 0.0
+  L2   13.0%/yr  fall  -66%  12m  -38%  under  84 mo  deposits +491.3%  10y med  +12.6% behind 0.0613  20y med  +30.6% behind 0.0
+  L3   11.4%/yr  fall  -94%  12m  -81%  under 199 mo  deposits +279.1%  10y med  +11.9% behind 0.2758  20y med  +19.9% behind 0.2194
+
+T1b_us_with_bonds_1953_2026
+  C1   11.4%/yr  fall  -50%  12m  -43%  under  73 mo  deposits   +0.0%  10y med   +0.0% behind 0.0  20y med   +0.0% behind 0.0
+  C4   11.8%/yr  fall  -51%  12m  -43%  under  58 mo  deposits  +28.4%  10y med   +1.9% behind 0.2795  20y med   +7.5% behind 0.1402
+  C6   11.3%/yr  fall  -49%  12m  -42%  under  74 mo  deposits   -0.3%  10y med   +0.1% behind 0.4764  20y med   -0.5% behind 0.5794
+  C7   11.0%/yr  fall  -46%  12m  -39%  under  64 mo  deposits  -16.4%  10y med   -1.7% behind 0.748  20y med   -1.4% behind 0.7477
+  L1   12.0%/yr  fall  -45%  12m  -37%  under  69 mo  deposits  +41.9%  10y med   +3.1% behind 0.0866  20y med   +7.5% behind 0.0
+  L2   13.5%/yr  fall  -43%  12m  -35%  under  67 mo  deposits +207.8%  10y med  +10.9% behind 0.0512  20y med  +26.7% behind 0.0
+  L3   12.9%/yr  fall  -69%  12m  -60%  under 155 mo  deposits +103.5%  10y med   +8.5% behind 0.3268  20y med  +11.1% behind 0.3224
+
+T2_first_half_1927_1976
+  C1    8.6%/yr  fall  -84%  12m  -66%  under 184 mo  deposits   +0.0%  10y med   +0.0% behind 0.0  20y med   +0.0% behind 0.0
+  C4    9.2%/yr  fall  -84%  12m  -66%  under 177 mo  deposits  +26.7%  10y med   +2.3% behind 0.1  20y med   +7.9% behind 0.0
+  C6    8.5%/yr  fall  -83%  12m  -65%  under 185 mo  deposits   -7.0%  10y med   -0.9% behind 0.8  20y med   -3.0% behind 0.9417
+  L1    9.9%/yr  fall  -79%  12m  -58%  under 176 mo  deposits  +44.5%  10y med   +4.8% behind 0.0688  20y med  +11.7% behind 0.0
+  L2   12.5%/yr  fall  -66%  12m  -38%  under  84 mo  deposits +206.8%  10y med  +15.6% behind 0.0688  20y med  +42.6% behind 0.0
+  L3    9.4%/yr  fall  -94%  12m  -81%  under 199 mo  deposits  +95.9%  10y med  +17.0% behind 0.2188  20y med  +59.7% behind 0.0917
+
+T2_second_half_1977_2026
+  C1   12.0%/yr  fall  -50%  12m  -43%  under  73 mo  deposits   +0.0%  10y med   +0.0% behind 0.0  20y med   +0.0% behind 0.0
+  C4   12.3%/yr  fall  -51%  12m  -43%  under  58 mo  deposits   +8.3%  10y med   +0.7% behind 0.4214  20y med   +4.2% behind 0.2605
+  C6   12.0%/yr  fall  -49%  12m  -42%  under  74 mo  deposits   +4.0%  10y med   +0.5% behind 0.2642  20y med   +0.7% behind 0.2941
+  L1   12.4%/yr  fall  -45%  12m  -37%  under  71 mo  deposits  +22.2%  10y med   +2.9% behind 0.0629  20y med   +7.2% behind 0.0
+  L2   13.5%/yr  fall  -43%  12m  -35%  under  67 mo  deposits  +95.1%  10y med  +10.7% behind 0.0692  20y med  +26.5% behind 0.0
+  L3   13.5%/yr  fall  -69%  12m  -60%  under 155 mo  deposits  +92.7%  10y med  +11.9% behind 0.2642  20y med  +17.5% behind 0.1681
+
+T3_with_international_1990_2026
+  C1   11.1%/yr  fall  -50%  12m  -43%  under  73 mo  deposits   +0.0%  10y med   +0.0% behind 0.0  20y med   +0.0% behind 0.0
+  C2    9.3%/yr  fall  -53%  12m  -46%  under  67 mo  deposits  -29.1%  10y med  -11.2% behind 0.7333  20y med  -10.3% behind 1.0
+  C3   10.3%/yr  fall  -51%  12m  -44%  under  69 mo  deposits  -14.1%  10y med   -5.1% behind 0.7048  20y med   -4.2% behind 0.8923
+  C4   11.3%/yr  fall  -51%  12m  -43%  under  58 mo  deposits   +3.6%  10y med   +0.2% behind 0.4571  20y med   +2.2% behind 0.4462
+  C5   10.8%/yr  fall  -52%  12m  -45%  under  58 mo  deposits   -6.7%  10y med   -2.2% behind 0.5905  20y med   -0.4% behind 0.5231
+  C6   11.2%/yr  fall  -49%  12m  -42%  under  74 mo  deposits   +5.3%  10y med   +0.8% behind 0.2476  20y med   +1.8% behind 0.1231
+  C7   10.7%/yr  fall  -45%  12m  -38%  under  64 mo  deposits   -9.2%  10y med   -1.1% behind 0.5714  20y med   -2.1% behind 0.6
+  L1   11.6%/yr  fall  -45%  12m  -37%  under  71 mo  deposits  +14.4%  10y med   +3.1% behind 0.0571  20y med   +7.4% behind 0.0
+  L2   12.9%/yr  fall  -43%  12m  -28%  under  67 mo  deposits  +55.6%  10y med  +10.7% behind 0.0476  20y med  +26.6% behind 0.0
+  L3   12.8%/yr  fall  -69%  12m  -60%  under 155 mo  deposits  +60.0%  10y med  +10.7% behind 0.3905  20y med  +20.3% behind 0.2
+
+T3b_1990_2009
+  C1    8.5%/yr  fall  -50%  12m  -43%  under  73 mo  deposits   +0.0%  10y med   +0.0% behind 0.0  20y med   +0.0% behind -
+  C2    7.4%/yr  fall  -53%  12m  -46%  under  67 mo  deposits   -0.6%  10y med   +1.6% behind 0.4737  20y med   +0.0% behind -
+  C3    8.1%/yr  fall  -51%  12m  -44%  under  69 mo  deposits   +1.1%  10y med   +1.9% behind 0.4474  20y med   +0.0% behind -
+  C4    9.1%/yr  fall  -51%  12m  -43%  under  58 mo  deposits   +8.3%  10y med   +6.0% behind 0.0526  20y med   +0.0% behind -
+  C5    9.1%/yr  fall  -52%  12m  -45%  under  55 mo  deposits  +12.9%  10y med   +9.7% behind 0.0789  20y med   +0.0% behind -
+  C6    8.5%/yr  fall  -49%  12m  -42%  under  74 mo  deposits   +0.0%  10y med   -0.6% behind 0.6053  20y med   +0.0% behind -
+  C7    8.7%/yr  fall  -45%  12m  -38%  under  64 mo  deposits   +3.8%  10y med   +1.3% behind 0.2105  20y med   +0.0% behind -
+  L1    9.3%/yr  fall  -45%  12m  -37%  under  71 mo  deposits  +10.8%  10y med   +2.6% behind 0.1316  20y med   +0.0% behind -
+  L2   11.1%/yr  fall  -43%  12m  -28%  under  67 mo  deposits  +40.6%  10y med   +9.4% behind 0.1316  20y med   +0.0% behind -
+  L3    8.4%/yr  fall  -69%  12m  -60%  under 117 mo  deposits  -10.2%  10y med   -2.6% behind 0.7368  20y med   +0.0% behind -
+
+T3c_2010_2026
+  C1   14.1%/yr  fall  -25%  12m  -20%  under  23 mo  deposits   +0.0%  10y med   +0.0% behind 0.0  20y med   +0.0% behind -
+  C2   11.6%/yr  fall  -26%  12m  -21%  under  23 mo  deposits  -20.0%  10y med  -13.4% behind 1.0  20y med   +0.0% behind -
+  C3   12.9%/yr  fall  -25%  12m  -20%  under  23 mo  deposits  -10.1%  10y med   -6.5% behind 1.0  20y med   +0.0% behind -
+  C4   13.9%/yr  fall  -24%  12m  -19%  under  23 mo  deposits   -2.9%  10y med   -2.0% behind 1.0  20y med   +0.0% behind -
+  C5   12.8%/yr  fall  -24%  12m  -18%  under  23 mo  deposits  -12.2%  10y med   -7.9% behind 1.0  20y med   +0.0% behind -
+  C6   14.5%/yr  fall  -26%  12m  -21%  under  23 mo  deposits   +4.5%  10y med   +3.6% behind 0.0  20y med   +0.0% behind -
+  C7   13.2%/yr  fall  -24%  12m  -20%  under  23 mo  deposits  -10.0%  10y med   -5.3% behind 1.0  20y med   +0.0% behind -
+  L1   14.4%/yr  fall  -25%  12m  -20%  under  24 mo  deposits   +5.0%  10y med   +3.7% behind 0.037  20y med   +0.0% behind -
+  L2   15.2%/yr  fall  -24%  12m  -21%  under  25 mo  deposits  +16.4%  10y med  +12.6% behind 0.0  20y med   +0.0% behind -
+  L3   18.2%/yr  fall  -37%  12m  -32%  under  25 mo  deposits  +48.5%  10y med  +19.7% behind 0.0  20y med   +0.0% behind -
+
+T4 rules outside the US
+  Developed ex US ('1990-07-31', '2026-09-30')
+    C1    6.2%/yr  fall  -56%  deposits vs market   +0.0%  10y behind 0.0
+    C4    6.6%/yr  fall  -56%  deposits vs market   +9.1%  10y behind 0.0667
+    C6    5.9%/yr  fall  -55%  deposits vs market   -6.9%  10y behind 0.5429
+    L1    6.8%/yr  fall  -52%  deposits vs market  +14.8%  10y behind 0.2476
+    L2    7.3%/yr  fall  -42%  deposits vs market  +44.5%  10y behind 0.2857
+    L3    6.0%/yr  fall  -73%  deposits vs market  +10.5%  10y behind 0.3714
+  Europe ('1990-07-31', '2026-09-30')
+    C1    7.6%/yr  fall  -59%  deposits vs market   +0.0%  10y behind 0.0
+    C4    7.9%/yr  fall  -59%  deposits vs market   +7.8%  10y behind 0.1619
+    C6    7.4%/yr  fall  -58%  deposits vs market   -4.5%  10y behind 0.4857
+    L1    8.0%/yr  fall  -55%  deposits vs market   +9.0%  10y behind 0.4095
+    L2    8.6%/yr  fall  -45%  deposits vs market  +27.8%  10y behind 0.419
+    L3    7.6%/yr  fall  -75%  deposits vs market   +6.1%  10y behind 0.4667
+  Japan ('1990-07-31', '2026-09-30')
+    C1    3.3%/yr  fall  -58%  deposits vs market   +0.0%  10y behind 0.0
+    C4    3.6%/yr  fall  -56%  deposits vs market   +9.3%  10y behind 0.0762
+    C6    2.9%/yr  fall  -62%  deposits vs market   -9.2%  10y behind 0.8
+    L1    3.2%/yr  fall  -54%  deposits vs market   -4.2%  10y behind 0.5524
+    L2    3.0%/yr  fall  -53%  deposits vs market  -14.6%  10y behind 0.5238
+    L3    0.5%/yr  fall  -82%  deposits vs market  -16.7%  10y behind 0.781
+
+T6 crises (deepest fall)
+  1929-32            C1  -84%  C4  -84%  C6  -83%  L1  -79%  L2  -65%  L3  -94%
+  1937-38            C1  -50%  C4  -51%  C6  -49%  L1  -44%  L2  -33%  L3  -66%
+  1973-74            C1  -46%  C4  -46%  C6  -48%  C7  -42%  L1  -42%  L2  -33%  L3  -64%
+  1987               C1  -30%  C4  -30%  C6  -30%  C7  -27%  L1  -33%  L2  -40%  L3  -43%
+  2000-02            C1  -45%  C2  -45%  C3  -45%  C4  -40%  C5  -37%  C6  -46%  C7  -39%  L1  -44%  L2  -42%  L3  -64%
+  2007-09            C1  -50%  C2  -53%  C3  -52%  C4  -51%  C5  -52%  C6  -49%  C7  -45%  L1  -45%  L2  -33%  L3  -68%
+  2020               C1  -20%  C2  -21%  C3  -20%  C4  -22%  C5  -22%  C6  -19%  C7  -17%  L1  -21%  L2  -21%  L3  -31%
+  2022               C1  -25%  C2  -26%  C3  -25%  C4  -24%  C5  -24%  C6  -26%  C7  -24%  L1  -25%  L2  -24%  L3  -37%
+  1987-10-19 one day C1  -17%  L1  -20%  L2  -26%  L3  -26%
+
+T7_bootstrap_us_1927_2026_25y
+  C1  median vs C1   +0.0%  behind 0.00  ending/deposits  4.68  p10  1.84  p10 vs C1   +0.0%  below deposits 0.02  fall med  -47% worst5%  -72%
+  C4  median vs C1   +7.7%  behind 0.09  ending/deposits  5.03  p10  1.93  p10 vs C1   +5.0%  below deposits 0.02  fall med  -48% worst5%  -73%
+  C6  median vs C1   -0.9%  behind 0.61  ending/deposits  4.66  p10  1.83  p10 vs C1   -0.3%  below deposits 0.02  fall med  -47% worst5%  -72%
+  L1  median vs C1  +15.0%  behind 0.09  ending/deposits  5.34  p10  2.07  p10 vs C1  +12.7%  below deposits 0.01  fall med  -43% worst5%  -67%
+  L2  median vs C1  +55.3%  behind 0.11  ending/deposits  7.16  p10  2.56  p10 vs C1  +39.5%  below deposits 0.00  fall med  -41% worst5%  -60%
+  L3  median vs C1  +27.7%  behind 0.26  ending/deposits  5.96  p10  1.48  p10 vs C1  -19.2%  below deposits 0.06  fall med  -65% worst5%  -89%
+
+T7b_bootstrap_1990_2026_25y_all
+  C1  median vs C1   +0.0%  behind 0.00  ending/deposits  5.36  p10  2.51  p10 vs C1   +0.0%  below deposits 0.00  fall med  -41% worst5%  -60%
+  C2  median vs C1  -23.8%  behind 0.96  ending/deposits  4.14  p10  1.97  p10 vs C1  -21.4%  below deposits 0.01  fall med  -43% worst5%  -64%
+  C3  median vs C1  -12.0%  behind 0.96  ending/deposits  4.76  p10  2.24  p10 vs C1  -10.6%  below deposits 0.00  fall med  -42% worst5%  -62%
+  C4  median vs C1   +4.1%  behind 0.25  ending/deposits  5.60  p10  2.64  p10 vs C1   +5.1%  below deposits 0.00  fall med  -40% worst5%  -60%
+  C5  median vs C1   -3.2%  behind 0.62  ending/deposits  5.25  p10  2.46  p10 vs C1   -2.1%  below deposits 0.00  fall med  -40% worst5%  -60%
+  C6  median vs C1   +2.5%  behind 0.23  ending/deposits  5.52  p10  2.61  p10 vs C1   +4.0%  below deposits 0.00  fall med  -40% worst5%  -60%
+  C7  median vs C1   -7.1%  behind 0.87  ending/deposits  4.99  p10  2.53  p10 vs C1   +0.9%  below deposits 0.00  fall med  -36% worst5%  -55%
+  L1  median vs C1  +11.2%  behind 0.09  ending/deposits  5.99  p10  2.83  p10 vs C1  +12.6%  below deposits 0.00  fall med  -36% worst5%  -55%
+  L2  median vs C1  +39.9%  behind 0.09  ending/deposits  7.38  p10  3.29  p10 vs C1  +31.1%  below deposits 0.00  fall med  -32% worst5%  -48%
+  L3  median vs C1  +41.3%  behind 0.15  ending/deposits  7.54  p10  2.33  p10 vs C1   -7.3%  below deposits 0.01  fall med  -58% worst5%  -80%
+
+T8b_today_conditions_1990_2026_25y_all_intl_cut_half
+  C1  median vs C1   +0.0%  behind 0.00  ending/deposits  2.75  p10  1.38  p10 vs C1   +0.0%  below deposits 0.03  fall med  -44% worst5%  -67%
+  C2  median vs C1  -11.7%  behind 0.81  ending/deposits  2.47  p10  1.23  p10 vs C1  -10.9%  below deposits 0.05  fall med  -45% worst5%  -70%
+  C3  median vs C1   -5.8%  behind 0.81  ending/deposits  2.62  p10  1.30  p10 vs C1   -5.5%  below deposits 0.04  fall med  -44% worst5%  -68%
+  C4  median vs C1   +3.6%  behind 0.26  ending/deposits  2.85  p10  1.44  p10 vs C1   +4.2%  below deposits 0.03  fall med  -44% worst5%  -66%
+  C5  median vs C1   +1.2%  behind 0.45  ending/deposits  2.80  p10  1.40  p10 vs C1   +1.3%  below deposits 0.03  fall med  -44% worst5%  -67%
+  C6  median vs C1   +2.3%  behind 0.23  ending/deposits  2.83  p10  1.42  p10 vs C1   +3.2%  below deposits 0.03  fall med  -44% worst5%  -66%
+  C7  median vs C1   -1.8%  behind 0.62  ending/deposits  2.71  p10  1.46  p10 vs C1   +5.8%  below deposits 0.03  fall med  -40% worst5%  -61%
+  L1  median vs C1   +2.5%  behind 0.36  ending/deposits  2.83  p10  1.47  p10 vs C1   +6.2%  below deposits 0.03  fall med  -41% worst5%  -62%
+  L2  median vs C1   +6.5%  behind 0.39  ending/deposits  2.93  p10  1.51  p10 vs C1   +9.4%  below deposits 0.01  fall med  -36% worst5%  -57%
+  L3  median vs C1   -7.9%  behind 0.60  ending/deposits  2.53  p10  0.91  p10 vs C1  -33.8%  below deposits 0.12  fall med  -64% worst5%  -88%
+
+T8c_today_conditions_1990_2026_25y_all_intl_cut_same
+  C1  median vs C1   +0.0%  behind 0.00  ending/deposits  2.75  p10  1.38  p10 vs C1   +0.0%  below deposits 0.03  fall med  -44% worst5%  -67%
+  C2  median vs C1  -21.7%  behind 0.96  ending/deposits  2.20  p10  1.11  p10 vs C1  -19.7%  below deposits 0.07  fall med  -46% worst5%  -71%
+  C3  median vs C1  -11.0%  behind 0.95  ending/deposits  2.47  p10  1.24  p10 vs C1  -10.1%  below deposits 0.04  fall med  -45% worst5%  -69%
+  C4  median vs C1   +3.6%  behind 0.26  ending/deposits  2.85  p10  1.44  p10 vs C1   +4.2%  below deposits 0.03  fall med  -44% worst5%  -66%
+  C5  median vs C1   -2.9%  behind 0.62  ending/deposits  2.68  p10  1.35  p10 vs C1   -2.3%  below deposits 0.03  fall med  -45% worst5%  -68%
+  C6  median vs C1   +2.3%  behind 0.23  ending/deposits  2.83  p10  1.42  p10 vs C1   +3.2%  below deposits 0.03  fall med  -44% worst5%  -66%
+  C7  median vs C1   -1.8%  behind 0.62  ending/deposits  2.71  p10  1.46  p10 vs C1   +5.8%  below deposits 0.03  fall med  -40% worst5%  -61%
+  L1  median vs C1   +2.5%  behind 0.36  ending/deposits  2.83  p10  1.47  p10 vs C1   +6.2%  below deposits 0.03  fall med  -41% worst5%  -62%
+  L2  median vs C1   +6.5%  behind 0.39  ending/deposits  2.93  p10  1.51  p10 vs C1   +9.4%  below deposits 0.01  fall med  -36% worst5%  -57%
+  L3  median vs C1   -7.9%  behind 0.60  ending/deposits  2.53  p10  0.91  p10 vs C1  -33.8%  below deposits 0.12  fall med  -64% worst5%  -88%
+
+T8 today's conditions (US, 25y) US stocks, small value and large growth each lowered by 3.99% a year (log), so US stocks compound near 6% nominal (about 3% real); bills set to average 4%.
+  borrow_spread_0.005
+    C1  median vs C1   +0.0%  behind 0.00  ending/deposits  2.42  p10 vs C1   +0.0%  below deposits 0.09  fall worst5%  -79%
+    C4  median vs C1   +6.9%  behind 0.10  ending/deposits  2.61  p10 vs C1   +4.7%  below deposits 0.08  fall worst5%  -79%
+    C6  median vs C1   -0.8%  behind 0.61  ending/deposits  2.41  p10 vs C1   -1.1%  below deposits 0.09  fall worst5%  -78%
+    L1  median vs C1   +7.6%  behind 0.20  ending/deposits  2.60  p10 vs C1   +9.6%  below deposits 0.07  fall worst5%  -74%
+    L2  median vs C1  +24.2%  behind 0.22  ending/deposits  2.97  p10 vs C1  +23.1%  below deposits 0.04  fall worst5%  -66%
+    L3  median vs C1   -9.4%  behind 0.61  ending/deposits  2.19  p10 vs C1  -37.1%  below deposits 0.20  fall worst5%  -94%
+  borrow_spread_0.015
+    C1  median vs C1   +0.0%  behind 0.00  ending/deposits  2.42  p10 vs C1   +0.0%  below deposits 0.09  fall worst5%  -79%
+    C4  median vs C1   +6.9%  behind 0.10  ending/deposits  2.61  p10 vs C1   +4.7%  below deposits 0.08  fall worst5%  -79%
+    C6  median vs C1   -0.8%  behind 0.61  ending/deposits  2.41  p10 vs C1   -1.1%  below deposits 0.09  fall worst5%  -78%
+    L1  median vs C1   +5.9%  behind 0.27  ending/deposits  2.56  p10 vs C1   +7.6%  below deposits 0.07  fall worst5%  -74%
+    L2  median vs C1  +17.3%  behind 0.28  ending/deposits  2.82  p10 vs C1  +18.0%  below deposits 0.05  fall worst5%  -67%
+    L3  median vs C1  -16.1%  behind 0.70  ending/deposits  2.02  p10 vs C1  -40.8%  below deposits 0.22  fall worst5%  -94%
+  borrow_spread_0.03
+    C1  median vs C1   +0.0%  behind 0.00  ending/deposits  2.42  p10 vs C1   +0.0%  below deposits 0.09  fall worst5%  -79%
+    C4  median vs C1   +6.9%  behind 0.10  ending/deposits  2.61  p10 vs C1   +4.7%  below deposits 0.08  fall worst5%  -79%
+    C6  median vs C1   -0.8%  behind 0.61  ending/deposits  2.41  p10 vs C1   -1.1%  below deposits 0.09  fall worst5%  -78%
+    L1  median vs C1   +3.2%  behind 0.35  ending/deposits  2.50  p10 vs C1   +6.4%  below deposits 0.07  fall worst5%  -74%
+    L2  median vs C1   +8.4%  behind 0.38  ending/deposits  2.58  p10 vs C1  +10.9%  below deposits 0.06  fall worst5%  -68%
+    L3  median vs C1  -25.1%  behind 0.82  ending/deposits  1.81  p10 vs C1  -45.5%  below deposits 0.26  fall worst5%  -95%
