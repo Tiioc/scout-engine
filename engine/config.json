@@ -434,8 +434,8 @@
       "result": "10.5% a year and a 50% deepest fall on daily data, but with real funds since 2008 it grew less (10.6% against 11.6%), fell further (25% against 20%) and lost 25% in 2022. Not adopted: more borrowing for no gain in the real-fund test."
     },
     "simple_mix": {
-      "stocks": 0.9,
-      "small_value": 0.1
+      "stocks": 0.7,
+      "small_value": 0.3
     },
     "aggressive_mix": {
       "stocks": 0.5,
@@ -459,7 +459,19 @@
     "aggressive_mix_status": "NOT CLEARED 2026-11-14: failed pre-registered rule 3 (lost in Japan 1990-2026) and the safety gate (leverage).",
     "open_questions": [
       "International slice: pre-register a valuation-based test before running it at the January 2027 review."
-    ]
+    ],
+    "simple_mix_previous": {
+      "stocks": 0.9,
+      "small_value": 0.1,
+      "until": "2026-11-14"
+    },
+    "dose_test_evidence": {
+      "decided": "2026-11-14",
+      "owner_request": "owner asked to test 80/20 and 70/30 for maximum growth and to switch if one passed",
+      "preregistration": "research/CORE-PREREGISTRATION-2026-11-14-addendum-dose.md",
+      "results": "research/data/dose-test-2026-11-14.json; research/data/dose-test-realfunds-2026-11-14.txt",
+      "result": "70/30 passed all seven pre-registered rules against 90/10 (T8 median +13.9%, behind 10%; +2.7% even with the premium cut to zero; falls within 5 points). 80/20 also passed (+6.9%); 70/30 wins by the fixed tie rule. Caveat: on real funds 2001-2026 the three mixes were within about 1.5% of each other; the paper edge comes from the Ken French small-value series, which no fund fully captures."
+    }
   },
   "hunt": {
     "_note": "Hunter mode, approved by the owner 2026-11-14. One deep hunt a week; picks are on paper until the unlock rule is met.",

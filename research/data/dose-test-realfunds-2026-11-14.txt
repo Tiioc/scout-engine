@@ -1,0 +1,24 @@
+start 2001-09
+  90/10                                           10.1% a year  deepest fall  -56%  deposits vs VTI  +0.1%  10y-win 0.52
+  80/20                                           10.2% a year  deepest fall  -56%  deposits vs VTI  +0.1%  10y-win 0.51
+  70/30                                           10.3% a year  deepest fall  -56%  deposits vs VTI  -0.1%  10y-win 0.5
+start 2007-06
+  90/10                                           10.4% a year  deepest fall  -56%  deposits vs VTI  -0.3%  10y-win 0.35
+  80/20                                           10.4% a year  deepest fall  -56%  deposits vs VTI  -0.6%  10y-win 0.33
+  70/30                                           10.3% a year  deepest fall  -56%  deposits vs VTI  -1.1%  10y-win 0.31
+start 2010-01
+  90/10                                           13.8% a year  deepest fall  -36%  deposits vs VTI  -0.4%  10y-win 0.24
+  80/20                                           13.7% a year  deepest fall  -37%  deposits vs VTI  -0.8%  10y-win 0.2
+  70/30                                           13.7% a year  deepest fall  -38%  deposits vs VTI  -1.4%  10y-win 0.17
+start 2015-01
+  90/10                                           12.9% a year  deepest fall  -36%  deposits vs VTI  -0.1%  10y-win 0.09
+  80/20                                           12.8% a year  deepest fall  -37%  deposits vs VTI  -0.3%  10y-win 0.09
+  70/30                                           12.7% a year  deepest fall  -38%  deposits vs VTI  -0.6%  10y-win 0.04
+start 2019-10
+  90/10                                           15.2% a year  deepest fall  -36%  deposits vs VTI  +0.3%  10y-win None
+  80/20                                           15.2% a year  deepest fall  -37%  deposits vs VTI  +0.6%  10y-win None
+  70/30                                           15.3% a year  deepest fall  -38%  deposits vs VTI  +0.9%  10y-win None
+start 2022-01
+  90/10                                           10.8% a year  deepest fall  -24%  deposits vs VTI  -0.4%  10y-win None
+  80/20                                           10.9% a year  deepest fall  -24%  deposits vs VTI  -0.7%  10y-win None
+  70/30                                           10.9% a year  deepest fall  -23%  deposits vs VTI  -1.1%  10y-win None

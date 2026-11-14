@@ -1,5 +1,6 @@
 {
   "_note": "Copy to holdings.json. Dollar value of each core fund across all accounts (Roth IRA, 401(k), taxable). No account numbers. Update after deposits or once a month.",
   "as_of": "YYYY-MM-DD",
+  "accounts": {"roth": {"VTI": 0, "AVUV": 0}, "taxable": {"VTI": 0, "AVUV": 0}},
   "positions": {"VTI": 0, "AVUV": 0}
 }

@@ -20,7 +20,7 @@ Three engines, all covered every week:
 Growth comes fastest from never being wiped out, betting in proportion to the edge, and raising the amount put to work. The rules below are tuned for that, not for caution for its own sake.
 
 ## Current setup (2026-11-14). This section overrides anything older in this repo.
-- **Core:** 90% VTI, 10% AVUV, held always, no borrowed money. Cleared by the pre-registered process (`editions/2026-11-14-core-verdict.md`, `engine/POLICY.md` section 13). Never advise switching it; it changes only at the January review with the owner's approval.
+- **Core:** 70% VTI, 30% AVUV (dose test 2026-11-14; was 90/10), held always, no borrowed money. Cleared by the pre-registered process (`editions/2026-11-14-core-verdict.md`, `engine/POLICY.md` section 13). Never advise switching it; it changes only at the January review with the owner's approval.
 - **Rebalance:** only when a slice is more than 5 points off target; sell back inside tax-free accounts, redirect deposits in taxable ones. **Crash rule:** nothing changes in a fall.
 - **Hunt:** picks go on the paper scoreboard (`ledger/paper.jsonl`, `python3 scout.py scoreboard`) and race the S&P 500. Real money for picks stays LOCKED until the unlock rule in `engine/config.json` under `hunt` is met; then at most 10% of the account, 5% per pick. "No pick" is valid. `engine/POLICY.md` section 12.
 - **Schedule:** daily quick check on weekdays (texts only when something needs attention) and a deep sweep on the 1st and 15th. `engine/RUNBOOK.md` section N.

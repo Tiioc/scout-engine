@@ -229,9 +229,9 @@ def test_real_money_stays_locked_until_the_rule_is_met():
 
 def test_growth_stage_is_the_simple_mix_with_no_exits_and_no_borrowing():
     core = _CFG["core"]
-    assert core["stages"][0]["mix"] == "simple_mix" and core["simple_mix"] == {"stocks": 0.9, "small_value": 0.1}
+    assert core["stages"][0]["mix"] == "simple_mix" and core["simple_mix"] == {"stocks": 0.7, "small_value": 0.3}
     p = _pf.decide(core, {}, 100, {"MTUM": False, "AVUV": False, "SP500": False}, "growth", month=11)
-    assert p["pie_weights"] == {"VTI": 90, "AVUV": 10}                         # exit signals cannot move it
+    assert p["pie_weights"] == {"VTI": 70, "AVUV": 30}                         # exit signals cannot move it
     assert p["steps"][-1].startswith("This mix has no exit rules")
 
 def test_hunt_caps_real_money():

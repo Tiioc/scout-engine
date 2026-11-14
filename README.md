@@ -2,7 +2,7 @@
 
 A research and portfolio manager that runs on Claude. It does three jobs:
 
-1. **Holds the core.** 90% VTI, 10% AVUV, chosen by a pre-registered test of ten candidates over a century of data and attacked by two Red Teams (`editions/2026-11-14-core-verdict.md`). Set once; rebalanced only when a slice drifts more than 5 points.
+1. **Holds the core.** 70% VTI, 30% AVUV (90/10 until the 2026-11-14 dose test), chosen by a pre-registered test of ten candidates over a century of data and attacked by two Red Teams (`editions/2026-11-14-core-verdict.md`). Set once; rebalanced only when a slice drifts more than 5 points.
 2. **Hunts.** Twice a month it digs for one opportunity with a real edge, runs it past five forecasters and a Red Team, and puts survivors on a paper scoreboard against the S&P 500. Real money follows picks only after the scoreboard earns it.
 3. **Watches and keeps score.** A quick check every weekday (texts only when something needs attention), a watch on companies the owner has a stake in, and every forecast logged before the outcome and graded after.
 

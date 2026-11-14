@@ -76,7 +76,7 @@ The stage, the signal, the exact steps with their rule numbers, how far the port
 
 The fixed growth mix with weekly exits was retired after the Red Team showed it lagged a plain stock fund from every start date after 2008 (`research/REDTEAM-2026-11-13.md`). What replaced it:
 
-**The core is simple.** In the growth stage the core is 90% total US stock market and 10% small value, always held. No exits, no borrowing. It is set once. Deposits go in on schedule and nothing else happens to it. The owner may choose the tested aggressive mix instead (half stocks, half a 2x fund held only above the 200-day average, checked daily with a 2% band): Roth IRA only, 2x only, and only after the broker confirms it allows the fund. Evidence and its weak points are in `research/AGGRESSIVE-2026-11-13.md`. Exit rules stay in place for the Build and Protect stages.
+**The core is simple.** In the growth stage the core is 70% total US stock market and 30% small value (90/10 until 2026-11-14), always held. No exits, no borrowing. It is set once. Deposits go in on schedule and nothing else happens to it. The owner may choose the tested aggressive mix instead (half stocks, half a 2x fund held only above the 200-day average, checked daily with a 2% band): Roth IRA only, 2x only, and only after the broker confirms it allows the fund. Evidence and its weak points are in `research/AGGRESSIVE-2026-11-13.md`. Exit rules stay in place for the Build and Protect stages.
 
 **The work is the hunt.** Each week the Scout runs one deep hunt for an opportunity that is specific, non-obvious and has a named edge. A find becomes a paper pick only if it clears every bar in `engine/config.json` under `hunt.paper_pick_bar`. "No pick this week" is a valid result and is better than a weak pick.
 
@@ -90,7 +90,8 @@ The fixed growth mix with weekly exits was retired after the Red Team showed it 
 
 
 ## 13. Core cleared on 2026-11-14 (owner asked for the most tested version)
-- Core: 90% VTI, 10% AVUV, chosen by the pre-registered process in `research/CORE-PREREGISTRATION-2026-11-14.md` and recorded in `editions/2026-11-14-core-verdict.md`.
+- Core: 70% VTI, 30% AVUV (changed from 90/10 on 2026-11-14 at the owner's request after the pre-registered dose test in `research/CORE-PREREGISTRATION-2026-11-14-addendum-dose.md` passed). Original selection: `editions/2026-11-14-core-verdict.md`. Rebalance band for AVUV: 25% to 35%.
+- Accounts, in order: 401(k) to any match; Roth IRA to the yearly limit; everything else in a taxable brokerage account. Same mix in every account. Money for a house comes from taxable first, then Roth contributions.
 - Rebalance: when a slice is more than 5 points off target, sell back to target inside tax-free accounts; in taxable accounts point new deposits at the slice that is behind. Deposits alone do not hold the mix.
 - Crash rule: in a fall of any size nothing changes. Keep depositing; the only sale allowed is a band rebalance.
 - Before investing: an emergency fund and no debt above about 8% interest come first; take any employer 401(k) match first.
