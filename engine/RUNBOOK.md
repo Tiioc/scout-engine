@@ -90,6 +90,12 @@ On request, build one blinded historical case from public data (names and years 
 
 Rerun `scripts/portfolio_lab.py`, `scripts/portfolio_lab_realfunds.py` and `scripts/portfolio_lab_sensitivity.py` on the new year of data. Before running anything new, write and commit a pre-registration for it (first item: a valuation-based international test). A change to the core needs the owner's approval.
 
+## N. Schedule (owner's choice, 2026-11-14)
+
+- **Daily quick check** (weekdays 1:43 PM Pacific, after the close): paper-pick stops and targets, core drift (only if more than 5 points off), S&P 500 falls crossing 10/20/30/40% from the high (crash-rule reminder, once per level), quick watchlist news. Messages the owner ONLY when something needs attention; otherwise one line in the run log and no text.
+- **Deep sweep** (1st and 15th of each month, 10:47 AM Pacific): the full hunt with forecasters and Red Team (aerospace, space and defense get a dedicated look), in-depth watch, grading of due forecasts, an edition. The first sweep in January starts the January review (section M).
+- No daily signal check for the core: the core has no exit rule.
+
 ## I. Run budget
 
 A weekly hunt uses at most: 1 radar, 1 specialist, 5 forecaster calls (one per framing, all questions in one call), 1 red team. A full edition uses at most: 1 radar, 4 specialists, 5 forecaster calls, 1 red team. The weekly portfolio check uses no agents. If a run cannot fit, publish what is finished and say what was cut.
