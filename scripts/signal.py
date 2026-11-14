@@ -33,7 +33,7 @@ def compute(rows, lookback=10, today=None):
             "meaning": "hold the stock block" if gap > 0 else "hold cash in place of the stock block"}
 
 
-YAHOO = "https://query1.finance.yahoo.com/v8/finance/chart/%s?range=2y&interval=1d"
+YAHOO = "https://query1.finance.yahoo.com/v8/finance/chart/%s?range=5y&interval=1d"
 
 
 def fund_rows(ticker):
@@ -50,8 +50,45 @@ def fund_rows(ticker):
     return [(datetime.datetime.utcfromtimestamp(t).strftime("%Y-%m-%d"), v) for t, v in zip(r["timestamp"], px) if v is not None]
 
 
-def fund_signal(ticker, lookback=10, today=None):
-    out = compute(fund_rows(ticker), lookback, today); out["ticker"] = ticker
+def weekly_state(rows, days=200, band=0.02, today=None):
+    """The exit rule that won the frequency test: at each week's last close, leave the fund if it
+    is more than `band` below its 200-day average, return if more than `band` above, otherwise
+    keep the current position. The position is rebuilt by replaying the rule over the history,
+    so no saved state is needed."""
+    import datetime
+    px = []
+    for d, v in rows:
+        try: px.append((d[:10], float(v)))
+        except (TypeError, ValueError): continue
+    px.sort()
+    if today:
+        t = datetime.date.fromisoformat(today[:10])
+        if t.weekday() < 5:                                   # week still in progress: ignore its days
+            monday = (t - datetime.timedelta(days=t.weekday())).isoformat()
+            px = [r for r in px if r[0] < monday]
+    if len(px) < days + 5: raise ValueError("need at least %d trading days" % (days + 5))
+    wk = [datetime.date.fromisoformat(d).isocalendar()[:2] for d, _ in px]
+    held = None; last_flip = None; run = 0.0; out = None
+    for i, (d, v) in enumerate(px):
+        run += v
+        if i >= days: run -= px[i - days][1]
+        if i < days - 1: continue
+        avg = run / days
+        if i == len(px) - 1 or wk[i + 1] != wk[i]:            # last trading day of its week
+            if held is None: held = v >= avg
+            elif held and v < avg * (1 - band): held = False; last_flip = d
+            elif not held and v > avg * (1 + band): held = True; last_flip = d
+            out = {"as_of": d, "close": round(v, 2), "average_200_day": round(avg, 2), "gap": round(v / avg - 1, 4)}
+    out.update({"signal": "on" if held else "off", "last_flip": last_flip, "flipped_at_this_check": last_flip == out["as_of"],
+                "inside_buffer": abs(out["gap"]) <= band,
+                "meaning": "hold the fund" if held else "hold cash in place of the fund"})
+    return out
+
+
+def fund_signal(ticker, lookback=10, today=None, weekly=True):
+    rows = fund_rows(ticker)
+    out = weekly_state(rows, today=today) if weekly else compute(rows, lookback, today)
+    out["ticker"] = ticker
     return out
 
 

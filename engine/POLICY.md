@@ -23,7 +23,7 @@ This is the owner's whole investment portfolio. Dollar size does not change any 
   2. No borrowed money in the account (no margin loan, no credit line). The 2x fund can lose most of its own value but never more than what was put in.
   3. Money needed within three years, and the emergency fund, are never in this portfolio.
   4. No single play above its cap; all plays together capped; the caps come from `config.json`.
-  5. Every risky block in the core has its own exit: when that fund closes a month below its own 10-month average, the block moves to the cash fund until it closes above it.
+  5. Every risky block in the core has its own exit, checked every week: when the fund ends a week more than 2% below its own 200-day average, the block moves to the cash fund; it returns when the fund ends a week more than 2% above it.
   6. An account-wide breaker (R8) steps the whole core down a risk level if losses ever exceed anything in the historical record.
 
 ## 3. Stages (elevated risk early, less later)
@@ -44,26 +44,26 @@ The stage depends on how large the account is compared with what goes in each ye
 | # | Trigger | Action | When |
 |---|---|---|---|
 | R1 | New deposit | Goes to the slice furthest below target | Any time |
-| R2 | A block's exit signal flips at a month end | Swap that block to the cash fund, or back | First trading day of the month |
-| R3 | A slice is more than 5 points off target | Rebalance to target | Monthly check |
+| R2 | A block's exit signal flips at a week's end | Swap that block to the cash fund, or back | Next trading day |
+| R3 | A slice is more than 5 points off target | Rebalance to target | Weekly check |
 | R4 | January review: the backtest on new data picks a different mix, or the stage changes | Propose the new mix | January |
 | R5 | A fund closes, changes what it does, or raises its fee sharply | Replace with the closest fund | When it happens |
 | R6 | A play hits its written exit or "wrong if" condition | Exit as its dossier says | Weekly edition |
 | R7 | The owner's situation changes (income, goal, need for cash) | Update the profile and the safety sleeve, then R4 | When told |
-| R8 | The account is more than 5 points below the worst fall its risk level ever showed | Step the core down one risk level | Next monthly check; step back up only in January |
+| R8 | The account is more than 5 points below the worst fall its risk level ever showed | Step the core down one risk level | Next weekly check; step back up only in January |
 
 Nothing else is a reason. Not headlines, not a bad week, not a forecast about the economy, not a tip, not a price target.
 
 ## 5. No-panic rules
-1. **Scheduled decisions only.** The core is touched on the first trading day of the month. Plays are reviewed in the weekly edition. Nothing is decided between those dates.
+1. **Scheduled decisions only.** The core is checked once a week, after the week's last close. Plays are reviewed in the weekly edition. Nothing is decided between those dates. Weekly beat both monthly and daily checking in the test on daily data since 1927.
 2. **Every action carries its reason.** Each advised step names the rule (R1 to R8) behind it. An action with no rule is not advised.
 3. **Exits are written before entries.** No play is opened without its exit and "wrong if" conditions on paper.
 4. **Falls are expected and pre-answered.** In a decline the only actions are R1 (keep depositing, which buys low), R2 (the exits) and, past the historical worst, R8. The monthly report shows the fall against the worst in history so it has context.
-5. **Cooling-off.** Any change the owner or the Scout wants outside these rules waits until the next monthly check and must be tested first.
+5. **Cooling-off.** Any change the owner or the Scout wants outside these rules waits until the next weekly check and must be tested first.
 6. **No chasing.** Nothing is added because it went up. A new asset enters only through the backtest.
 
 ## 6. What the owner does
 Put money in. Enter the monthly steps at the broker. Tell the Scout when life changes. That is all.
 
-## 7. What the Scout reports every month
+## 7. What the Scout reports every week
 The stage, the signal, the exact steps with their rule numbers, how far the portfolio is from its high, and what the worst historical fall would mean in dollars today.

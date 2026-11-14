@@ -178,7 +178,7 @@ class Backtest(unittest.TestCase):
 class EntryPoint(unittest.TestCase):
     def test_help_and_unknown_command(self):
         r = subprocess.run([sys.executable, os.path.join(ROOT, "scout.py")], capture_output=True, text=True)
-        self.assertIn("monthly", r.stdout)
+        self.assertIn("check", r.stdout)
         r = subprocess.run([sys.executable, os.path.join(ROOT, "scout.py"), "nope"], capture_output=True, text=True)
         self.assertEqual(r.returncode, 2)
 

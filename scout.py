@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """One entry point for every Scout tool.  python3 scout.py <command> [options]
 
-  monthly   trend signal + the exact portfolio changes   (--deposit 1500 [--holdings file])
+  check     weekly exit signals + the exact portfolio changes   (--deposit 1500 [--holdings file])
   signal    trend signal only
   plan      portfolio changes for a given signal
   size      size one play            calc    financial calculator
@@ -17,7 +17,7 @@ import io, json, os, runpy, subprocess, sys, contextlib
 HERE = os.path.dirname(os.path.abspath(__file__))
 MAP = {"signal": "signal", "plan": "portfolio", "size": "sizing", "calc": "fincalc", "gate": "safety_gate",
        "check": "check_edition", "score": "score", "aggregate": "aggregate", "backtest": "backtest",
-       "robust": "robust", "simulate": "simulate", "levels": "levels", "lifecycle": "lifecycle", "stress": "stress"}
+       "robust": "robust", "simulate": "simulate", "frequency": "frequency", "realfunds": "realfunds", "levels": "levels", "lifecycle": "lifecycle", "stress": "stress"}
 
 
 def run(script, args):
@@ -34,7 +34,7 @@ def main():
         if subprocess.call([sys.executable, "-c", "import pytest"], stderr=subprocess.DEVNULL) == 0:
             return subprocess.call([sys.executable, "-m", "pytest", "-q", os.path.join(HERE, "tests")])
         return subprocess.call([sys.executable, "-m", "unittest", "discover", "-s", os.path.join(HERE, "tests"), "-q"])
-    if cmd == "monthly":
+    if cmd in ("monthly", "weekly", "check"):
         import datetime
         sig = runpy.run_path(os.path.join(HERE, "scripts", "signal.py"))
         core = json.load(open(os.path.join(HERE, "engine", "config.json")))["core"]
@@ -48,7 +48,7 @@ def main():
                 if key in out: continue
                 if key == "SP500":
                     import csv
-                    out[key] = sig["compute"](list(csv.reader(io.StringIO(sig["fetch"]())))[1:], today=today)
+                    out[key] = sig["weekly_state"](list(csv.reader(io.StringIO(sig["fetch"]())))[1:], today=today)
                 else:
                     out[key] = sig["fund_signal"](key, today=today)
                 flags.append("%s=%s" % (key, out[key]["signal"]))

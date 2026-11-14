@@ -41,12 +41,12 @@ class Drills(unittest.TestCase):
         self.assertGreater(tr["MTUM"], 0); self.assertLess(tr["SGOV"], 0)
 
     def test_fall_past_the_record_steps_down_one_level(self):
-        pos = {k: v * 0.40 for k, v in balanced(100000).items()}          # 60% below the high; record is 50%
+        pos = {k: v * 0.40 for k, v in balanced(100000).items()}          # 60% below the high; record is 46%
         p = pf.decide(CORE, pos, 0, ALL_ON, "growth", month=6, peak=100000)
         self.assertEqual(p["stage"], "build"); self.assertTrue(any("[Rule R8]" in s for s in p["steps"]))
 
     def test_fall_inside_the_record_never_triggers_the_breaker(self):
-        for drop in (0.2, 0.35, 0.5, 0.54):
+        for drop in (0.2, 0.35, 0.46, 0.50):
             pos = {k: v * (1 - drop) for k, v in balanced(100000).items()}
             self.assertEqual(pf.decide(CORE, pos, 0, ALL_ON, "growth", month=6, peak=100000)["stage"], "growth")
 
@@ -99,6 +99,53 @@ class SignalMatchesBacktest(unittest.TestCase):
                 y, m = 2000 + j // 12, j % 12 + 1
                 rows.append(("%d-%02d-28" % (y, m), str(float(idx.iloc[j]))))
             self.assertEqual(sg.compute(rows)["signal"] == "on", bool(want.iloc[t]))
+
+
+class WeeklyExit(unittest.TestCase):
+    def rows(self, closes, start="2024-01-01"):
+        import datetime
+        d = datetime.date.fromisoformat(start); out = []
+        for c in closes:
+            while d.weekday() >= 5: d += datetime.timedelta(days=1)
+            out.append((d.isoformat(), str(c))); d += datetime.timedelta(days=1)
+        return out
+
+    def test_steady_rise_is_held(self):
+        r = sg.weekly_state(self.rows([100 + i * 0.2 for i in range(300)]))
+        self.assertEqual(r["signal"], "on"); self.assertIsNone(r["last_flip"])
+
+    def test_clear_fall_exits_and_recovery_returns(self):
+        up = [100 + i * 0.2 for i in range(260)]; down = [up[-1] * (1 - 0.01 * i) for i in range(1, 41)]
+        r = sg.weekly_state(self.rows(up + down)); self.assertEqual(r["signal"], "off"); self.assertIsNotNone(r["last_flip"])
+        back = [down[-1] * (1 + 0.012 * i) for i in range(1, 80)]
+        self.assertEqual(sg.weekly_state(self.rows(up + down + back))["signal"], "on")
+
+    def test_small_dip_inside_the_buffer_does_not_exit(self):
+        flat = [100.0] * 260 + [99.0] * 15                     # 1% under the average: inside the 2% buffer
+        r = sg.weekly_state(self.rows(flat)); self.assertEqual(r["signal"], "on"); self.assertTrue(r["inside_buffer"])
+
+    def test_buffer_prevents_flip_flopping(self):
+        import math
+        wig = [100 + 1.5 * math.sin(i / 3.0) for i in range(600)]      # wobbles 1.5% around a flat average
+        states = set()
+        for n in range(260, 600, 5): states.add(sg.weekly_state(self.rows(wig[:n]))["signal"])
+        self.assertEqual(len(states), 1)
+
+    def test_week_in_progress_is_ignored(self):
+        rows = self.rows([100 + i * 0.2 for i in range(300)]); last = rows[-1][0]
+        import datetime
+        d = datetime.date.fromisoformat(last)
+        while d.weekday() != 2: d += datetime.timedelta(days=1)      # a Wednesday after the data
+        crash = rows + [(d.isoformat(), "10")]
+        r = sg.weekly_state(crash, today=d.isoformat()); self.assertEqual(r["signal"], "on"); self.assertLess(r["as_of"], d.isoformat())
+
+    def test_only_week_end_closes_decide(self):
+        up = [100 + i * 0.2 for i in range(261)]                      # ends on a Monday close
+        rows = self.rows(up); dip = rows[:-3] + [(rows[-3][0], "50")] + rows[-2:]   # a mid-week plunge that recovers by the week's end
+        self.assertEqual(sg.weekly_state(dip)["signal"], "on")
+
+    def test_too_little_history_is_an_error(self):
+        with self.assertRaises(ValueError): sg.weekly_state(self.rows([100] * 50))
 
 
 class Lifecycle(unittest.TestCase):

@@ -22,7 +22,7 @@ Growth comes fastest from never being wiped out, betting in proportion to the ed
 ## Portfolio manager (added 2026-11-13)
 - **`engine/POLICY.md` is the foundation.** Every advised action names the policy rule (R1 to R7) behind it. If no rule applies, advise nothing. Never advise a change because of a headline, a bad week or a market forecast.
 - The core mix, its funds and the rebalance band are in `engine/config.json` under `core`. They come from `scripts/backtest.py` and survived `scripts/robust.py`; evidence is in `research/`.
-- **Monthly, first trading day:** run `python3 scout.py monthly --deposit <amount> --holdings profile/holdings.json` and give the owner the "steps" lines exactly as printed. The owner enters them at the broker. The Scout never connects to a brokerage and never trades.
+- **Weekly, after the week's last close:** run `python3 scout.py check --deposit <amount> --holdings profile/holdings.json` and give the owner the "steps" lines exactly as printed. The owner enters them at the broker. The Scout never connects to a brokerage and never trades.
 - **Yearly, January:** rerun the backtest and stress tests on the new year of data. Report if the winning mix changed. A change is a rule change and needs approval.
 - Nothing enters the core on a story. A new asset or rule is added to the backtest first.
 - One entry point for every tool: `python3 scout.py <command>`.
@@ -31,7 +31,7 @@ Growth comes fastest from never being wiped out, betting in proportion to the ed
 The main session is the Chair. You orchestrate the agents in `.claude/agents/`, run the scripts in `scripts/`, write the edition, and keep the ledger. Subagents do not spawn subagents.
 
 ## Hard rules (never break these)
-1. **Advice only.** Never place trades, move money, sign anything, or send messages to anyone. The only outputs are files in this repo, a pull request or issue on this repo, and replies to the owner.
+1. **Advice only.** Never place trades, move money, sign anything, or send messages to anyone. One exception the owner asked for on 2026-11-13: the weekly check may send its short status text to the owner's own phone, and to no one else. The only outputs are files in this repo, a pull request or issue on this repo, and replies to the owner.
 2. **The safety gate decides.** Every play goes through `scripts/safety_gate.py`. If it says BLOCK, the play is killed and logged. You may not argue past it or reword a play to slip through.
 3. **Log before outcome.** Every forecast is written to `ledger/forecasts.jsonl` and committed before its outcome can be known. Never edit a past forecast. Corrections are new records.
 4. **No backtests as evidence.** You have read about the past, so replaying it measures memory, not skill. Never present a historical replay of your own forecasts as proof of anything.

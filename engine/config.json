@@ -118,7 +118,7 @@
       "gold": 0.1
     },
     "active": "growth_mix = risk level 50 (proposed; takes effect when the owner merges)",
-    "trend_rule": "hold the stock block only while the total-return index is above its 10-month average at month end; otherwise cash",
+    "trend_rule": "superseded by exit_rule",
     "rebalance": "once a year",
     "rerun_backtest": "every January",
     "rebalance_band": 0.05,
@@ -187,12 +187,14 @@
         "worst_single_day": 0.1
       },
       "growth_mix": {
-        "worst_fall": 0.5,
+        "worst_fall": 0.46,
         "worst_year": 0.3,
         "losing_years_share": 0.27,
         "worst_single_day": 0.17,
         "worst_month": 0.28,
-        "real_growth_per_year": 0.0974
+        "real_growth_per_year": 0.0974,
+        "worst_fall_note": "daily path, weekly exits with a 2% buffer; the monthly rule showed 60% on the same daily data",
+        "worst_week": 0.31
       },
       "build_mix": {
         "worst_fall": 0.35,
@@ -341,6 +343,20 @@
       "trend_momentum": 0.3,
       "bonds": 0.5
     },
-    "stage_rule": "Checked each January. Steps down only, never back up on its own. Thresholds chosen by scripts/lifecycle.py: best result when a 1929-style crash lands in the final years, at 20 and 30 years."
+    "stage_rule": "Checked each January. Steps down only, never back up on its own. Thresholds chosen by scripts/lifecycle.py: best result when a 1929-style crash lands in the final years, at 20 and 30 years.",
+    "exit_rule": {
+      "check": "weekly, at the last close of the week",
+      "average": "200 trading days",
+      "buffer": 0.02,
+      "why": "scripts/frequency.py on daily data since 1927: same growth and number of trades as the monthly rule, deepest fall 46% instead of 60%, in both halves of history. Daily checking was no better.",
+      "source": "research/GAPS-2026-11-13.md"
+    },
+    "other_assets_tested": {
+      "property funds (VNQ)": "no help since 2008",
+      "international stocks (VXUS)": "no help since 2012",
+      "international momentum (IMTM)": "no help since 2016",
+      "international small cheap (AVDV)": "slight help since 2020; too short to add",
+      "bitcoin": "a 5% slice added about 3 points a year since 2016; one asset, ten years, not added to the core"
+    }
   }
 }
