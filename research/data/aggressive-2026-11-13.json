@@ -1,0 +1,2574 @@
+{
+ "real_funds": {
+  "2007-06-01": {
+   "A plain stocks": {
+    "per_year": {
+     "typical": 0.1054,
+     "worst_phase": 0.1054
+    },
+    "deepest_fall": {
+     "typical": -0.552,
+     "worst_phase": -0.552
+    },
+    "worst_day": {
+     "typical": -0.109,
+     "worst_phase": -0.109
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    },
+    "five_year_win_rate": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    }
+   },
+   "B stocks with exit": {
+    "per_year": {
+     "typical": 0.0989,
+     "worst_phase": 0.0713
+    },
+    "deepest_fall": {
+     "typical": -0.237,
+     "worst_phase": -0.279
+    },
+    "worst_day": {
+     "typical": -0.078,
+     "worst_phase": -0.096
+    },
+    "deposits_vs_stocks": {
+     "typical": -0.275,
+     "worst_phase": -0.475
+    },
+    "five_year_win_rate": {
+     "typical": 0.1,
+     "worst_phase": 0.09
+    }
+   },
+   "C 2x stocks with exit": {
+    "per_year": {
+     "typical": 0.1585,
+     "worst_phase": 0.0998
+    },
+    "deepest_fall": {
+     "typical": -0.435,
+     "worst_phase": -0.502
+    },
+    "worst_day": {
+     "typical": -0.156,
+     "worst_phase": -0.191
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.618,
+     "worst_phase": -0.204
+    },
+    "five_year_win_rate": {
+     "typical": 0.83,
+     "worst_phase": 0.47
+    }
+   },
+   "D half stocks, half 2x with exit": {
+    "per_year": {
+     "typical": 0.1372,
+     "worst_phase": 0.108
+    },
+    "deepest_fall": {
+     "typical": -0.381,
+     "worst_phase": -0.445
+    },
+    "worst_day": {
+     "typical": -0.117,
+     "worst_phase": -0.143
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.334,
+     "worst_phase": -0.064
+    },
+    "five_year_win_rate": {
+     "typical": 0.88,
+     "worst_phase": 0.5
+    }
+   },
+   "E 70 stocks, 30 2x with exit": {
+    "per_year": {
+     "typical": 0.1257,
+     "worst_phase": 0.1083
+    },
+    "deepest_fall": {
+     "typical": -0.453,
+     "worst_phase": -0.484
+    },
+    "worst_day": {
+     "typical": -0.101,
+     "worst_phase": -0.124
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.201,
+     "worst_phase": -0.028
+    },
+    "five_year_win_rate": {
+     "typical": 0.91,
+     "worst_phase": 0.51
+    }
+   },
+   "J 2x stocks, no exit": {
+    "per_year": {
+     "typical": 0.14,
+     "worst_phase": 0.14
+    },
+    "deepest_fall": {
+     "typical": -0.847,
+     "worst_phase": -0.847
+    },
+    "worst_day": {
+     "typical": -0.234,
+     "worst_phase": -0.234
+    },
+    "deposits_vs_stocks": {
+     "typical": 1.546,
+     "worst_phase": 1.546
+    },
+    "five_year_win_rate": {
+     "typical": 0.91,
+     "worst_phase": 0.91
+    }
+   },
+   "I 40 stocks, 40 2x with exit, 20 gold": {
+    "per_year": {
+     "typical": 0.1339,
+     "worst_phase": 0.1108
+    },
+    "deepest_fall": {
+     "typical": -0.289,
+     "worst_phase": -0.344
+    },
+    "worst_day": {
+     "typical": -0.093,
+     "worst_phase": -0.123
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.181,
+     "worst_phase": -0.106
+    },
+    "five_year_win_rate": {
+     "typical": 0.57,
+     "worst_phase": 0.25
+    }
+   },
+   "H 2x Nasdaq with exit (hindsight pick)": {
+    "per_year": {
+     "typical": 0.1777,
+     "worst_phase": 0.1624
+    },
+    "deepest_fall": {
+     "typical": -0.526,
+     "worst_phase": -0.614
+    },
+    "worst_day": {
+     "typical": -0.243,
+     "worst_phase": -0.243
+    },
+    "deposits_vs_stocks": {
+     "typical": 1.387,
+     "worst_phase": 1.2
+    },
+    "five_year_win_rate": {
+     "typical": 0.87,
+     "worst_phase": 0.84
+    }
+   }
+  },
+  "2009-04-01": {
+   "A plain stocks": {
+    "per_year": {
+     "typical": 0.1564,
+     "worst_phase": 0.1564
+    },
+    "deepest_fall": {
+     "typical": -0.337,
+     "worst_phase": -0.337
+    },
+    "worst_day": {
+     "typical": -0.109,
+     "worst_phase": -0.109
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    },
+    "five_year_win_rate": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    }
+   },
+   "B stocks with exit": {
+    "per_year": {
+     "typical": 0.1106,
+     "worst_phase": 0.086
+    },
+    "deepest_fall": {
+     "typical": -0.237,
+     "worst_phase": -0.279
+    },
+    "worst_day": {
+     "typical": -0.078,
+     "worst_phase": -0.096
+    },
+    "deposits_vs_stocks": {
+     "typical": -0.281,
+     "worst_phase": -0.464
+    },
+    "five_year_win_rate": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    }
+   },
+   "C 2x stocks with exit": {
+    "per_year": {
+     "typical": 0.183,
+     "worst_phase": 0.1303
+    },
+    "deepest_fall": {
+     "typical": -0.435,
+     "worst_phase": -0.502
+    },
+    "worst_day": {
+     "typical": -0.156,
+     "worst_phase": -0.191
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.481,
+     "worst_phase": -0.233
+    },
+    "five_year_win_rate": {
+     "typical": 0.82,
+     "worst_phase": 0.39
+    }
+   },
+   "D half stocks, half 2x with exit": {
+    "per_year": {
+     "typical": 0.174,
+     "worst_phase": 0.1476
+    },
+    "deepest_fall": {
+     "typical": -0.343,
+     "worst_phase": -0.409
+    },
+    "worst_day": {
+     "typical": -0.117,
+     "worst_phase": -0.143
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.269,
+     "worst_phase": -0.088
+    },
+    "five_year_win_rate": {
+     "typical": 0.87,
+     "worst_phase": 0.43
+    }
+   },
+   "E 70 stocks, 30 2x with exit": {
+    "per_year": {
+     "typical": 0.168,
+     "worst_phase": 0.1522
+    },
+    "deepest_fall": {
+     "typical": -0.34,
+     "worst_phase": -0.38
+    },
+    "worst_day": {
+     "typical": -0.101,
+     "worst_phase": -0.124
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.164,
+     "worst_phase": -0.044
+    },
+    "five_year_win_rate": {
+     "typical": 0.89,
+     "worst_phase": 0.44
+    }
+   },
+   "J 2x stocks, no exit": {
+    "per_year": {
+     "typical": 0.2614,
+     "worst_phase": 0.2614
+    },
+    "deepest_fall": {
+     "typical": -0.593,
+     "worst_phase": -0.593
+    },
+    "worst_day": {
+     "typical": -0.234,
+     "worst_phase": -0.234
+    },
+    "deposits_vs_stocks": {
+     "typical": 1.489,
+     "worst_phase": 1.489
+    },
+    "five_year_win_rate": {
+     "typical": 1.0,
+     "worst_phase": 1.0
+    }
+   },
+   "I 40 stocks, 40 2x with exit, 20 gold": {
+    "per_year": {
+     "typical": 0.1607,
+     "worst_phase": 0.1399
+    },
+    "deepest_fall": {
+     "typical": -0.287,
+     "worst_phase": -0.344
+    },
+    "worst_day": {
+     "typical": -0.093,
+     "worst_phase": -0.123
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.125,
+     "worst_phase": -0.129
+    },
+    "five_year_win_rate": {
+     "typical": 0.53,
+     "worst_phase": 0.16
+    }
+   },
+   "F 3x stocks with exit": {
+    "per_year": {
+     "typical": 0.2504,
+     "worst_phase": 0.1687
+    },
+    "deepest_fall": {
+     "typical": -0.592,
+     "worst_phase": -0.67
+    },
+    "worst_day": {
+     "typical": -0.234,
+     "worst_phase": -0.29
+    },
+    "deposits_vs_stocks": {
+     "typical": 1.874,
+     "worst_phase": 0.004
+    },
+    "five_year_win_rate": {
+     "typical": 0.91,
+     "worst_phase": 0.49
+    }
+   },
+   "G half stocks, half 3x with exit": {
+    "per_year": {
+     "typical": 0.215,
+     "worst_phase": 0.1755
+    },
+    "deepest_fall": {
+     "typical": -0.417,
+     "worst_phase": -0.506
+    },
+    "worst_day": {
+     "typical": -0.156,
+     "worst_phase": -0.193
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.887,
+     "worst_phase": 0.129
+    },
+    "five_year_win_rate": {
+     "typical": 0.97,
+     "worst_phase": 0.56
+    }
+   },
+   "H 2x Nasdaq with exit (hindsight pick)": {
+    "per_year": {
+     "typical": 0.2144,
+     "worst_phase": 0.2124
+    },
+    "deepest_fall": {
+     "typical": -0.514,
+     "worst_phase": -0.526
+    },
+    "worst_day": {
+     "typical": -0.243,
+     "worst_phase": -0.243
+    },
+    "deposits_vs_stocks": {
+     "typical": 1.234,
+     "worst_phase": 1.124
+    },
+    "five_year_win_rate": {
+     "typical": 0.91,
+     "worst_phase": 0.88
+    }
+   }
+  },
+  "2010-01-01": {
+   "A plain stocks": {
+    "per_year": {
+     "typical": 0.1399,
+     "worst_phase": 0.1399
+    },
+    "deepest_fall": {
+     "typical": -0.337,
+     "worst_phase": -0.337
+    },
+    "worst_day": {
+     "typical": -0.109,
+     "worst_phase": -0.109
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    },
+    "five_year_win_rate": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    }
+   },
+   "B stocks with exit": {
+    "per_year": {
+     "typical": 0.1034,
+     "worst_phase": 0.0785
+    },
+    "deepest_fall": {
+     "typical": -0.237,
+     "worst_phase": -0.279
+    },
+    "worst_day": {
+     "typical": -0.078,
+     "worst_phase": -0.096
+    },
+    "deposits_vs_stocks": {
+     "typical": -0.264,
+     "worst_phase": -0.445
+    },
+    "five_year_win_rate": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    }
+   },
+   "C 2x stocks with exit": {
+    "per_year": {
+     "typical": 0.1671,
+     "worst_phase": 0.1141
+    },
+    "deepest_fall": {
+     "typical": -0.435,
+     "worst_phase": -0.502
+    },
+    "worst_day": {
+     "typical": -0.156,
+     "worst_phase": -0.191
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.445,
+     "worst_phase": -0.229
+    },
+    "five_year_win_rate": {
+     "typical": 0.83,
+     "worst_phase": 0.34
+    }
+   },
+   "D half stocks, half 2x with exit": {
+    "per_year": {
+     "typical": 0.1576,
+     "worst_phase": 0.1311
+    },
+    "deepest_fall": {
+     "typical": -0.343,
+     "worst_phase": -0.409
+    },
+    "worst_day": {
+     "typical": -0.117,
+     "worst_phase": -0.143
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.25,
+     "worst_phase": -0.088
+    },
+    "five_year_win_rate": {
+     "typical": 0.87,
+     "worst_phase": 0.38
+    }
+   },
+   "E 70 stocks, 30 2x with exit": {
+    "per_year": {
+     "typical": 0.1515,
+     "worst_phase": 0.1356
+    },
+    "deepest_fall": {
+     "typical": -0.34,
+     "worst_phase": -0.38
+    },
+    "worst_day": {
+     "typical": -0.101,
+     "worst_phase": -0.124
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.154,
+     "worst_phase": -0.045
+    },
+    "five_year_win_rate": {
+     "typical": 0.89,
+     "worst_phase": 0.41
+    }
+   },
+   "J 2x stocks, no exit": {
+    "per_year": {
+     "typical": 0.2252,
+     "worst_phase": 0.2252
+    },
+    "deepest_fall": {
+     "typical": -0.593,
+     "worst_phase": -0.593
+    },
+    "worst_day": {
+     "typical": -0.234,
+     "worst_phase": -0.234
+    },
+    "deposits_vs_stocks": {
+     "typical": 1.307,
+     "worst_phase": 1.307
+    },
+    "five_year_win_rate": {
+     "typical": 1.0,
+     "worst_phase": 1.0
+    }
+   },
+   "I 40 stocks, 40 2x with exit, 20 gold": {
+    "per_year": {
+     "typical": 0.1462,
+     "worst_phase": 0.1253
+    },
+    "deepest_fall": {
+     "typical": -0.287,
+     "worst_phase": -0.344
+    },
+    "worst_day": {
+     "typical": -0.093,
+     "worst_phase": -0.123
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.119,
+     "worst_phase": -0.123
+    },
+    "five_year_win_rate": {
+     "typical": 0.52,
+     "worst_phase": 0.13
+    }
+   },
+   "F 3x stocks with exit": {
+    "per_year": {
+     "typical": 0.2224,
+     "worst_phase": 0.139
+    },
+    "deepest_fall": {
+     "typical": -0.592,
+     "worst_phase": -0.67
+    },
+    "worst_day": {
+     "typical": -0.234,
+     "worst_phase": -0.29
+    },
+    "deposits_vs_stocks": {
+     "typical": 1.699,
+     "worst_phase": -0.018
+    },
+    "five_year_win_rate": {
+     "typical": 0.92,
+     "worst_phase": 0.45
+    }
+   },
+   "G half stocks, half 3x with exit": {
+    "per_year": {
+     "typical": 0.1922,
+     "worst_phase": 0.1514
+    },
+    "deepest_fall": {
+     "typical": -0.417,
+     "worst_phase": -0.506
+    },
+    "worst_day": {
+     "typical": -0.156,
+     "worst_phase": -0.193
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.812,
+     "worst_phase": 0.108
+    },
+    "five_year_win_rate": {
+     "typical": 0.97,
+     "worst_phase": 0.55
+    }
+   },
+   "H 2x Nasdaq with exit (hindsight pick)": {
+    "per_year": {
+     "typical": 0.1926,
+     "worst_phase": 0.185
+    },
+    "deepest_fall": {
+     "typical": -0.514,
+     "worst_phase": -0.526
+    },
+    "worst_day": {
+     "typical": -0.243,
+     "worst_phase": -0.243
+    },
+    "deposits_vs_stocks": {
+     "typical": 1.205,
+     "worst_phase": 1.101
+    },
+    "five_year_win_rate": {
+     "typical": 0.93,
+     "worst_phase": 0.87
+    }
+   }
+  },
+  "2015-01-01": {
+   "A plain stocks": {
+    "per_year": {
+     "typical": 0.1342,
+     "worst_phase": 0.1342
+    },
+    "deepest_fall": {
+     "typical": -0.337,
+     "worst_phase": -0.337
+    },
+    "worst_day": {
+     "typical": -0.109,
+     "worst_phase": -0.109
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    },
+    "five_year_win_rate": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    }
+   },
+   "B stocks with exit": {
+    "per_year": {
+     "typical": 0.1,
+     "worst_phase": 0.0671
+    },
+    "deepest_fall": {
+     "typical": -0.237,
+     "worst_phase": -0.279
+    },
+    "worst_day": {
+     "typical": -0.078,
+     "worst_phase": -0.096
+    },
+    "deposits_vs_stocks": {
+     "typical": -0.184,
+     "worst_phase": -0.325
+    },
+    "five_year_win_rate": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    }
+   },
+   "C 2x stocks with exit": {
+    "per_year": {
+     "typical": 0.152,
+     "worst_phase": 0.0835
+    },
+    "deepest_fall": {
+     "typical": -0.435,
+     "worst_phase": -0.502
+    },
+    "worst_day": {
+     "typical": -0.156,
+     "worst_phase": -0.191
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.232,
+     "worst_phase": -0.186
+    },
+    "five_year_win_rate": {
+     "typical": 0.84,
+     "worst_phase": 0.16
+    }
+   },
+   "D half stocks, half 2x with exit": {
+    "per_year": {
+     "typical": 0.1474,
+     "worst_phase": 0.1129
+    },
+    "deepest_fall": {
+     "typical": -0.343,
+     "worst_phase": -0.409
+    },
+    "worst_day": {
+     "typical": -0.117,
+     "worst_phase": -0.143
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.142,
+     "worst_phase": -0.075
+    },
+    "five_year_win_rate": {
+     "typical": 0.9,
+     "worst_phase": 0.22
+    }
+   },
+   "E 70 stocks, 30 2x with exit": {
+    "per_year": {
+     "typical": 0.1432,
+     "worst_phase": 0.1224
+    },
+    "deepest_fall": {
+     "typical": -0.34,
+     "worst_phase": -0.38
+    },
+    "worst_day": {
+     "typical": -0.101,
+     "worst_phase": -0.124
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.09,
+     "worst_phase": -0.04
+    },
+    "five_year_win_rate": {
+     "typical": 0.9,
+     "worst_phase": 0.23
+    }
+   },
+   "J 2x stocks, no exit": {
+    "per_year": {
+     "typical": 0.2022,
+     "worst_phase": 0.2022
+    },
+    "deepest_fall": {
+     "typical": -0.593,
+     "worst_phase": -0.593
+    },
+    "worst_day": {
+     "typical": -0.234,
+     "worst_phase": -0.234
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.626,
+     "worst_phase": 0.626
+    },
+    "five_year_win_rate": {
+     "typical": 1.0,
+     "worst_phase": 1.0
+    }
+   },
+   "I 40 stocks, 40 2x with exit, 20 gold": {
+    "per_year": {
+     "typical": 0.1437,
+     "worst_phase": 0.1163
+    },
+    "deepest_fall": {
+     "typical": -0.287,
+     "worst_phase": -0.344
+    },
+    "worst_day": {
+     "typical": -0.093,
+     "worst_phase": -0.123
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.123,
+     "worst_phase": -0.05
+    },
+    "five_year_win_rate": {
+     "typical": 0.9,
+     "worst_phase": 0.24
+    }
+   },
+   "F 3x stocks with exit": {
+    "per_year": {
+     "typical": 0.1939,
+     "worst_phase": 0.0885
+    },
+    "deepest_fall": {
+     "typical": -0.592,
+     "worst_phase": -0.67
+    },
+    "worst_day": {
+     "typical": -0.234,
+     "worst_phase": -0.29
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.782,
+     "worst_phase": -0.086
+    },
+    "five_year_win_rate": {
+     "typical": 0.9,
+     "worst_phase": 0.28
+    }
+   },
+   "G half stocks, half 3x with exit": {
+    "per_year": {
+     "typical": 0.1754,
+     "worst_phase": 0.1231
+    },
+    "deepest_fall": {
+     "typical": -0.417,
+     "worst_phase": -0.506
+    },
+    "worst_day": {
+     "typical": -0.156,
+     "worst_phase": -0.193
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.433,
+     "worst_phase": 0.027
+    },
+    "five_year_win_rate": {
+     "typical": 0.95,
+     "worst_phase": 0.41
+    }
+   },
+   "H 2x Nasdaq with exit (hindsight pick)": {
+    "per_year": {
+     "typical": 0.1995,
+     "worst_phase": 0.1958
+    },
+    "deepest_fall": {
+     "typical": -0.514,
+     "worst_phase": -0.526
+    },
+    "worst_day": {
+     "typical": -0.243,
+     "worst_phase": -0.243
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.84,
+     "worst_phase": 0.636
+    },
+    "five_year_win_rate": {
+     "typical": 0.98,
+     "worst_phase": 0.93
+    }
+   }
+  },
+  "2020-01-01": {
+   "A plain stocks": {
+    "per_year": {
+     "typical": 0.1479,
+     "worst_phase": 0.1479
+    },
+    "deepest_fall": {
+     "typical": -0.337,
+     "worst_phase": -0.337
+    },
+    "worst_day": {
+     "typical": -0.109,
+     "worst_phase": -0.109
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    },
+    "five_year_win_rate": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    }
+   },
+   "B stocks with exit": {
+    "per_year": {
+     "typical": 0.112,
+     "worst_phase": 0.077
+    },
+    "deepest_fall": {
+     "typical": -0.237,
+     "worst_phase": -0.279
+    },
+    "worst_day": {
+     "typical": -0.078,
+     "worst_phase": -0.096
+    },
+    "deposits_vs_stocks": {
+     "typical": -0.107,
+     "worst_phase": -0.166
+    },
+    "five_year_win_rate": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    }
+   },
+   "C 2x stocks with exit": {
+    "per_year": {
+     "typical": 0.1654,
+     "worst_phase": 0.091
+    },
+    "deepest_fall": {
+     "typical": -0.435,
+     "worst_phase": -0.502
+    },
+    "worst_day": {
+     "typical": -0.156,
+     "worst_phase": -0.191
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.129,
+     "worst_phase": -0.029
+    },
+    "five_year_win_rate": {
+     "typical": 0.91,
+     "worst_phase": 0.52
+    }
+   },
+   "D half stocks, half 2x with exit": {
+    "per_year": {
+     "typical": 0.1624,
+     "worst_phase": 0.1248
+    },
+    "deepest_fall": {
+     "typical": -0.343,
+     "worst_phase": -0.409
+    },
+    "worst_day": {
+     "typical": -0.117,
+     "worst_phase": -0.143
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.074,
+     "worst_phase": -0.002
+    },
+    "five_year_win_rate": {
+     "typical": 1.0,
+     "worst_phase": 0.52
+    }
+   },
+   "E 70 stocks, 30 2x with exit": {
+    "per_year": {
+     "typical": 0.158,
+     "worst_phase": 0.1354
+    },
+    "deepest_fall": {
+     "typical": -0.34,
+     "worst_phase": -0.38
+    },
+    "worst_day": {
+     "typical": -0.101,
+     "worst_phase": -0.124
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.046,
+     "worst_phase": 0.002
+    },
+    "five_year_win_rate": {
+     "typical": 1.0,
+     "worst_phase": 0.52
+    }
+   },
+   "J 2x stocks, no exit": {
+    "per_year": {
+     "typical": 0.2091,
+     "worst_phase": 0.2091
+    },
+    "deepest_fall": {
+     "typical": -0.593,
+     "worst_phase": -0.593
+    },
+    "worst_day": {
+     "typical": -0.234,
+     "worst_phase": -0.234
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.331,
+     "worst_phase": 0.331
+    },
+    "five_year_win_rate": {
+     "typical": 1.0,
+     "worst_phase": 1.0
+    }
+   },
+   "I 40 stocks, 40 2x with exit, 20 gold": {
+    "per_year": {
+     "typical": 0.1649,
+     "worst_phase": 0.1349
+    },
+    "deepest_fall": {
+     "typical": -0.287,
+     "worst_phase": -0.344
+    },
+    "worst_day": {
+     "typical": -0.093,
+     "worst_phase": -0.123
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.077,
+     "worst_phase": 0.016
+    },
+    "five_year_win_rate": {
+     "typical": 1.0,
+     "worst_phase": 0.87
+    }
+   },
+   "F 3x stocks with exit": {
+    "per_year": {
+     "typical": 0.2068,
+     "worst_phase": 0.0878
+    },
+    "deepest_fall": {
+     "typical": -0.592,
+     "worst_phase": -0.67
+    },
+    "worst_day": {
+     "typical": -0.234,
+     "worst_phase": -0.29
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.412,
+     "worst_phase": 0.103
+    },
+    "five_year_win_rate": {
+     "typical": 1.0,
+     "worst_phase": 0.52
+    }
+   },
+   "G half stocks, half 3x with exit": {
+    "per_year": {
+     "typical": 0.1914,
+     "worst_phase": 0.1326
+    },
+    "deepest_fall": {
+     "typical": -0.417,
+     "worst_phase": -0.506
+    },
+    "worst_day": {
+     "typical": -0.156,
+     "worst_phase": -0.193
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.22,
+     "worst_phase": 0.086
+    },
+    "five_year_win_rate": {
+     "typical": 1.0,
+     "worst_phase": 0.74
+    }
+   },
+   "H 2x Nasdaq with exit (hindsight pick)": {
+    "per_year": {
+     "typical": 0.248,
+     "worst_phase": 0.2102
+    },
+    "deepest_fall": {
+     "typical": -0.514,
+     "worst_phase": -0.526
+    },
+    "worst_day": {
+     "typical": -0.243,
+     "worst_phase": -0.243
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.225,
+     "worst_phase": 0.175
+    },
+    "five_year_win_rate": {
+     "typical": 1.0,
+     "worst_phase": 1.0
+    }
+   }
+  },
+  "2022-01-01": {
+   "A plain stocks": {
+    "per_year": {
+     "typical": 0.1143,
+     "worst_phase": 0.1143
+    },
+    "deepest_fall": {
+     "typical": -0.245,
+     "worst_phase": -0.245
+    },
+    "worst_day": {
+     "typical": -0.059,
+     "worst_phase": -0.059
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    },
+    "five_year_win_rate": {
+     "typical": NaN,
+     "worst_phase": NaN
+    }
+   },
+   "B stocks with exit": {
+    "per_year": {
+     "typical": 0.088,
+     "worst_phase": 0.0644
+    },
+    "deepest_fall": {
+     "typical": -0.221,
+     "worst_phase": -0.231
+    },
+    "worst_day": {
+     "typical": -0.044,
+     "worst_phase": -0.059
+    },
+    "deposits_vs_stocks": {
+     "typical": -0.089,
+     "worst_phase": -0.122
+    },
+    "five_year_win_rate": {
+     "typical": NaN,
+     "worst_phase": NaN
+    }
+   },
+   "C 2x stocks with exit": {
+    "per_year": {
+     "typical": 0.1082,
+     "worst_phase": 0.0612
+    },
+    "deepest_fall": {
+     "typical": -0.418,
+     "worst_phase": -0.433
+    },
+    "worst_day": {
+     "typical": -0.088,
+     "worst_phase": -0.12
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.045,
+     "worst_phase": -0.015
+    },
+    "five_year_win_rate": {
+     "typical": NaN,
+     "worst_phase": NaN
+    }
+   },
+   "D half stocks, half 2x with exit": {
+    "per_year": {
+     "typical": 0.1154,
+     "worst_phase": 0.0915
+    },
+    "deepest_fall": {
+     "typical": -0.304,
+     "worst_phase": -0.316
+    },
+    "worst_day": {
+     "typical": -0.066,
+     "worst_phase": -0.089
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.03,
+     "worst_phase": 0.0
+    },
+    "five_year_win_rate": {
+     "typical": NaN,
+     "worst_phase": NaN
+    }
+   },
+   "E 70 stocks, 30 2x with exit": {
+    "per_year": {
+     "typical": 0.116,
+     "worst_phase": 0.1016
+    },
+    "deepest_fall": {
+     "typical": -0.271,
+     "worst_phase": -0.287
+    },
+    "worst_day": {
+     "typical": -0.057,
+     "worst_phase": -0.077
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.019,
+     "worst_phase": 0.002
+    },
+    "five_year_win_rate": {
+     "typical": NaN,
+     "worst_phase": NaN
+    }
+   },
+   "J 2x stocks, no exit": {
+    "per_year": {
+     "typical": 0.1395,
+     "worst_phase": 0.1395
+    },
+    "deepest_fall": {
+     "typical": -0.467,
+     "worst_phase": -0.467
+    },
+    "worst_day": {
+     "typical": -0.12,
+     "worst_phase": -0.12
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.246,
+     "worst_phase": 0.246
+    },
+    "five_year_win_rate": {
+     "typical": NaN,
+     "worst_phase": NaN
+    }
+   },
+   "I 40 stocks, 40 2x with exit, 20 gold": {
+    "per_year": {
+     "typical": 0.1303,
+     "worst_phase": 0.1109
+    },
+    "deepest_fall": {
+     "typical": -0.25,
+     "worst_phase": -0.272
+    },
+    "worst_day": {
+     "typical": -0.051,
+     "worst_phase": -0.076
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.045,
+     "worst_phase": 0.02
+    },
+    "five_year_win_rate": {
+     "typical": NaN,
+     "worst_phase": NaN
+    }
+   },
+   "F 3x stocks with exit": {
+    "per_year": {
+     "typical": 0.1182,
+     "worst_phase": 0.0483
+    },
+    "deepest_fall": {
+     "typical": -0.569,
+     "worst_phase": -0.588
+    },
+    "worst_day": {
+     "typical": -0.132,
+     "worst_phase": -0.174
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.165,
+     "worst_phase": 0.087
+    },
+    "five_year_win_rate": {
+     "typical": NaN,
+     "worst_phase": NaN
+    }
+   },
+   "G half stocks, half 3x with exit": {
+    "per_year": {
+     "typical": 0.1267,
+     "worst_phase": 0.0909
+    },
+    "deepest_fall": {
+     "typical": -0.398,
+     "worst_phase": -0.411
+    },
+    "worst_day": {
+     "typical": -0.088,
+     "worst_phase": -0.116
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.107,
+     "worst_phase": 0.066
+    },
+    "five_year_win_rate": {
+     "typical": NaN,
+     "worst_phase": NaN
+    }
+   },
+   "H 2x Nasdaq with exit (hindsight pick)": {
+    "per_year": {
+     "typical": 0.1503,
+     "worst_phase": 0.1309
+    },
+    "deepest_fall": {
+     "typical": -0.336,
+     "worst_phase": -0.383
+    },
+    "worst_day": {
+     "typical": -0.127,
+     "worst_phase": -0.127
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.038,
+     "worst_phase": 0.003
+    },
+    "five_year_win_rate": {
+     "typical": NaN,
+     "worst_phase": NaN
+    }
+   }
+  }
+ },
+ "long_history_modeled": {
+  "1926-07-01": {
+   "A plain stocks": {
+    "per_year": {
+     "typical": 0.1027,
+     "worst_phase": 0.1027
+    },
+    "deepest_fall": {
+     "typical": -0.841,
+     "worst_phase": -0.841
+    },
+    "worst_day": {
+     "typical": -0.174,
+     "worst_phase": -0.174
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    },
+    "five_year_win_rate": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    }
+   },
+   "B stocks with exit": {
+    "per_year": {
+     "typical": 0.104,
+     "worst_phase": 0.1024
+    },
+    "deepest_fall": {
+     "typical": -0.425,
+     "worst_phase": -0.458
+    },
+    "worst_day": {
+     "typical": -0.174,
+     "worst_phase": -0.174
+    },
+    "deposits_vs_stocks": {
+     "typical": -0.321,
+     "worst_phase": -0.434
+    },
+    "five_year_win_rate": {
+     "typical": 0.38,
+     "worst_phase": 0.33
+    }
+   },
+   "C 2x stocks with exit": {
+    "per_year": {
+     "typical": 0.1434,
+     "worst_phase": 0.1402
+    },
+    "deepest_fall": {
+     "typical": -0.713,
+     "worst_phase": -0.735
+    },
+    "worst_day": {
+     "typical": -0.349,
+     "worst_phase": -0.349
+    },
+    "deposits_vs_stocks": {
+     "typical": 15.749,
+     "worst_phase": 10.553
+    },
+    "five_year_win_rate": {
+     "typical": 0.73,
+     "worst_phase": 0.7
+    }
+   },
+   "D half stocks, half 2x with exit": {
+    "per_year": {
+     "typical": 0.1272,
+     "worst_phase": 0.1256
+    },
+    "deepest_fall": {
+     "typical": -0.699,
+     "worst_phase": -0.743
+    },
+    "worst_day": {
+     "typical": -0.261,
+     "worst_phase": -0.261
+    },
+    "deposits_vs_stocks": {
+     "typical": 4.374,
+     "worst_phase": 3.479
+    },
+    "five_year_win_rate": {
+     "typical": 0.77,
+     "worst_phase": 0.75
+    }
+   },
+   "E 70 stocks, 30 2x with exit": {
+    "per_year": {
+     "typical": 0.1183,
+     "worst_phase": 0.1174
+    },
+    "deepest_fall": {
+     "typical": -0.745,
+     "worst_phase": -0.78
+    },
+    "worst_day": {
+     "typical": -0.226,
+     "worst_phase": -0.226
+    },
+    "deposits_vs_stocks": {
+     "typical": 1.919,
+     "worst_phase": 1.618
+    },
+    "five_year_win_rate": {
+     "typical": 0.79,
+     "worst_phase": 0.76
+    }
+   },
+   "J 2x stocks, no exit": {
+    "per_year": {
+     "typical": 0.1143,
+     "worst_phase": 0.1143
+    },
+    "deepest_fall": {
+     "typical": -0.985,
+     "worst_phase": -0.985
+    },
+    "worst_day": {
+     "typical": -0.349,
+     "worst_phase": -0.349
+    },
+    "deposits_vs_stocks": {
+     "typical": 6.307,
+     "worst_phase": 6.307
+    },
+    "five_year_win_rate": {
+     "typical": 0.61,
+     "worst_phase": 0.61
+    }
+   },
+   "F 3x stocks with exit": {
+    "per_year": {
+     "typical": 0.1745,
+     "worst_phase": 0.1692
+    },
+    "deepest_fall": {
+     "typical": -0.875,
+     "worst_phase": -0.899
+    },
+    "worst_day": {
+     "typical": -0.523,
+     "worst_phase": -0.523
+    },
+    "deposits_vs_stocks": {
+     "typical": 235.105,
+     "worst_phase": 131.514
+    },
+    "five_year_win_rate": {
+     "typical": 0.74,
+     "worst_phase": 0.73
+    }
+   },
+   "G half stocks, half 3x with exit": {
+    "per_year": {
+     "typical": 0.149,
+     "worst_phase": 0.1465
+    },
+    "deepest_fall": {
+     "typical": -0.778,
+     "worst_phase": -0.826
+    },
+    "worst_day": {
+     "typical": -0.349,
+     "worst_phase": -0.349
+    },
+    "deposits_vs_stocks": {
+     "typical": 30.681,
+     "worst_phase": 23.041
+    },
+    "five_year_win_rate": {
+     "typical": 0.8,
+     "worst_phase": 0.79
+    }
+   }
+  },
+  "1950-01-01": {
+   "A plain stocks": {
+    "per_year": {
+     "typical": 0.1162,
+     "worst_phase": 0.1162
+    },
+    "deepest_fall": {
+     "typical": -0.546,
+     "worst_phase": -0.546
+    },
+    "worst_day": {
+     "typical": -0.174,
+     "worst_phase": -0.174
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    },
+    "five_year_win_rate": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    }
+   },
+   "B stocks with exit": {
+    "per_year": {
+     "typical": 0.1116,
+     "worst_phase": 0.1084
+    },
+    "deepest_fall": {
+     "typical": -0.294,
+     "worst_phase": -0.332
+    },
+    "worst_day": {
+     "typical": -0.174,
+     "worst_phase": -0.174
+    },
+    "deposits_vs_stocks": {
+     "typical": -0.194,
+     "worst_phase": -0.403
+    },
+    "five_year_win_rate": {
+     "typical": 0.37,
+     "worst_phase": 0.31
+    }
+   },
+   "C 2x stocks with exit": {
+    "per_year": {
+     "typical": 0.1532,
+     "worst_phase": 0.1464
+    },
+    "deepest_fall": {
+     "typical": -0.533,
+     "worst_phase": -0.584
+    },
+    "worst_day": {
+     "typical": -0.349,
+     "worst_phase": -0.349
+    },
+    "deposits_vs_stocks": {
+     "typical": 6.612,
+     "worst_phase": 3.293
+    },
+    "five_year_win_rate": {
+     "typical": 0.74,
+     "worst_phase": 0.7
+    }
+   },
+   "D half stocks, half 2x with exit": {
+    "per_year": {
+     "typical": 0.138,
+     "worst_phase": 0.1346
+    },
+    "deepest_fall": {
+     "typical": -0.454,
+     "worst_phase": -0.48
+    },
+    "worst_day": {
+     "typical": -0.261,
+     "worst_phase": -0.261
+    },
+    "deposits_vs_stocks": {
+     "typical": 2.369,
+     "worst_phase": 1.52
+    },
+    "five_year_win_rate": {
+     "typical": 0.78,
+     "worst_phase": 0.75
+    }
+   },
+   "E 70 stocks, 30 2x with exit": {
+    "per_year": {
+     "typical": 0.1301,
+     "worst_phase": 0.1281
+    },
+    "deepest_fall": {
+     "typical": -0.468,
+     "worst_phase": -0.491
+    },
+    "worst_day": {
+     "typical": -0.226,
+     "worst_phase": -0.226
+    },
+    "deposits_vs_stocks": {
+     "typical": 1.17,
+     "worst_phase": 0.822
+    },
+    "five_year_win_rate": {
+     "typical": 0.8,
+     "worst_phase": 0.77
+    }
+   },
+   "J 2x stocks, no exit": {
+    "per_year": {
+     "typical": 0.1422,
+     "worst_phase": 0.1422
+    },
+    "deepest_fall": {
+     "typical": -0.887,
+     "worst_phase": -0.887
+    },
+    "worst_day": {
+     "typical": -0.349,
+     "worst_phase": -0.349
+    },
+    "deposits_vs_stocks": {
+     "typical": 2.265,
+     "worst_phase": 2.265
+    },
+    "five_year_win_rate": {
+     "typical": 0.64,
+     "worst_phase": 0.64
+    }
+   },
+   "F 3x stocks with exit": {
+    "per_year": {
+     "typical": 0.189,
+     "worst_phase": 0.1787
+    },
+    "deepest_fall": {
+     "typical": -0.72,
+     "worst_phase": -0.759
+    },
+    "worst_day": {
+     "typical": -0.523,
+     "worst_phase": -0.523
+    },
+    "deposits_vs_stocks": {
+     "typical": 51.577,
+     "worst_phase": 22.366
+    },
+    "five_year_win_rate": {
+     "typical": 0.76,
+     "worst_phase": 0.75
+    }
+   },
+   "G half stocks, half 3x with exit": {
+    "per_year": {
+     "typical": 0.1613,
+     "worst_phase": 0.1561
+    },
+    "deepest_fall": {
+     "typical": -0.544,
+     "worst_phase": -0.577
+    },
+    "worst_day": {
+     "typical": -0.349,
+     "worst_phase": -0.349
+    },
+    "deposits_vs_stocks": {
+     "typical": 11.087,
+     "worst_phase": 6.912
+    },
+    "five_year_win_rate": {
+     "typical": 0.82,
+     "worst_phase": 0.81
+    }
+   }
+  },
+  "1970-01-01": {
+   "A plain stocks": {
+    "per_year": {
+     "typical": 0.111,
+     "worst_phase": 0.111
+    },
+    "deepest_fall": {
+     "typical": -0.546,
+     "worst_phase": -0.546
+    },
+    "worst_day": {
+     "typical": -0.174,
+     "worst_phase": -0.174
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    },
+    "five_year_win_rate": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    }
+   },
+   "B stocks with exit": {
+    "per_year": {
+     "typical": 0.1101,
+     "worst_phase": 0.1034
+    },
+    "deepest_fall": {
+     "typical": -0.294,
+     "worst_phase": -0.332
+    },
+    "worst_day": {
+     "typical": -0.174,
+     "worst_phase": -0.174
+    },
+    "deposits_vs_stocks": {
+     "typical": -0.279,
+     "worst_phase": -0.476
+    },
+    "five_year_win_rate": {
+     "typical": 0.39,
+     "worst_phase": 0.33
+    }
+   },
+   "C 2x stocks with exit": {
+    "per_year": {
+     "typical": 0.1431,
+     "worst_phase": 0.1297
+    },
+    "deepest_fall": {
+     "typical": -0.533,
+     "worst_phase": -0.584
+    },
+    "worst_day": {
+     "typical": -0.349,
+     "worst_phase": -0.349
+    },
+    "deposits_vs_stocks": {
+     "typical": 2.403,
+     "worst_phase": 0.792
+    },
+    "five_year_win_rate": {
+     "typical": 0.69,
+     "worst_phase": 0.66
+    }
+   },
+   "D half stocks, half 2x with exit": {
+    "per_year": {
+     "typical": 0.131,
+     "worst_phase": 0.1244
+    },
+    "deepest_fall": {
+     "typical": -0.454,
+     "worst_phase": -0.48
+    },
+    "worst_day": {
+     "typical": -0.261,
+     "worst_phase": -0.261
+    },
+    "deposits_vs_stocks": {
+     "typical": 1.209,
+     "worst_phase": 0.604
+    },
+    "five_year_win_rate": {
+     "typical": 0.76,
+     "worst_phase": 0.72
+    }
+   },
+   "E 70 stocks, 30 2x with exit": {
+    "per_year": {
+     "typical": 0.1239,
+     "worst_phase": 0.12
+    },
+    "deepest_fall": {
+     "typical": -0.468,
+     "worst_phase": -0.491
+    },
+    "worst_day": {
+     "typical": -0.226,
+     "worst_phase": -0.226
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.678,
+     "worst_phase": 0.386
+    },
+    "five_year_win_rate": {
+     "typical": 0.78,
+     "worst_phase": 0.73
+    }
+   },
+   "J 2x stocks, no exit": {
+    "per_year": {
+     "typical": 0.1215,
+     "worst_phase": 0.1215
+    },
+    "deepest_fall": {
+     "typical": -0.887,
+     "worst_phase": -0.887
+    },
+    "worst_day": {
+     "typical": -0.349,
+     "worst_phase": -0.349
+    },
+    "deposits_vs_stocks": {
+     "typical": 1.415,
+     "worst_phase": 1.415
+    },
+    "five_year_win_rate": {
+     "typical": 0.6,
+     "worst_phase": 0.6
+    }
+   },
+   "F 3x stocks with exit": {
+    "per_year": {
+     "typical": 0.1669,
+     "worst_phase": 0.1471
+    },
+    "deepest_fall": {
+     "typical": -0.72,
+     "worst_phase": -0.759
+    },
+    "worst_day": {
+     "typical": -0.523,
+     "worst_phase": -0.523
+    },
+    "deposits_vs_stocks": {
+     "typical": 9.488,
+     "worst_phase": 3.0
+    },
+    "five_year_win_rate": {
+     "typical": 0.72,
+     "worst_phase": 0.67
+    }
+   },
+   "G half stocks, half 3x with exit": {
+    "per_year": {
+     "typical": 0.1495,
+     "worst_phase": 0.1395
+    },
+    "deepest_fall": {
+     "typical": -0.544,
+     "worst_phase": -0.577
+    },
+    "worst_day": {
+     "typical": -0.349,
+     "worst_phase": -0.349
+    },
+    "deposits_vs_stocks": {
+     "typical": 4.194,
+     "worst_phase": 2.21
+    },
+    "five_year_win_rate": {
+     "typical": 0.8,
+     "worst_phase": 0.77
+    }
+   }
+  },
+  "1990-01-01": {
+   "A plain stocks": {
+    "per_year": {
+     "typical": 0.1099,
+     "worst_phase": 0.1099
+    },
+    "deepest_fall": {
+     "typical": -0.546,
+     "worst_phase": -0.546
+    },
+    "worst_day": {
+     "typical": -0.12,
+     "worst_phase": -0.12
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    },
+    "five_year_win_rate": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    }
+   },
+   "B stocks with exit": {
+    "per_year": {
+     "typical": 0.1021,
+     "worst_phase": 0.0908
+    },
+    "deepest_fall": {
+     "typical": -0.275,
+     "worst_phase": -0.332
+    },
+    "worst_day": {
+     "typical": -0.096,
+     "worst_phase": -0.12
+    },
+    "deposits_vs_stocks": {
+     "typical": -0.224,
+     "worst_phase": -0.386
+    },
+    "five_year_win_rate": {
+     "typical": 0.35,
+     "worst_phase": 0.28
+    }
+   },
+   "C 2x stocks with exit": {
+    "per_year": {
+     "typical": 0.1438,
+     "worst_phase": 0.1208
+    },
+    "deepest_fall": {
+     "typical": -0.506,
+     "worst_phase": -0.584
+    },
+    "worst_day": {
+     "typical": -0.193,
+     "worst_phase": -0.24
+    },
+    "deposits_vs_stocks": {
+     "typical": 1.462,
+     "worst_phase": 0.468
+    },
+    "five_year_win_rate": {
+     "typical": 0.75,
+     "worst_phase": 0.69
+    }
+   },
+   "D half stocks, half 2x with exit": {
+    "per_year": {
+     "typical": 0.1313,
+     "worst_phase": 0.1199
+    },
+    "deepest_fall": {
+     "typical": -0.454,
+     "worst_phase": -0.48
+    },
+    "worst_day": {
+     "typical": -0.144,
+     "worst_phase": -0.18
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.753,
+     "worst_phase": 0.365
+    },
+    "five_year_win_rate": {
+     "typical": 0.82,
+     "worst_phase": 0.78
+    }
+   },
+   "E 70 stocks, 30 2x with exit": {
+    "per_year": {
+     "typical": 0.1238,
+     "worst_phase": 0.117
+    },
+    "deepest_fall": {
+     "typical": -0.468,
+     "worst_phase": -0.491
+    },
+    "worst_day": {
+     "typical": -0.125,
+     "worst_phase": -0.156
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.435,
+     "worst_phase": 0.239
+    },
+    "five_year_win_rate": {
+     "typical": 0.85,
+     "worst_phase": 0.79
+    }
+   },
+   "J 2x stocks, no exit": {
+    "per_year": {
+     "typical": 0.1329,
+     "worst_phase": 0.1329
+    },
+    "deepest_fall": {
+     "typical": -0.887,
+     "worst_phase": -0.887
+    },
+    "worst_day": {
+     "typical": -0.24,
+     "worst_phase": -0.24
+    },
+    "deposits_vs_stocks": {
+     "typical": 1.003,
+     "worst_phase": 1.003
+    },
+    "five_year_win_rate": {
+     "typical": 0.67,
+     "worst_phase": 0.67
+    }
+   },
+   "F 3x stocks with exit": {
+    "per_year": {
+     "typical": 0.1763,
+     "worst_phase": 0.1419
+    },
+    "deepest_fall": {
+     "typical": -0.689,
+     "worst_phase": -0.759
+    },
+    "worst_day": {
+     "typical": -0.289,
+     "worst_phase": -0.36
+    },
+    "deposits_vs_stocks": {
+     "typical": 5.385,
+     "worst_phase": 1.817
+    },
+    "five_year_win_rate": {
+     "typical": 0.78,
+     "worst_phase": 0.71
+    }
+   },
+   "G half stocks, half 3x with exit": {
+    "per_year": {
+     "typical": 0.1542,
+     "worst_phase": 0.137
+    },
+    "deepest_fall": {
+     "typical": -0.544,
+     "worst_phase": -0.577
+    },
+    "worst_day": {
+     "typical": -0.193,
+     "worst_phase": -0.24
+    },
+    "deposits_vs_stocks": {
+     "typical": 2.312,
+     "worst_phase": 1.232
+    },
+    "five_year_win_rate": {
+     "typical": 0.88,
+     "worst_phase": 0.82
+    }
+   }
+  },
+  "2000-01-01": {
+   "A plain stocks": {
+    "per_year": {
+     "typical": 0.0851,
+     "worst_phase": 0.0851
+    },
+    "deepest_fall": {
+     "typical": -0.546,
+     "worst_phase": -0.546
+    },
+    "worst_day": {
+     "typical": -0.12,
+     "worst_phase": -0.12
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    },
+    "five_year_win_rate": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    }
+   },
+   "B stocks with exit": {
+    "per_year": {
+     "typical": 0.0844,
+     "worst_phase": 0.0743
+    },
+    "deepest_fall": {
+     "typical": -0.275,
+     "worst_phase": -0.332
+    },
+    "worst_day": {
+     "typical": -0.096,
+     "worst_phase": -0.12
+    },
+    "deposits_vs_stocks": {
+     "typical": -0.274,
+     "worst_phase": -0.344
+    },
+    "five_year_win_rate": {
+     "typical": 0.35,
+     "worst_phase": 0.29
+    }
+   },
+   "C 2x stocks with exit": {
+    "per_year": {
+     "typical": 0.1164,
+     "worst_phase": 0.096
+    },
+    "deepest_fall": {
+     "typical": -0.506,
+     "worst_phase": -0.584
+    },
+    "worst_day": {
+     "typical": -0.193,
+     "worst_phase": -0.24
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.642,
+     "worst_phase": 0.264
+    },
+    "five_year_win_rate": {
+     "typical": 0.74,
+     "worst_phase": 0.67
+    }
+   },
+   "D half stocks, half 2x with exit": {
+    "per_year": {
+     "typical": 0.1059,
+     "worst_phase": 0.0958
+    },
+    "deepest_fall": {
+     "typical": -0.454,
+     "worst_phase": -0.48
+    },
+    "worst_day": {
+     "typical": -0.144,
+     "worst_phase": -0.18
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.377,
+     "worst_phase": 0.213
+    },
+    "five_year_win_rate": {
+     "typical": 0.82,
+     "worst_phase": 0.7
+    }
+   },
+   "E 70 stocks, 30 2x with exit": {
+    "per_year": {
+     "typical": 0.0988,
+     "worst_phase": 0.0928
+    },
+    "deepest_fall": {
+     "typical": -0.468,
+     "worst_phase": -0.491
+    },
+    "worst_day": {
+     "typical": -0.125,
+     "worst_phase": -0.156
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.231,
+     "worst_phase": 0.142
+    },
+    "five_year_win_rate": {
+     "typical": 0.85,
+     "worst_phase": 0.73
+    }
+   },
+   "J 2x stocks, no exit": {
+    "per_year": {
+     "typical": 0.0852,
+     "worst_phase": 0.0852
+    },
+    "deepest_fall": {
+     "typical": -0.887,
+     "worst_phase": -0.887
+    },
+    "worst_day": {
+     "typical": -0.24,
+     "worst_phase": -0.24
+    },
+    "deposits_vs_stocks": {
+     "typical": 1.011,
+     "worst_phase": 1.011
+    },
+    "five_year_win_rate": {
+     "typical": 0.66,
+     "worst_phase": 0.66
+    }
+   },
+   "F 3x stocks with exit": {
+    "per_year": {
+     "typical": 0.1381,
+     "worst_phase": 0.1079
+    },
+    "deepest_fall": {
+     "typical": -0.683,
+     "worst_phase": -0.759
+    },
+    "worst_day": {
+     "typical": -0.289,
+     "worst_phase": -0.36
+    },
+    "deposits_vs_stocks": {
+     "typical": 2.258,
+     "worst_phase": 1.05
+    },
+    "five_year_win_rate": {
+     "typical": 0.76,
+     "worst_phase": 0.71
+    }
+   },
+   "G half stocks, half 3x with exit": {
+    "per_year": {
+     "typical": 0.1235,
+     "worst_phase": 0.1083
+    },
+    "deepest_fall": {
+     "typical": -0.544,
+     "worst_phase": -0.577
+    },
+    "worst_day": {
+     "typical": -0.193,
+     "worst_phase": -0.24
+    },
+    "deposits_vs_stocks": {
+     "typical": 1.156,
+     "worst_phase": 0.744
+    },
+    "five_year_win_rate": {
+     "typical": 0.88,
+     "worst_phase": 0.82
+    }
+   }
+  },
+  "2010-01-01": {
+   "A plain stocks": {
+    "per_year": {
+     "typical": 0.1421,
+     "worst_phase": 0.1421
+    },
+    "deepest_fall": {
+     "typical": -0.342,
+     "worst_phase": -0.342
+    },
+    "worst_day": {
+     "typical": -0.12,
+     "worst_phase": -0.12
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    },
+    "five_year_win_rate": {
+     "typical": 0.0,
+     "worst_phase": 0.0
+    }
+   },
+   "B stocks with exit": {
+    "per_year": {
+     "typical": 0.1042,
+     "worst_phase": 0.091
+    },
+    "deepest_fall": {
+     "typical": -0.275,
+     "worst_phase": -0.332
+    },
+    "worst_day": {
+     "typical": -0.096,
+     "worst_phase": -0.12
+    },
+    "deposits_vs_stocks": {
+     "typical": -0.3,
+     "worst_phase": -0.33
+    },
+    "five_year_win_rate": {
+     "typical": 0.01,
+     "worst_phase": 0.0
+    }
+   },
+   "C 2x stocks with exit": {
+    "per_year": {
+     "typical": 0.1595,
+     "worst_phase": 0.1296
+    },
+    "deepest_fall": {
+     "typical": -0.496,
+     "worst_phase": -0.584
+    },
+    "worst_day": {
+     "typical": -0.193,
+     "worst_phase": -0.24
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.203,
+     "worst_phase": 0.042
+    },
+    "five_year_win_rate": {
+     "typical": 0.75,
+     "worst_phase": 0.46
+    }
+   },
+   "D half stocks, half 2x with exit": {
+    "per_year": {
+     "typical": 0.1553,
+     "worst_phase": 0.1404
+    },
+    "deepest_fall": {
+     "typical": -0.392,
+     "worst_phase": -0.449
+    },
+    "worst_day": {
+     "typical": -0.144,
+     "worst_phase": -0.18
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.144,
+     "worst_phase": 0.065
+    },
+    "five_year_win_rate": {
+     "typical": 0.79,
+     "worst_phase": 0.5
+    }
+   },
+   "E 70 stocks, 30 2x with exit": {
+    "per_year": {
+     "typical": 0.1511,
+     "worst_phase": 0.1421
+    },
+    "deepest_fall": {
+     "typical": -0.356,
+     "worst_phase": -0.407
+    },
+    "worst_day": {
+     "typical": -0.125,
+     "worst_phase": -0.156
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.095,
+     "worst_phase": 0.049
+    },
+    "five_year_win_rate": {
+     "typical": 0.79,
+     "worst_phase": 0.51
+    }
+   },
+   "J 2x stocks, no exit": {
+    "per_year": {
+     "typical": 0.2161,
+     "worst_phase": 0.2161
+    },
+    "deepest_fall": {
+     "typical": -0.598,
+     "worst_phase": -0.598
+    },
+    "worst_day": {
+     "typical": -0.24,
+     "worst_phase": -0.24
+    },
+    "deposits_vs_stocks": {
+     "typical": 1.046,
+     "worst_phase": 1.046
+    },
+    "five_year_win_rate": {
+     "typical": 0.99,
+     "worst_phase": 0.99
+    }
+   },
+   "F 3x stocks with exit": {
+    "per_year": {
+     "typical": 0.2055,
+     "worst_phase": 0.1554
+    },
+    "deepest_fall": {
+     "typical": -0.664,
+     "worst_phase": -0.759
+    },
+    "worst_day": {
+     "typical": -0.289,
+     "worst_phase": -0.36
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.958,
+     "worst_phase": 0.461
+    },
+    "five_year_win_rate": {
+     "typical": 0.84,
+     "worst_phase": 0.56
+    }
+   },
+   "G half stocks, half 3x with exit": {
+    "per_year": {
+     "typical": 0.1857,
+     "worst_phase": 0.1619
+    },
+    "deepest_fall": {
+     "typical": -0.494,
+     "worst_phase": -0.558
+    },
+    "worst_day": {
+     "typical": -0.193,
+     "worst_phase": -0.24
+    },
+    "deposits_vs_stocks": {
+     "typical": 0.553,
+     "worst_phase": 0.367
+    },
+    "five_year_win_rate": {
+     "typical": 0.91,
+     "worst_phase": 0.7
+    }
+   }
+  }
+ },
+ "long_history_by_era_phase2": {
+  "1926-1949": {
+   "A plain stocks": {
+    "per_year": 0.0595,
+    "deepest_fall": -0.841,
+    "worst_day": -0.115
+   },
+   "B stocks with exit": {
+    "per_year": 0.0803,
+    "deepest_fall": -0.425,
+    "worst_day": -0.091
+   },
+   "C 2x stocks with exit": {
+    "per_year": 0.1146,
+    "deepest_fall": -0.701,
+    "worst_day": -0.183
+   },
+   "D half stocks, half 2x with exit": {
+    "per_year": 0.094,
+    "deepest_fall": -0.699,
+    "worst_day": -0.137
+   },
+   "E 70 stocks, 30 2x with exit": {
+    "per_year": 0.0818,
+    "deepest_fall": -0.745,
+    "worst_day": -0.119
+   },
+   "J 2x stocks, no exit": {
+    "per_year": 0.0281,
+    "deepest_fall": -0.985,
+    "worst_day": -0.231
+   },
+   "F 3x stocks with exit": {
+    "per_year": 0.1318,
+    "deepest_fall": -0.883,
+    "worst_day": -0.275
+   },
+   "G half stocks, half 3x with exit": {
+    "per_year": 0.1118,
+    "deepest_fall": -0.78,
+    "worst_day": -0.183
+   }
+  },
+  "1950-1969": {
+   "A plain stocks": {
+    "per_year": 0.1313,
+    "deepest_fall": -0.277,
+    "worst_day": -0.07
+   },
+   "B stocks with exit": {
+    "per_year": 0.1166,
+    "deepest_fall": -0.157,
+    "worst_day": -0.065
+   },
+   "C 2x stocks with exit": {
+    "per_year": 0.183,
+    "deepest_fall": -0.319,
+    "worst_day": -0.13
+   },
+   "D half stocks, half 2x with exit": {
+    "per_year": 0.1583,
+    "deepest_fall": -0.231,
+    "worst_day": -0.097
+   },
+   "E 70 stocks, 30 2x with exit": {
+    "per_year": 0.1478,
+    "deepest_fall": -0.245,
+    "worst_day": -0.084
+   },
+   "J 2x stocks, no exit": {
+    "per_year": 0.203,
+    "deepest_fall": -0.5,
+    "worst_day": -0.14
+   },
+   "F 3x stocks with exit": {
+    "per_year": 0.2542,
+    "deepest_fall": -0.455,
+    "worst_day": -0.195
+   },
+   "G half stocks, half 3x with exit": {
+    "per_year": 0.1956,
+    "deepest_fall": -0.3,
+    "worst_day": -0.13
+   }
+  },
+  "1970-1989": {
+   "A plain stocks": {
+    "per_year": 0.1131,
+    "deepest_fall": -0.482,
+    "worst_day": -0.174
+   },
+   "B stocks with exit": {
+    "per_year": 0.1314,
+    "deepest_fall": -0.3,
+    "worst_day": -0.174
+   },
+   "C 2x stocks with exit": {
+    "per_year": 0.156,
+    "deepest_fall": -0.564,
+    "worst_day": -0.349
+   },
+   "D half stocks, half 2x with exit": {
+    "per_year": 0.1375,
+    "deepest_fall": -0.429,
+    "worst_day": -0.261
+   },
+   "E 70 stocks, 30 2x with exit": {
+    "per_year": 0.1284,
+    "deepest_fall": -0.411,
+    "worst_day": -0.226
+   },
+   "J 2x stocks, no exit": {
+    "per_year": 0.1008,
+    "deepest_fall": -0.785,
+    "worst_day": -0.349
+   },
+   "F 3x stocks with exit": {
+    "per_year": 0.1723,
+    "deepest_fall": -0.75,
+    "worst_day": -0.523
+   },
+   "G half stocks, half 3x with exit": {
+    "per_year": 0.1516,
+    "deepest_fall": -0.537,
+    "worst_day": -0.349
+   }
+  },
+  "1990-2009": {
+   "A plain stocks": {
+    "per_year": 0.0837,
+    "deepest_fall": -0.546,
+    "worst_day": -0.09
+   },
+   "B stocks with exit": {
+    "per_year": 0.1052,
+    "deepest_fall": -0.182,
+    "worst_day": -0.067
+   },
+   "C 2x stocks with exit": {
+    "per_year": 0.1418,
+    "deepest_fall": -0.413,
+    "worst_day": -0.134
+   },
+   "D half stocks, half 2x with exit": {
+    "per_year": 0.1171,
+    "deepest_fall": -0.434,
+    "worst_day": -0.101
+   },
+   "E 70 stocks, 30 2x with exit": {
+    "per_year": 0.1047,
+    "deepest_fall": -0.456,
+    "worst_day": -0.087
+   },
+   "J 2x stocks, no exit": {
+    "per_year": 0.0678,
+    "deepest_fall": -0.887,
+    "worst_day": -0.179
+   },
+   "F 3x stocks with exit": {
+    "per_year": 0.1715,
+    "deepest_fall": -0.589,
+    "worst_day": -0.202
+   },
+   "G half stocks, half 3x with exit": {
+    "per_year": 0.1373,
+    "deepest_fall": -0.518,
+    "worst_day": -0.134
+   }
+  },
+  "2010-2026": {
+   "A plain stocks": {
+    "per_year": 0.1421,
+    "deepest_fall": -0.342,
+    "worst_day": -0.12
+   },
+   "B stocks with exit": {
+    "per_year": 0.091,
+    "deepest_fall": -0.332,
+    "worst_day": -0.12
+   },
+   "C 2x stocks with exit": {
+    "per_year": 0.1296,
+    "deepest_fall": -0.584,
+    "worst_day": -0.24
+   },
+   "D half stocks, half 2x with exit": {
+    "per_year": 0.1404,
+    "deepest_fall": -0.449,
+    "worst_day": -0.18
+   },
+   "E 70 stocks, 30 2x with exit": {
+    "per_year": 0.1421,
+    "deepest_fall": -0.407,
+    "worst_day": -0.156
+   },
+   "J 2x stocks, no exit": {
+    "per_year": 0.2161,
+    "deepest_fall": -0.598,
+    "worst_day": -0.24
+   },
+   "F 3x stocks with exit": {
+    "per_year": 0.1554,
+    "deepest_fall": -0.759,
+    "worst_day": -0.36
+   },
+   "G half stocks, half 3x with exit": {
+    "per_year": 0.1619,
+    "deepest_fall": -0.558,
+    "worst_day": -0.24
+   }
+  }
+ }
+}
