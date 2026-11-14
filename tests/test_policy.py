@@ -237,3 +237,15 @@ def test_growth_stage_is_the_simple_mix_with_no_exits_and_no_borrowing():
 def test_hunt_caps_real_money():
     h = _CFG["hunt"]
     assert h["real_money_after_unlock"]["share_of_account"] <= 0.2 and h["real_money_after_unlock"]["per_pick"] <= 0.05 and h["unlock"]["min_closed"] >= 20
+
+
+def test_daily_exit_rule_flips_on_the_day_and_respects_the_band():
+    import datetime as d
+    base = d.date(2020, 1, 1); rows = []
+    for i in range(260): rows.append(((base + d.timedelta(days=i)).isoformat(), 100.0))
+    for j, v in enumerate([99.0, 97.0, 97.5, 103.0]):            # -1% stays (inside band), -3% leaves, +3% returns
+        rows.append(((base + d.timedelta(days=260 + j)).isoformat(), v))
+    s = sg.daily_state(rows[:261]); assert s["signal"] == "on" and s["inside_buffer"]
+    s = sg.daily_state(rows[:262]); assert s["signal"] == "off" and s["flipped_at_this_check"]
+    s = sg.daily_state(rows[:263]); assert s["signal"] == "off" and not s["flipped_at_this_check"]
+    s = sg.daily_state(rows); assert s["signal"] == "on" and s["flipped_at_this_check"] and s["flips_last_365_days"] == 2

@@ -85,6 +85,37 @@ def weekly_state(rows, days=200, band=0.02, today=None):
     return out
 
 
+def daily_state(rows, days=200, band=0.02):
+    """The same exit rule checked at every trading day's close (the Red Team's fix for check-day luck).
+    Leave when the close is more than `band` below its 200-day average, return when more than `band` above.
+    Replays the whole history, so no saved state is needed. Act at the next day's close."""
+    px = []
+    for d, v in rows:
+        try: px.append((d[:10], float(v)))
+        except (TypeError, ValueError): continue
+    px.sort()
+    if len(px) < days + 5: raise ValueError("need at least %d trading days" % (days + 5))
+    held = None; last_flip = None; run = 0.0; out = None; flips = []
+    for i, (d, v) in enumerate(px):
+        run += v
+        if i >= days: run -= px[i - days][1]
+        if i < days - 1: continue
+        avg = run / days
+        if held is None: held = v >= avg
+        elif held and v < avg * (1 - band): held = False; last_flip = d; flips.append(d)
+        elif not held and v > avg * (1 + band): held = True; last_flip = d; flips.append(d)
+        out = {"as_of": d, "close": round(v, 2), "average_200_day": round(avg, 2), "gap": round(v / avg - 1, 4)}
+    out.update({"signal": "on" if held else "off", "last_flip": last_flip, "flipped_at_this_check": last_flip == out["as_of"],
+                "inside_buffer": abs(out["gap"]) <= band, "flips_last_365_days": len([f for f in flips if f >= _year_ago(out["as_of"])]),
+                "meaning": "hold the 2x fund" if held else "hold cash (SGOV) in place of the 2x fund"})
+    return out
+
+
+def _year_ago(d):
+    import datetime
+    return (datetime.date.fromisoformat(d) - datetime.timedelta(days=365)).isoformat()
+
+
 def fund_signal(ticker, lookback=10, today=None, weekly=True):
     rows = fund_rows(ticker)
     out = weekly_state(rows, today=today) if weekly else compute(rows, lookback, today)
