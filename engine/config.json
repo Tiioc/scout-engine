@@ -156,18 +156,21 @@
     "stages": [
       {
         "name": "growth",
-        "below_multiple_of_yearly_deposits": 10,
-        "mix": "growth_mix"
+        "below_multiple_of_yearly_deposits": 20,
+        "mix": "growth_mix",
+        "risk_level": "50"
       },
       {
         "name": "build",
-        "below_multiple_of_yearly_deposits": 25,
-        "mix": "re-chosen by backtest with the worst yearly fall limited to about 30 to 40%"
+        "below_multiple_of_yearly_deposits": 60,
+        "mix": "build_mix",
+        "risk_level": "35"
       },
       {
         "name": "protect",
         "below_multiple_of_yearly_deposits": null,
-        "mix": "re-chosen by backtest with the worst yearly fall limited to about 20%"
+        "mix": "protect_mix",
+        "risk_level": "25"
       }
     ],
     "history": {
@@ -189,7 +192,23 @@
         "losing_years_share": 0.27,
         "worst_single_day": 0.17,
         "worst_month": 0.28,
-        "longest_months_below_a_high": 73
+        "real_growth_per_year": 0.0974
+      },
+      "build_mix": {
+        "worst_fall": 0.35,
+        "worst_year": 0.23,
+        "losing_years_share": 0.22,
+        "worst_single_day": 0.15,
+        "worst_month": 0.2,
+        "real_growth_per_year": 0.0763
+      },
+      "protect_mix": {
+        "worst_fall": 0.24,
+        "worst_year": 0.16,
+        "losing_years_share": 0.19,
+        "worst_single_day": 0.1,
+        "worst_month": 0.15,
+        "real_growth_per_year": 0.0615
       }
     },
     "risk_levels": {
@@ -310,6 +329,18 @@
       "fund": "SGOV",
       "share": "set by the owner: everything needed within three years plus the emergency fund",
       "note": "sits outside the mix; the mix percentages apply to the rest"
-    }
+    },
+    "build_mix": {
+      "trend_momentum": 0.7,
+      "gold": 0.1,
+      "bonds": 0.2
+    },
+    "protect_mix": {
+      "small_value": 0.1,
+      "trend_small_value": 0.1,
+      "trend_momentum": 0.3,
+      "bonds": 0.5
+    },
+    "stage_rule": "Checked each January. Steps down only, never back up on its own. Thresholds chosen by scripts/lifecycle.py: best result when a 1929-style crash lands in the final years, at 20 and 30 years."
   }
 }

@@ -16,15 +16,25 @@ COST = {"stocks": .0005, "small_value": .005, "momentum": .015, "trend_small_val
 LIMITS = (0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.50, 0.60, 1.0)
 
 
-def panel(data):
-    real, df, mo = B.build(data)
-    mo["trend_momentum"] = B.trend(mo["momentum"], mo["bills"])
+def panel(data, lookback=10, cost_mult=1.0, lag=1, edge=1.0, with_dates=False):
+    """Monthly returns for every block. lag=2 acts on each exit one month late; edge=0.5
+    halves the advantage of small cheap companies and momentum over the plain market."""
+    real, df, mo = B.build(data, lookback=lookback)
+    if edge != 1.0:
+        for c in ("small_value", "momentum"): mo[c] = mo["stocks"] + edge * (mo[c] - mo["stocks"])
+        mo["trend_small_value"] = B.trend(mo["small_value"], mo["bills"], lookback=lookback)
+    mo["trend_momentum"] = B.trend(mo["momentum"], mo["bills"], lookback=lookback)
+    if lag > 1:
+        for blk, src in (("trend_stocks", "stocks"), ("trend_small_value", "small_value"), ("trend_momentum", "momentum")):
+            idx = (1 + mo[src]).cumprod(); sig = (idx > idx.rolling(lookback).mean()).shift(lag).fillna(False).astype(bool)
+            mo[blk] = np.where(sig, mo[src], mo["bills"]) - B.SWITCH_COST * (sig != sig.shift(1)).fillna(False).astype(float)
     for c in ("bonds", "gold"):
         mo[c] = mo["year"].map(lambda y: (1 + df.loc[y, c]) ** (1 / 12) - 1 if y in df.index else np.nan)
     mo["infl"] = mo["year"].map(lambda y: (1 + df.loc[y, "infl"]) ** (1 / 12) - 1 if y in df.index else np.nan)
     mo = mo.dropna()
     M = mo[A].values.copy()
-    for i, a in enumerate(A): M[:, i] -= COST.get(a, 0) / 12
+    for i, a in enumerate(A): M[:, i] -= COST.get(a, 0) * cost_mult / 12
+    if with_dates: return M, mo["infl"].values, np.array(mo.index)
     return M, mo["infl"].values
 
 

@@ -27,15 +27,18 @@ This is the owner's whole investment portfolio. Dollar size does not change any 
   6. An account-wide breaker (R8) steps the whole core down a risk level if losses ever exceed anything in the historical record.
 
 ## 3. Stages (elevated risk early, less later)
-The stage depends on how large the portfolio is compared with what goes in each year. Early on, a crash costs little because future deposits outweigh the balance.
+The stage depends on how large the account is compared with what goes in each year. Early on, a crash costs little because future deposits outweigh the balance. Later the balance is what matters.
 
-| Stage | When | Mix | Why |
-|---|---|---|---|
-| **Growth** | Portfolio under 10 times yearly deposits | Risk level 50 (`growth_mix`) | A 50% fall costs under 5 years of deposits and is bought back cheaply by new money |
-| **Build** | 10 to 25 times yearly deposits | Re-chosen by the software with a limit on the worst fall | The balance now matters more than the next deposit |
-| **Protect** | Over 25 times, or within 5 years of needing the money | Re-chosen with a tighter limit | Keeping it matters more than growing it |
+| Stage | When | Risk level | Growth per year in the record | Worst fall in the record |
+|---|---|---|---|---|
+| **Growth** | Account under 20 times yearly deposits | 50 | 9.7% | 50% |
+| **Build** | 20 to 60 times | 35 | 7.6% | 35% |
+| **Protect** | Over 60 times, or within 5 years of needing the money | 25 | 6.2% | 25% |
 
-The Build and Protect mixes are picked by rerunning the backtest when the stage arrives, not guessed today. A stage change happens only at a January review.
+- The step-down points were chosen by `scripts/lifecycle.py`, not by hand: they gave the best result when a 1929-style crash was placed in the final years of a 20 or 30 year plan.
+- A stage change happens only at a January review, and only downward. The plan never moves back to more risk by itself.
+- With steady deposits the growth stage lasts roughly the first 11 to 13 years. Larger deposits keep the account in growth longer, which is intended: the stage follows how much is at stake, not the calendar.
+- Evidence and limits: `research/LIFECYCLE-2026-11-13.md`.
 
 ## 4. The only reasons to change anything
 | # | Trigger | Action | When |

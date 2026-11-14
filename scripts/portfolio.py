@@ -83,6 +83,33 @@ def risk(total, hist, yearly_deposits=None, peak=None):
     return r
 
 
+def decide(core, positions, deposit, signals, current_stage="growth", month=None, peak=None, yearly_deposits=None):
+    """The whole monthly decision. Applies the policy rules in order and returns the plan with
+    the reason for every step. Nothing outside the rules can change the portfolio."""
+    names = [s["name"] for s in core["stages"]]; i = names.index(current_stage); notes = []
+    value = sum(float(v) for v in positions.values())
+    hist = core["history"][core["stages"][i]["mix"]]
+    if peak and peak > 0 and value > 0:
+        fall = 1 - value / peak
+        if fall > hist["worst_fall"] + 0.05 and i < len(names) - 1:
+            i += 1; notes.append("The account is %.0f%% below its high, past the %.0f%% worst fall in the record for this level. Step down to the %s level. [Rule R8]" % (fall * 100, hist["worst_fall"] * 100, names[i]))
+        elif fall > 0.10:
+            notes.append("The account is %.0f%% below its high. The worst in the record for this level is %.0f%%. This is inside what the plan expects; no change. [Policy 5.4]" % (fall * 100, hist["worst_fall"] * 100))
+    yd = yearly_deposits or (deposit * 12 if deposit else None)
+    by_size = names.index(stage(value + deposit, yd, core["stages"]))
+    if by_size > i:
+        if month == 1:
+            i = by_size; notes.append("January review: the account is now large enough for the %s level. Step down. [Rule R4]" % names[i])
+        else:
+            notes.append("The account has reached the size for the %s level. The change waits for the January review. [Rule R4]" % names[by_size])
+    mix_name = core["stages"][i]["mix"]
+    p = plan(positions, deposit, targets(core[mix_name], core["funds"], signals), core.get("rebalance_band", 0.05))
+    p["stage"] = names[i]; p["mix"] = mix_name
+    p["risk"] = risk(p["total_after_deposit"], core["history"][mix_name], yd, peak)
+    p["steps"] = notes + steps(p, signals)
+    return p
+
+
 def steps(p, signal_on):
     if isinstance(signal_on, dict):
         named = {k: v for k, v in signal_on.items() if k != "default"}
@@ -108,6 +135,7 @@ def main(argv=None):
     ap.add_argument("--signal", choices=["on", "off"], default="on", help="default for every exit")
     ap.add_argument("--signals", default="", help="per fund, e.g. MTUM=on,AVUV=off,SP500=on")
     ap.add_argument("--yearly-deposits", type=float, default=None); ap.add_argument("--peak", type=float, default=None)
+    ap.add_argument("--stage", default=None, help="current stage; uses the policy engine"); ap.add_argument("--month", type=int, default=None)
     ap.add_argument("--mix", default="software_mix"); ap.add_argument("--config", default="engine/config.json")
     a = ap.parse_args(argv)
     core = json.load(open(a.config))["core"]
@@ -115,6 +143,8 @@ def main(argv=None):
     on = {"default": a.signal == "on"}
     for kv in filter(None, a.signals.split(",")):
         k, v = kv.split("="); on[k.strip()] = v.strip() == "on"
+    if a.stage:
+        print(json.dumps(decide(core, pos, a.deposit, on, a.stage, a.month, a.peak, a.yearly_deposits), indent=2)); return 0
     p = plan(pos, a.deposit, targets(core[a.mix], core["funds"], on), core.get("rebalance_band", 0.05))
     yd = a.yearly_deposits or (a.deposit * 12 if a.deposit else None)
     p["stage"] = stage(p["total_after_deposit"], yd, core.get("stages", [{"name": "growth"}]))

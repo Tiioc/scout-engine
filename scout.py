@@ -9,6 +9,7 @@
   score     grade resolved forecasts aggregate pool forecaster samples
   backtest  long-term portfolio backtest      robust  stress tests on the backtest
   simulate  rules simulator          levels  best mix for each loss limit
+  lifecycle whole-life test, 10 to 50 years   stress  crashes, booms and rough-up tests
   test      run every automated test
 """
 import io, json, os, runpy, subprocess, sys, contextlib
@@ -16,7 +17,7 @@ import io, json, os, runpy, subprocess, sys, contextlib
 HERE = os.path.dirname(os.path.abspath(__file__))
 MAP = {"signal": "signal", "plan": "portfolio", "size": "sizing", "calc": "fincalc", "gate": "safety_gate",
        "check": "check_edition", "score": "score", "aggregate": "aggregate", "backtest": "backtest",
-       "robust": "robust", "simulate": "simulate", "levels": "levels"}
+       "robust": "robust", "simulate": "simulate", "levels": "levels", "lifecycle": "lifecycle", "stress": "stress"}
 
 
 def run(script, args):
@@ -37,7 +38,8 @@ def main():
         import datetime
         sig = runpy.run_path(os.path.join(HERE, "scripts", "signal.py"))
         core = json.load(open(os.path.join(HERE, "engine", "config.json")))["core"]
-        mix = core[args[args.index("--mix") + 1] if "--mix" in args else core["active_mix"]]
+        mix = {}
+        for st in core["stages"]: mix.update(core[st["mix"]])                 # signals for every fund any stage could hold
         today = datetime.date.today().isoformat(); out = {}; flags = []
         for block in mix:
             f = core["funds"][block]
@@ -51,7 +53,12 @@ def main():
                     out[key] = sig["fund_signal"](key, today=today)
                 flags.append("%s=%s" % (key, out[key]["signal"]))
         print(json.dumps({"exit_signals": out}, indent=2))
-        extra = [] if "--mix" in args else ["--mix", core["active_mix"]]
+        state = {}
+        sp = os.path.join(HERE, "profile", "state.json")
+        if os.path.exists(sp): state = json.load(open(sp))
+        extra = [] if "--stage" in args or "--mix" in args else ["--stage", state.get("stage", "growth")]
+        if "--month" not in args: extra += ["--month", str(datetime.date.today().month)]
+        if state.get("peak") and "--peak" not in args: extra += ["--peak", str(state["peak"])]
         return run("portfolio", ["--signals", ",".join(flags)] + extra + args) or 0
     if cmd not in MAP:
         print("unknown command: %s\n%s" % (cmd, __doc__)); return 2
