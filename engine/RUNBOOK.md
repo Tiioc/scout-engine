@@ -70,7 +70,7 @@ On request, build one blinded historical case from public data (names and years 
 
 1. `python3 scout.py scoreboard`. Close any pick it flags (stop, target or review date) with `python3 scout.py scoreboard --close <id> --reason "..."`, or renew it with a written reason in the edition.
 2. Radar: one wide scan for candidates with a named edge. Check `ledger/paper.jsonl` and past editions so nothing is repeated.
-3. Pick the single best candidate. One specialist writes the dossier (`engine/DOSSIER_TEMPLATE.md`) with a stop, a target and a review date.
+3. Pick the single best candidate. One specialist writes the dossier (`engine/DOSSIER_TEMPLATE.md`) with a stop, a target and a review date. Before the dossier is finished, run its scenario table through `python3 scout.py size`; if the table itself gives less than a 55% chance of beating the benchmark, stop and report no pick.
 4. Five sealed forecasters answer: will this beat the S&P 500 from entry to the review date, plus two or three checkable questions about the thesis. Pool with `scripts/aggregate.py`. Log every forecast to `ledger/forecasts.jsonl`.
 5. Red Team attacks the dossier and checks its numbers against sources. Run the safety gate and `scripts/sizing.py`.
 6. It becomes a paper pick only if it clears every bar in `hunt.paper_pick_bar`. Log it with `python3 scout.py scoreboard --open <id> <SYMBOL> --thesis "..." --edge "..." --stop X --target Y --review-by DATE --forecast P`. Otherwise report "no pick this week" and say why the best candidate failed.
