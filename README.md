@@ -1,5 +1,7 @@
 # The Scout
 
+> **Public copy.** This is the engine only. My personal folders (`profile/`, `ledger/`, `editions/`) are empty here on purpose. 128 tests in `tests/` (`python -m pytest tests`).
+
 A research and portfolio manager that runs on Claude. It does three jobs:
 
 1. **Holds the core.** 70% VTI, 30% AVUV (90/10 until the 2026-11-14 dose test), chosen by a pre-registered test of ten candidates over a century of data and attacked by two Red Teams (`editions/2026-11-14-core-verdict.md`). Set once; rebalanced only when a slice drifts more than 5 points.
